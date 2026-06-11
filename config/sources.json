@@ -1,0 +1,69 @@
+{
+  "categories": [
+    {
+      "id": "tech",
+      "label": "Tech & innovation",
+      "accent": "#9ee493",
+      "sources": [
+        { "name": "TechCrunch", "url": "https://techcrunch.com/feed/" },
+        { "name": "The Verge", "url": "https://www.theverge.com/rss/index.xml" },
+        { "name": "Wired", "url": "https://www.wired.com/feed/rss" },
+        { "name": "Ars Technica", "url": "https://arstechnica.com/feed/" }
+      ]
+    },
+    {
+      "id": "ai",
+      "label": "AI",
+      "accent": "#7cc7ff",
+      "minimumUsefulItems": 4,
+      "fallbackLookbackHours": 168,
+      "sources": [
+        { "name": "VentureBeat", "url": "https://venturebeat.com/category/ai/feed/" },
+        { "name": "AI News", "url": "https://www.artificialintelligence-news.com/feed/" },
+        { "name": "MIT Tech Review", "url": "https://www.technologyreview.com/topic/artificial-intelligence/feed/" }
+      ]
+    },
+    {
+      "id": "finance",
+      "label": "Stocks & finance",
+      "accent": "#f1c27d",
+      "sources": [
+        { "name": "Financial Times", "url": "https://www.ft.com/rss/home" },
+        { "name": "CNBC", "url": "https://www.cnbc.com/id/100003114/device/rss/rss.html" },
+        { "name": "MarketWatch", "url": "https://www.marketwatch.com/rss/topstories" },
+        { "name": "Reserve Bank of Australia", "url": "https://www.rba.gov.au/rss/rss-cb-media-releases.xml" }
+      ]
+    },
+    {
+      "id": "crypto",
+      "label": "Crypto",
+      "accent": "#d7f171",
+      "sources": [
+        { "name": "Cointelegraph", "url": "https://cointelegraph.com/rss" },
+        { "name": "CoinDesk", "url": "https://www.coindesk.com/arc/outboundfeeds/rss/" },
+        { "name": "Decrypt", "url": "https://decrypt.co/feed" }
+      ]
+    },
+    {
+      "id": "world",
+      "label": "World news",
+      "accent": "#ff9b8a",
+      "sources": [
+        { "name": "BBC", "url": "https://feeds.bbci.co.uk/news/world/rss.xml" },
+        { "name": "NY Times", "url": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml" },
+        { "name": "Al Jazeera", "url": "https://www.aljazeera.com/xml/rss/all.xml" },
+        { "name": "The Guardian World", "url": "https://www.theguardian.com/world/rss" }
+      ]
+    },
+    {
+      "id": "australia",
+      "label": "Australia news",
+      "accent": "#b9a6ff",
+      "sources": [
+        { "name": "ABC News", "url": "https://www.abc.net.au/news/feed/51120/rss.xml" },
+        { "name": "SMH", "url": "https://www.smh.com.au/rss/feed.xml" },
+        { "name": "Guardian Australia", "url": "https://www.theguardian.com/australia-news/rss" }
+      ]
+    }
+  ]
+}

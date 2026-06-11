@@ -1,0 +1,25 @@
+{
+  "name": "first-light",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "generate": "node scripts/generate-news.mjs",
+    "build": "npm run generate && vite build",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "dependencies": {
+    "@fontsource/geist": "^5.2.8",
+    "@fontsource/geist-mono": "^5.2.8",
+    "@fontsource/newsreader": "^5.2.8",
+    "@phosphor-icons/react": "^2.1.10",
+    "@vitejs/plugin-react": "^4.3.4",
+    "fast-xml-parser": "^5.8.0",
+    "motion": "^11.15.0",
+    "vite": "^6.0.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {}
+}

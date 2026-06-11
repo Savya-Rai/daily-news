@@ -1,0 +1,500 @@
+import React, { useEffect, useRef, useState } from "react";
+import { createRoot } from "react-dom/client";
+import { motion, useReducedMotion } from "motion/react";
+import { ArrowUp, ArrowUpRight, CaretDown, NewspaperClipping, ShareNetwork } from "@phosphor-icons/react";
+import "@fontsource/geist/latin-400.css";
+import "@fontsource/geist/latin-500.css";
+import "@fontsource/geist/latin-600.css";
+import "@fontsource/geist-mono/latin-500.css";
+import "@fontsource/newsreader/latin-600.css";
+import "./styles.css";
+
+const emptyBriefing = {
+  title: "First Light",
+  dateLabel: "Preparing the next briefing",
+  sections: []
+};
+
+const sectionIntro = {
+  tech: "Platforms, devices, science, software, security, and the next-order shifts behind the product cycle.",
+  ai: "Models, regulation, research, chips, deployment, and the commercial pressure reshaping the field.",
+  finance: "Markets, central banks, macro signals, companies, and the flows that matter before the open.",
+  crypto: "Digital assets, regulation, exchanges, protocols, stablecoins, and the risk mood around the chain.",
+  world: "Geopolitics, conflict, diplomacy, climate, power, and the global stories setting the day’s context.",
+  australia: "Nationally significant Australian politics, policy, business, society, and regional developments."
+};
+
+function App() {
+  const reduceMotion = useReducedMotion();
+  const [archive, setArchive] = useState([]);
+  const [selectedDateKey, setSelectedDateKey] = useState(null);
+  const [status, setStatus] = useState("loading");
+  const briefing = archive.find((entry) => entry.dateKey === selectedDateKey) || archive[0] || emptyBriefing;
+
+  useEffect(() => {
+    fetch(`${import.meta.env.BASE_URL}news-data.json`, { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error(`Briefing unavailable: ${response.status}`);
+        return response.json();
+      })
+      .then((data) => {
+        const normalizedArchive = normalizeArchive(data);
+        setArchive(normalizedArchive);
+        setSelectedDateKey(normalizedArchive[0]?.dateKey || null);
+        setStatus("ready");
+      })
+      .catch(() => setStatus("error"));
+  }, []);
+
+  return (
+    <main className="page-shell">
+      <div className="grain" aria-hidden="true" />
+      <Hero briefing={briefing} status={status} />
+      <BriefingNotice status={status} briefing={briefing} />
+      <DateRail
+        archive={archive}
+        selectedDateKey={selectedDateKey}
+        onSelectDate={setSelectedDateKey}
+      />
+      <SectionNav sections={briefing.sections} />
+      <motion.div
+        key={briefing.dateKey || "empty"}
+        className="briefing-stack"
+        aria-label="Daily briefing sections"
+        initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {briefing.sections.map((section, index) => (
+          <NewsSection key={section.id} section={section} index={index} />
+        ))}
+      </motion.div>
+      <footer className="site-footer">
+        <span>First Light</span>
+        <span>Generated daily. Latest three briefings retained.</span>
+      </footer>
+      <BackToTopButton />
+    </main>
+  );
+}
+
+function BriefingNotice({ status, briefing }) {
+  const reduceMotion = useReducedMotion();
+  const sectionWarnings = (briefing.sections || []).filter(
+    (section) => section.status?.level === "warning" || section.status?.level === "error"
+  );
+  const isLatestBriefing = briefing.relativeLabel === "Today";
+  const isStale = status === "ready" && isLatestBriefing && briefing.dateKey && briefing.dateKey !== getSydneyDateKey();
+
+  if (status !== "error" && !isStale && sectionWarnings.length === 0) return null;
+
+  const title =
+    status === "error"
+      ? "Briefing failed to load"
+      : isStale
+        ? "Today’s briefing has not landed yet"
+        : "Some sections may be incomplete";
+  const message =
+    status === "error"
+      ? "The site could not load the latest briefing data. Try refreshing in a moment."
+      : isStale
+        ? `The newest available briefing is ${briefing.dateLabel}. The daily generator may still be running or may have failed.`
+        : `${sectionWarnings.length} section${sectionWarnings.length === 1 ? "" : "s"} reported reduced coverage during the latest run.`;
+
+  return (
+    <motion.aside
+      className="briefing-notice"
+      role={status === "error" || isStale ? "alert" : "status"}
+      initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <div>
+        <span>Update status</span>
+        <strong>{title}</strong>
+      </div>
+      <p>{message}</p>
+    </motion.aside>
+  );
+}
+
+function getSydneyDateKey() {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Australia/Sydney",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+  }).formatToParts(new Date());
+  const lookup = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+  return `${lookup.year}-${lookup.month}-${lookup.day}`;
+}
+
+function normalizeArchive(data) {
+  const source = Array.isArray(data.archive) && data.archive.length > 0 ? data.archive : [data];
+  return source
+    .filter((entry) => Array.isArray(entry.sections))
+    .map((entry, index) => ({
+      ...entry,
+      dateKey: entry.dateKey || entry.generatedAt || String(index),
+      relativeLabel: entry.relativeLabel || (index === 0 ? "Today" : index === 1 ? "Yesterday" : "Two days ago")
+    }))
+    .sort((a, b) => String(b.dateKey).localeCompare(String(a.dateKey)))
+    .slice(0, 3)
+    .map((entry, index) => ({
+      ...entry,
+      relativeLabel: index === 0 ? "Today" : index === 1 ? "Yesterday" : "Two days ago"
+    }));
+}
+
+function Hero({ briefing, status }) {
+  const reduceMotion = useReducedMotion();
+  const totalStories = briefing.sections.reduce(
+    (count, section) => count + section.leadStories.length + section.moreHeadlines.length,
+    0
+  );
+
+  return (
+    <header className="masthead">
+      <motion.div
+        className="masthead-copy"
+        initial={reduceMotion ? false : { opacity: 0, y: 28, filter: "blur(10px)" }}
+        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <div className="eyebrow">Morning intelligence</div>
+        <h1>First Light</h1>
+        <p>
+          A daily briefing across technology, AI, markets, crypto, world affairs, and Australia.
+        </p>
+      </motion.div>
+
+      <motion.aside
+        className="briefing-plate"
+        initial={reduceMotion ? false : { opacity: 0, y: 22, scale: 0.98 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ delay: 0.2, duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <div className="plate-inner">
+          <span className="plate-kicker">{briefing.relativeLabel || "Today"}</span>
+          <strong>{briefing.dateLabel}</strong>
+          <span>{status === "ready" ? `${totalStories} curated signals` : "Loading briefing"}</span>
+        </div>
+      </motion.aside>
+    </header>
+  );
+}
+
+function DateRail({ archive, selectedDateKey, onSelectDate }) {
+  const reduceMotion = useReducedMotion();
+
+  if (archive.length <= 1) return null;
+
+  return (
+    <motion.section
+      className="date-rail-shell"
+      aria-label="Briefing dates"
+      initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.2, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <div className="date-rail-label">
+        <span>Archive</span>
+        <small>Latest three days</small>
+      </div>
+      <div className="date-rail" role="list">
+        {archive.map((entry) => {
+          const selected = entry.dateKey === selectedDateKey;
+          return (
+            <button
+              key={entry.dateKey}
+              type="button"
+              className="date-pill"
+              aria-pressed={selected}
+              onClick={() => onSelectDate(entry.dateKey)}
+            >
+              <span>{entry.relativeLabel}</span>
+              <strong>{compactDate(entry.dateLabel)}</strong>
+            </button>
+          );
+        })}
+      </div>
+    </motion.section>
+  );
+}
+
+function compactDate(dateLabel = "") {
+  return dateLabel.replace(/^\w+,\s*/, "");
+}
+
+function SectionNav({ sections }) {
+  const reduceMotion = useReducedMotion();
+
+  return (
+    <nav className="section-nav" aria-label="Briefing sections">
+      {sections.map((section, index) => (
+        <motion.a
+          key={section.id}
+          href={`#${section.id}`}
+          style={{ "--accent": section.accent }}
+          initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.25 + index * 0.05, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <span />
+          {section.label}
+        </motion.a>
+      ))}
+    </nav>
+  );
+}
+
+function NewsSection({ section, index }) {
+  const [expanded, setExpanded] = useState(false);
+  const reduceMotion = useReducedMotion();
+  const leadStories = section.leadStories || [];
+  const moreHeadlines = section.moreHeadlines || [];
+
+  return (
+    <motion.section
+      id={section.id}
+      className="news-section"
+      style={{ "--accent": section.accent }}
+      initial={reduceMotion ? false : { opacity: 0, y: 54 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-120px" }}
+      transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <div className="section-heading">
+        <div>
+          <span className="section-count">{String(index + 1).padStart(2, "0")}</span>
+          <h2>{section.label}</h2>
+        </div>
+        <p>{sectionIntro[section.id]}</p>
+      </div>
+
+      {(section.status?.level === "warning" || section.status?.level === "error") && (
+        <div className="section-warning" role={section.status.level === "error" ? "alert" : "status"}>
+          <strong>{section.status.title}</strong>
+          <span>{section.status.message}</span>
+        </div>
+      )}
+
+      {leadStories.length > 0 ? (
+        <div className="lead-grid">
+          {leadStories.map((story, storyIndex) => (
+            <StoryCard
+              key={`${story.url}-${storyIndex}`}
+              story={story}
+              featured={storyIndex === 0}
+              index={storyIndex}
+            />
+          ))}
+        </div>
+      ) : (
+        <EmptyState />
+      )}
+
+      {moreHeadlines.length > 0 && (
+        <div className="more-shell">
+          <button
+            type="button"
+            className="more-toggle"
+            aria-expanded={expanded}
+            aria-controls={`${section.id}-more`}
+            onClick={() => setExpanded((current) => !current)}
+          >
+            <span>
+              More Headlines
+              <small>Expand the rest of this section</small>
+            </span>
+            <span className="toggle-count">{moreHeadlines.length}</span>
+            <CaretDown weight="bold" aria-hidden="true" />
+          </button>
+
+          <motion.div
+            id={`${section.id}-more`}
+            className="more-list"
+            initial={false}
+            animate={expanded ? "open" : "closed"}
+            variants={{
+              open: { height: "auto", opacity: 1 },
+              closed: { height: 0, opacity: 0 }
+            }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <ul>
+              {moreHeadlines.map((story, moreIndex) => (
+                <li key={`${story.url}-${moreIndex}`}>
+                  <a href={story.url} target="_blank" rel="noreferrer">
+                    <span>{story.title}</span>
+                    <small>{story.source}</small>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        </div>
+      )}
+    </motion.section>
+  );
+}
+
+function StoryCard({ story, featured, index }) {
+  const reduceMotion = useReducedMotion();
+
+  return (
+    <motion.article
+      className={featured ? "story-card featured" : "story-card"}
+      initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ delay: index * 0.05, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <button
+        type="button"
+        className="story-share"
+        aria-label={`Share ${story.title}`}
+        onClick={() => shareStory(story)}
+      >
+        <ShareNetwork size={17} aria-hidden="true" />
+      </button>
+      <a href={story.url} target="_blank" rel="noreferrer" className="story-link">
+        <div className="story-topline">
+          <span className="story-source">{story.source}</span>
+          <span className="story-freshness">{formatFreshness(story.publishedAt)}</span>
+          <ArrowUpRight aria-hidden="true" />
+        </div>
+        <h3>{story.title}</h3>
+        <p>{story.summary}</p>
+        {story.secondarySources?.length > 0 && (
+          <div className="secondary-sources">
+            Also: {story.secondarySources.map((source) => source.name).join(", ")}
+          </div>
+        )}
+      </a>
+    </motion.article>
+  );
+}
+
+async function shareStory(story) {
+  const shareData = {
+    title: story.title,
+    text: story.summary,
+    url: story.url
+  };
+
+  try {
+    if (navigator.share && navigator.canShare?.(shareData) !== false) {
+      await navigator.share(shareData);
+      return;
+    }
+  } catch (error) {
+    if (error?.name === "AbortError") return;
+  }
+
+  await navigator.clipboard?.writeText(story.url);
+}
+
+function formatFreshness(publishedAt) {
+  if (!publishedAt) return "Recent";
+
+  const published = new Date(publishedAt);
+  if (Number.isNaN(published.valueOf())) return "Recent";
+
+  const diffMinutes = Math.max(0, Math.round((Date.now() - published.valueOf()) / 60000));
+  if (diffMinutes < 60) return `${Math.max(1, diffMinutes)}m ago`;
+
+  const diffHours = Math.round(diffMinutes / 60);
+  if (diffHours < 24) return `${diffHours}h ago`;
+
+  const diffDays = Math.round(diffHours / 24);
+  if (diffDays === 1) return "Yesterday";
+  if (diffDays < 7) return `${diffDays}d ago`;
+
+  return published.toLocaleDateString("en-AU", {
+    day: "numeric",
+    month: "short"
+  });
+}
+
+function EmptyState() {
+  return (
+    <div className="empty-state">
+      <NewspaperClipping size={24} aria-hidden="true" />
+      <span>No strong stories made the cut for this section yet.</span>
+    </div>
+  );
+}
+
+function BackToTopButton() {
+  const reduceMotion = useReducedMotion();
+  const [visible, setVisible] = useState(false);
+  const [wobble, setWobble] = useState(0);
+  const lastWobbleAt = useRef(0);
+  const rafId = useRef(null);
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (rafId.current) return;
+
+      rafId.current = window.requestAnimationFrame(() => {
+        const shouldShow = window.scrollY > 520;
+        setVisible(shouldShow);
+
+        const now = Date.now();
+        if (shouldShow && !reduceMotion && now - lastWobbleAt.current > 260) {
+          lastWobbleAt.current = now;
+          setWobble((value) => value + 1);
+        }
+
+        rafId.current = null;
+      });
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (rafId.current) window.cancelAnimationFrame(rafId.current);
+    };
+  }, [reduceMotion]);
+
+  return (
+    <motion.button
+      type="button"
+      className="back-to-top"
+      aria-label="Back to top"
+      onClick={() => window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" })}
+      initial={false}
+      animate={
+        reduceMotion
+          ? { opacity: visible ? 1 : 0, y: visible ? 0 : 12, pointerEvents: visible ? "auto" : "none" }
+          : {
+              opacity: visible ? 1 : 0,
+              y: visible ? 0 : 16,
+              scale: visible ? [1, 1.06, 0.98, 1.03, 1] : 0.94,
+              rotate: visible ? [0, -5, 4, -2, 0] : 0,
+              pointerEvents: visible ? "auto" : "none"
+            }
+      }
+      transition={
+        reduceMotion
+          ? { duration: 0.2 }
+          : {
+              opacity: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
+              y: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
+              scale: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
+              rotate: { duration: 0.45, ease: [0.22, 1, 0.36, 1] }
+            }
+      }
+      key={`back-to-top-${wobble}`}
+      whileHover={reduceMotion ? undefined : { y: -7, scale: 1.04 }}
+      whileTap={reduceMotion ? undefined : { scale: 0.96 }}
+    >
+      <ArrowUp size={20} weight="bold" aria-hidden="true" />
+    </motion.button>
+  );
+}
+
+createRoot(document.getElementById("root")).render(<App />);
