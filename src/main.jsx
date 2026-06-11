@@ -15,7 +15,7 @@ import "@fontsource/geist/latin-400.css";
 import "@fontsource/geist/latin-500.css";
 import "@fontsource/geist/latin-600.css";
 import "@fontsource/geist-mono/latin-500.css";
-import "@fontsource/bricolage-grotesque/latin-700.css";
+import "@fontsource/newsreader/latin-600.css";
 import "./styles.css";
 
 const emptyBriefing = {

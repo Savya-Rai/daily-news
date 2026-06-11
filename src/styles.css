@@ -136,14 +136,14 @@ a:focus-visible {
 }
 
 .masthead h1 {
-  margin: 1.25rem 0 1rem;
+  margin: 1.3rem 0 1rem;
   width: 100%;
-  max-width: 10ch;
-  font-family: "Bricolage Grotesque", "Geist", ui-sans-serif, system-ui, sans-serif;
-  font-size: clamp(4rem, 10.5vw, 9.6rem);
-  font-weight: 700;
+  max-width: 9ch;
+  font-family: "Newsreader", Georgia, serif;
+  font-size: clamp(4.4rem, 12.5vw, 11rem);
+  font-weight: 600;
   letter-spacing: 0;
-  line-height: 0.82;
+  line-height: 0.78;
 }
 
 .masthead p {
@@ -1096,8 +1096,8 @@ a:focus-visible {
 
   .masthead h1 {
     margin-top: 1rem;
-    font-size: clamp(3.2rem, 16vw, 4.95rem);
-    line-height: 0.86;
+    font-size: clamp(3.45rem, 18vw, 5.35rem);
+    line-height: 0.82;
   }
 
   .briefing-plate {
@@ -1339,7 +1339,7 @@ a:focus-visible {
 
 @media (max-width: 380px), (max-device-width: 380px) {
   .masthead h1 {
-    font-size: clamp(2.85rem, 15.5vw, 3.95rem);
+    font-size: clamp(3.05rem, 17vw, 4.2rem);
   }
 
   .section-heading h2 {
