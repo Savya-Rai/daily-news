@@ -1,7 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { motion, useReducedMotion } from "motion/react";
-import { ArrowUp, ArrowUpRight, CaretDown, NewspaperClipping, ShareNetwork } from "@phosphor-icons/react";
+import {
+  ArrowDown,
+  ArrowUp,
+  ArrowUpRight,
+  CaretDown,
+  NewspaperClipping,
+  ShareNetwork,
+  SlidersHorizontal,
+  X
+} from "@phosphor-icons/react";
 import "@fontsource/geist/latin-400.css";
 import "@fontsource/geist/latin-500.css";
 import "@fontsource/geist/latin-600.css";
@@ -24,12 +33,17 @@ const sectionIntro = {
   australia: "Nationally significant Australian politics, policy, business, society, and regional developments."
 };
 
+const sectionOrderStorageKey = "daily-news-section-order-v1";
+
 function App() {
   const reduceMotion = useReducedMotion();
   const [archive, setArchive] = useState([]);
   const [selectedDateKey, setSelectedDateKey] = useState(null);
+  const [sectionOrder, setSectionOrder] = useState(readStoredSectionOrder);
+  const [customizerOpen, setCustomizerOpen] = useState(false);
   const [status, setStatus] = useState("loading");
   const briefing = archive.find((entry) => entry.dateKey === selectedDateKey) || archive[0] || emptyBriefing;
+  const orderedSections = orderSections(briefing.sections || [], sectionOrder);
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}news-data.json`, { cache: "no-store" })
@@ -49,6 +63,7 @@ function App() {
   return (
     <main className="page-shell">
       <div className="grain" aria-hidden="true" />
+      <ScrollProgress />
       <Hero briefing={briefing} status={status} />
       <BriefingNotice status={status} briefing={briefing} />
       <DateRail
@@ -56,7 +71,25 @@ function App() {
         selectedDateKey={selectedDateKey}
         onSelectDate={setSelectedDateKey}
       />
-      <SectionNav sections={briefing.sections} />
+      <SectionNav sections={orderedSections} onCustomize={() => setCustomizerOpen(true)} />
+      <SectionCustomizer
+        open={customizerOpen}
+        sections={orderedSections}
+        defaultSections={briefing.sections || []}
+        onClose={() => setCustomizerOpen(false)}
+        onMove={(sectionId, direction) => {
+          setSectionOrder((currentOrder) => {
+            const nextOrder = moveSection(sectionId, direction, briefing.sections || [], currentOrder);
+            storeSectionOrder(nextOrder);
+            return nextOrder;
+          });
+        }}
+        onReset={() => {
+          const nextOrder = (briefing.sections || []).map((section) => section.id);
+          storeSectionOrder(nextOrder);
+          setSectionOrder(nextOrder);
+        }}
+      />
       <motion.div
         key={briefing.dateKey || "empty"}
         className="briefing-stack"
@@ -65,7 +98,7 @@ function App() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
       >
-        {briefing.sections.map((section, index) => (
+        {orderedSections.map((section, index) => (
           <NewsSection key={section.id} section={section} index={index} />
         ))}
       </motion.div>
@@ -75,6 +108,86 @@ function App() {
       </footer>
       <BackToTopButton />
     </main>
+  );
+}
+
+function readStoredSectionOrder() {
+  try {
+    const storedValue = window.localStorage.getItem(sectionOrderStorageKey);
+    const parsedValue = storedValue ? JSON.parse(storedValue) : [];
+    return Array.isArray(parsedValue) ? parsedValue.filter(Boolean) : [];
+  } catch {
+    return [];
+  }
+}
+
+function storeSectionOrder(order) {
+  try {
+    window.localStorage.setItem(sectionOrderStorageKey, JSON.stringify(order));
+  } catch {
+    // Section ordering is a convenience preference, so storage failures can be ignored.
+  }
+}
+
+function normalizeSectionOrder(sections, storedOrder = []) {
+  const sectionIds = sections.map((section) => section.id);
+  const orderedKnownIds = storedOrder.filter((sectionId) => sectionIds.includes(sectionId));
+  const missingIds = sectionIds.filter((sectionId) => !orderedKnownIds.includes(sectionId));
+  return [...orderedKnownIds, ...missingIds];
+}
+
+function orderSections(sections, storedOrder) {
+  const normalizedOrder = normalizeSectionOrder(sections, storedOrder);
+  return [...sections].sort((first, second) => (
+    normalizedOrder.indexOf(first.id) - normalizedOrder.indexOf(second.id)
+  ));
+}
+
+function moveSection(sectionId, direction, sections, storedOrder) {
+  const nextOrder = normalizeSectionOrder(sections, storedOrder);
+  const currentIndex = nextOrder.indexOf(sectionId);
+  const targetIndex = currentIndex + direction;
+
+  if (currentIndex < 0 || targetIndex < 0 || targetIndex >= nextOrder.length) {
+    return nextOrder;
+  }
+
+  const [movedSection] = nextOrder.splice(currentIndex, 1);
+  nextOrder.splice(targetIndex, 0, movedSection);
+  return nextOrder;
+}
+
+function ScrollProgress() {
+  const [progress, setProgress] = useState(0);
+  const rafId = useRef(null);
+
+  useEffect(() => {
+    const updateProgress = () => {
+      if (rafId.current) return;
+
+      rafId.current = window.requestAnimationFrame(() => {
+        const scrollableDistance = document.documentElement.scrollHeight - window.innerHeight;
+        const nextProgress = scrollableDistance > 0 ? window.scrollY / scrollableDistance : 0;
+        setProgress(Math.min(1, Math.max(0, nextProgress)));
+        rafId.current = null;
+      });
+    };
+
+    updateProgress();
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+
+    return () => {
+      window.removeEventListener("scroll", updateProgress);
+      window.removeEventListener("resize", updateProgress);
+      if (rafId.current) window.cancelAnimationFrame(rafId.current);
+    };
+  }, []);
+
+  return (
+    <div className="scroll-progress" aria-hidden="true">
+      <span style={{ transform: `scaleX(${progress})` }} />
+    </div>
   );
 }
 
@@ -226,25 +339,130 @@ function compactDate(dateLabel = "") {
   return dateLabel.replace(/^\w+,\s*/, "");
 }
 
-function SectionNav({ sections }) {
+function SectionNav({ sections, onCustomize }) {
   const reduceMotion = useReducedMotion();
 
   return (
-    <nav className="section-nav" aria-label="Briefing sections">
-      {sections.map((section, index) => (
-        <motion.a
-          key={section.id}
-          href={`#${section.id}`}
-          style={{ "--accent": section.accent }}
-          initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.25 + index * 0.05, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <span />
-          {section.label}
-        </motion.a>
-      ))}
-    </nav>
+    <div className="section-nav-shell">
+      <nav className="section-nav" aria-label="Briefing sections">
+        {sections.map((section, index) => (
+          <motion.a
+            key={section.id}
+            href={`#${section.id}`}
+            style={{ "--accent": section.accent }}
+            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25 + index * 0.05, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <span />
+            {section.label}
+          </motion.a>
+        ))}
+      </nav>
+      <motion.button
+        type="button"
+        className="customize-sections-button"
+        onClick={onCustomize}
+        initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.25 + sections.length * 0.05, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <SlidersHorizontal size={17} aria-hidden="true" />
+        Customize
+      </motion.button>
+    </div>
+  );
+}
+
+function SectionCustomizer({ open, sections, defaultSections, onClose, onMove, onReset }) {
+  const reduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    if (!open) return undefined;
+
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") onClose();
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open, onClose]);
+
+  if (!open) return null;
+
+  return (
+    <motion.div
+      className="section-customizer-backdrop"
+      role="presentation"
+      initial={reduceMotion ? false : { opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.25 }}
+      onMouseDown={(event) => {
+        if (event.target === event.currentTarget) onClose();
+      }}
+    >
+      <motion.aside
+        className="section-customizer"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="section-customizer-title"
+        initial={reduceMotion ? false : { opacity: 0, y: 26, scale: 0.98 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.36, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <div className="customizer-header">
+          <div>
+            <span>Personal order</span>
+            <h2 id="section-customizer-title">Customize sections</h2>
+          </div>
+          <button type="button" className="icon-button" aria-label="Close section customizer" onClick={onClose}>
+            <X size={18} aria-hidden="true" />
+          </button>
+        </div>
+
+        <ol className="section-order-list">
+          {sections.map((section, index) => (
+            <li key={section.id} style={{ "--accent": section.accent }}>
+              <span className="order-marker" aria-hidden="true" />
+              <span className="order-label">{section.label}</span>
+              <div className="order-controls" aria-label={`Move ${section.label}`}>
+                <button
+                  type="button"
+                  aria-label={`Move ${section.label} up`}
+                  onClick={() => onMove(section.id, -1)}
+                  disabled={index === 0}
+                >
+                  <ArrowUp size={17} aria-hidden="true" />
+                </button>
+                <button
+                  type="button"
+                  aria-label={`Move ${section.label} down`}
+                  onClick={() => onMove(section.id, 1)}
+                  disabled={index === sections.length - 1}
+                >
+                  <ArrowDown size={17} aria-hidden="true" />
+                </button>
+              </div>
+            </li>
+          ))}
+        </ol>
+
+        <div className="customizer-actions">
+          <button
+            type="button"
+            className="secondary-action"
+            onClick={onReset}
+            disabled={sections.map((section) => section.id).join("|") === defaultSections.map((section) => section.id).join("|")}
+          >
+            Reset
+          </button>
+          <button type="button" className="primary-action" onClick={onClose}>
+            Done
+          </button>
+        </div>
+      </motion.aside>
+    </motion.div>
   );
 }
 

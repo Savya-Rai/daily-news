@@ -4,17 +4,18 @@ Ideas worth keeping out of GitHub issues for now.
 
 ## Wants Now
 
-- Add local, per-device section ordering preferences using `localStorage`.
-  - Need a clean way for the user to edit the order.
-  - Likely UI direction: a small `Customize` / `Edit sections` control near the section nav that opens a lightweight panel or modal with up/down controls.
-  - Keep default ordering for first-time visitors and for browsers/devices without saved preferences.
 - Add a sticky mini reading bar while scrolling.
   - Should show lightweight context such as current date, current section, and maybe a compact back-to-top affordance.
   - Keep it subtle so it does not compete with the briefing.
-- Add page scroll progress.
-  - A thin progress bar is preferred over per-section progress because each section is fairly small.
 - Improve `More Headlines` with a preview.
   - Show a small preview of a couple of extra headlines before expansion if it does not overload the page.
+
+## Completed On Current Feature Branch
+
+- Added local, per-device section ordering preferences using `localStorage`.
+  - The `Customize` control near the section nav opens a lightweight reorder panel.
+  - Reordering only changes section order, not section colours.
+- Added a thin top page scroll progress bar.
 
 ## Later With AI
 
