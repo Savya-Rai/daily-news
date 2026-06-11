@@ -7,8 +7,6 @@ Ideas worth keeping out of GitHub issues for now.
 - Add a sticky mini reading bar while scrolling.
   - Should show lightweight context such as current date, current section, and maybe a compact back-to-top affordance.
   - Keep it subtle so it does not compete with the briefing.
-- Improve `More Headlines` with a preview.
-  - Show a small preview of a couple of extra headlines before expansion if it does not overload the page.
 
 ## Completed On Current Feature Branch
 
@@ -16,6 +14,10 @@ Ideas worth keeping out of GitHub issues for now.
   - The `Customise` control near the section nav opens a lightweight reorder panel.
   - Reordering only changes section order, not section colours.
 - Added a thin top page scroll progress bar.
+  - Desktop is intentionally quieter than mobile.
+- Improved `More Headlines` with a small collapsed preview.
+- Polished reduced-coverage warning styling away from a generic side-stripe treatment.
+- Added async hash-link scrolling support after briefing data loads.
 
 ## Later With AI
 

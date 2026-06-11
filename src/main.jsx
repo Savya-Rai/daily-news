@@ -42,8 +42,11 @@ function App() {
   const [sectionOrder, setSectionOrder] = useState(readStoredSectionOrder);
   const [customizerOpen, setCustomizerOpen] = useState(false);
   const [status, setStatus] = useState("loading");
+  const customiseButtonRef = useRef(null);
   const briefing = archive.find((entry) => entry.dateKey === selectedDateKey) || archive[0] || emptyBriefing;
   const orderedSections = orderSections(briefing.sections || [], sectionOrder);
+
+  useHashScroll(orderedSections.map((section) => section.id).join("|"), selectedDateKey, status);
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}news-data.json`, { cache: "no-store" })
@@ -71,12 +74,19 @@ function App() {
         selectedDateKey={selectedDateKey}
         onSelectDate={setSelectedDateKey}
       />
-      <SectionNav sections={orderedSections} onCustomize={() => setCustomizerOpen(true)} />
+      <SectionNav
+        sections={orderedSections}
+        onCustomize={() => setCustomizerOpen(true)}
+        customiseButtonRef={customiseButtonRef}
+      />
       <SectionCustomizer
         open={customizerOpen}
         sections={orderedSections}
         defaultSections={briefing.sections || []}
-        onClose={() => setCustomizerOpen(false)}
+        onClose={() => {
+          setCustomizerOpen(false);
+          window.requestAnimationFrame(() => customiseButtonRef.current?.focus());
+        }}
         onMove={(sectionId, direction) => {
           setSectionOrder((currentOrder) => {
             const nextOrder = moveSection(sectionId, direction, briefing.sections || [], currentOrder);
@@ -109,6 +119,28 @@ function App() {
       <BackToTopButton />
     </main>
   );
+}
+
+function useHashScroll(sectionSignature, selectedDateKey, status) {
+  useEffect(() => {
+    if (status !== "ready" || !sectionSignature) return undefined;
+
+    const scrollToHash = () => {
+      const targetId = window.location.hash.slice(1);
+      if (!targetId) return;
+
+      const target = document.getElementById(targetId);
+      target?.scrollIntoView({ block: "start" });
+    };
+
+    window.requestAnimationFrame(scrollToHash);
+    const settleTimer = window.setTimeout(scrollToHash, 350);
+    window.addEventListener("hashchange", scrollToHash);
+    return () => {
+      window.clearTimeout(settleTimer);
+      window.removeEventListener("hashchange", scrollToHash);
+    };
+  }, [sectionSignature, selectedDateKey, status]);
 }
 
 function readStoredSectionOrder() {
@@ -155,6 +187,24 @@ function moveSection(sectionId, direction, sections, storedOrder) {
   const [movedSection] = nextOrder.splice(currentIndex, 1);
   nextOrder.splice(targetIndex, 0, movedSection);
   return nextOrder;
+}
+
+function displayText(value) {
+  return String(value || "")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/&quot;/gi, '"')
+    .replace(/&apos;|&#39;|&#x27;/gi, "'")
+    .replace(/&ldquo;|&#8220;|&#x201c;/gi, "\"")
+    .replace(/&rdquo;|&#8221;|&#x201d;/gi, "\"")
+    .replace(/&lsquo;|&#8216;|&#x2018;/gi, "'")
+    .replace(/&rsquo;|&#8217;|&#x2019;/gi, "'")
+    .replace(/&ndash;|&#8211;|&#x2013;/gi, "-")
+    .replace(/&mdash;|&#8212;|&#x2014;/gi, "-")
+    .replace(/&#(\d+);/g, (_, codePoint) => String.fromCodePoint(Number(codePoint)))
+    .replace(/&#x([\da-f]+);/gi, (_, codePoint) => String.fromCodePoint(parseInt(codePoint, 16)))
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 function ScrollProgress() {
@@ -290,7 +340,7 @@ function Hero({ briefing, status }) {
         <div className="plate-inner">
           <span className="plate-kicker">{briefing.relativeLabel || "Today"}</span>
           <strong>{briefing.dateLabel}</strong>
-          <span>{status === "ready" ? `${totalStories} curated signals` : "Loading briefing"}</span>
+          <span>{status === "ready" ? `${totalStories} stories scanned` : "Loading briefing"}</span>
         </div>
       </motion.aside>
     </header>
@@ -339,7 +389,7 @@ function compactDate(dateLabel = "") {
   return dateLabel.replace(/^\w+,\s*/, "");
 }
 
-function SectionNav({ sections, onCustomize }) {
+function SectionNav({ sections, onCustomize, customiseButtonRef }) {
   const reduceMotion = useReducedMotion();
 
   return (
@@ -360,6 +410,7 @@ function SectionNav({ sections, onCustomize }) {
         ))}
       </nav>
       <motion.button
+        ref={customiseButtonRef}
         type="button"
         className="customize-sections-button"
         onClick={onCustomize}
@@ -376,14 +427,49 @@ function SectionNav({ sections, onCustomize }) {
 
 function SectionCustomizer({ open, sections, defaultSections, onClose, onMove, onReset }) {
   const reduceMotion = useReducedMotion();
+  const dialogRef = useRef(null);
 
   useEffect(() => {
     if (!open) return undefined;
 
-    const onKeyDown = (event) => {
-      if (event.key === "Escape") onClose();
+    const dialog = dialogRef.current;
+    const focusableSelector = [
+      "button:not([disabled])",
+      "a[href]",
+      "input:not([disabled])",
+      "select:not([disabled])",
+      "textarea:not([disabled])",
+      "[tabindex]:not([tabindex='-1'])"
+    ].join(",");
+
+    const focusFirstControl = () => {
+      dialog?.querySelector(focusableSelector)?.focus();
     };
 
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") {
+        onClose();
+        return;
+      }
+
+      if (event.key !== "Tab" || !dialog) return;
+
+      const focusableControls = [...dialog.querySelectorAll(focusableSelector)];
+      if (focusableControls.length === 0) return;
+
+      const firstControl = focusableControls[0];
+      const lastControl = focusableControls[focusableControls.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstControl) {
+        event.preventDefault();
+        lastControl.focus();
+      } else if (!event.shiftKey && document.activeElement === lastControl) {
+        event.preventDefault();
+        firstControl.focus();
+      }
+    };
+
+    window.requestAnimationFrame(focusFirstControl);
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [open, onClose]);
@@ -403,6 +489,7 @@ function SectionCustomizer({ open, sections, defaultSections, onClose, onMove, o
       }}
     >
       <motion.aside
+        ref={dialogRef}
         className="section-customizer"
         role="dialog"
         aria-modal="true"
@@ -471,6 +558,7 @@ function NewsSection({ section, index }) {
   const reduceMotion = useReducedMotion();
   const leadStories = section.leadStories || [];
   const moreHeadlines = section.moreHeadlines || [];
+  const previewHeadlines = moreHeadlines.slice(0, 2);
 
   return (
     <motion.section
@@ -529,6 +617,19 @@ function NewsSection({ section, index }) {
             <CaretDown weight="bold" aria-hidden="true" />
           </button>
 
+          {!expanded && previewHeadlines.length > 0 && (
+            <ul className="more-preview" aria-label={`Preview headlines for ${section.label}`}>
+              {previewHeadlines.map((story, previewIndex) => (
+                <li key={`${story.url}-preview-${previewIndex}`}>
+                  <a href={story.url} target="_blank" rel="noreferrer">
+                    <span>{displayText(story.title)}</span>
+                    <small>{displayText(story.source)}</small>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+
           <motion.div
             id={`${section.id}-more`}
             className="more-list"
@@ -544,8 +645,8 @@ function NewsSection({ section, index }) {
               {moreHeadlines.map((story, moreIndex) => (
                 <li key={`${story.url}-${moreIndex}`}>
                   <a href={story.url} target="_blank" rel="noreferrer">
-                    <span>{story.title}</span>
-                    <small>{story.source}</small>
+                    <span>{displayText(story.title)}</span>
+                    <small>{displayText(story.source)}</small>
                   </a>
                 </li>
               ))}
@@ -571,7 +672,7 @@ function StoryCard({ story, featured, index }) {
       <button
         type="button"
         className="story-share"
-        aria-label={`Share ${story.title}`}
+        aria-label={`Share ${displayText(story.title)}`}
         onClick={() => shareStory(story)}
       >
         <ShareNetwork size={17} aria-hidden="true" />
@@ -582,11 +683,11 @@ function StoryCard({ story, featured, index }) {
           <span className="story-freshness">{formatFreshness(story.publishedAt)}</span>
           <ArrowUpRight aria-hidden="true" />
         </div>
-        <h3>{story.title}</h3>
-        <p>{story.summary}</p>
+        <h3>{displayText(story.title)}</h3>
+        <p>{displayText(story.summary)}</p>
         {story.secondarySources?.length > 0 && (
           <div className="secondary-sources">
-            Also: {story.secondarySources.map((source) => source.name).join(", ")}
+            Also: {story.secondarySources.map((source) => displayText(source.name)).join(", ")}
           </div>
         )}
       </a>
@@ -596,8 +697,8 @@ function StoryCard({ story, featured, index }) {
 
 async function shareStory(story) {
   const shareData = {
-    title: story.title,
-    text: story.summary,
+    title: displayText(story.title),
+    text: displayText(story.summary),
     url: story.url
   };
 

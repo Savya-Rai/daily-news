@@ -93,6 +93,8 @@ The workflow uploads `dist-news-log.json` as an artifact so feed failures and ar
 
 The app is built as a static editorial briefing, not a dashboard or RSS grid. It uses section-specific accents, Motion-powered entry animations, responsive lead-story layouts, keyboard-friendly links, and `prefers-reduced-motion` support.
 
+Sections use CSS `content-visibility: auto` so off-screen briefing content can be skipped until the browser needs to paint it. This keeps long mobile briefings smoother, but full-page screenshots, print-style captures, or automated visual tests may show unvisited off-screen sections as blank unless the page is scrolled first.
+
 Primary UI files:
 
 - [`src/main.jsx`](/Users/savyarai/Documents/VS-Code/daily-news/src/main.jsx)
