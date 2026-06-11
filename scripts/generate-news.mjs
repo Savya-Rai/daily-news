@@ -566,7 +566,7 @@ function stripArchive(briefing) {
 }
 
 function printLog(log) {
-  console.log("First Light generation log");
+  console.log("News pipeline generation log");
   console.log(`Feeds succeeded: ${log.feedsSucceeded.length}`);
   console.log(`Feeds failed: ${log.feedsFailed.length}`);
   for (const failure of log.feedsFailed) {

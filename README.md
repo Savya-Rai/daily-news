@@ -1,6 +1,6 @@
-# First Light
+# Daily News
 
-First Light is a scheduled, static daily news briefing for GitHub Pages. It fetches RSS feeds, filters low-signal stories, deduplicates by event, ranks the strongest items, writes a clean JSON briefing, and renders it as a premium animated React site.
+Daily News is a scheduled, static news briefing for GitHub Pages. It fetches RSS feeds, filters low-signal stories, deduplicates by event, ranks the strongest items, writes a clean JSON briefing, and renders it as a premium animated React site. The current reader-facing name is **First Light**, but the repo and pipeline are kept name-neutral so the brand can change later.
 
 ## What It Builds
 
@@ -24,6 +24,20 @@ npm run dev
 ```
 
 Vite will print a local URL, usually `http://localhost:5173`.
+
+To test on a phone before opening a PR, keep the dev server running and open the Vite network URL on a phone connected to the same Wi-Fi. Vite prints it as `Network`, for example:
+
+```text
+http://192.168.20.5:5173/
+```
+
+If the IP changes, run:
+
+```bash
+ipconfig getifaddr en0
+```
+
+Then open `http://YOUR-IP:5173/` on the phone.
 
 ## Build Locally
 
@@ -62,7 +76,7 @@ The generator lives in [`scripts/generate-news.mjs`](/Users/savyarai/Documents/V
 
 ## GitHub Pages
 
-The workflow is [`First Light Daily Briefing`](/Users/savyarai/Documents/VS-Code/daily-news/.github/workflows/first-light.yml).
+The workflow is [`News Pipeline`](/Users/savyarai/Documents/VS-Code/daily-news/.github/workflows/news-pipeline.yml).
 
 It runs at `20:00 UTC`, which is `6:00 AM Australia/Sydney` during AEST, and also supports `workflow_dispatch` for manual runs.
 
@@ -71,7 +85,7 @@ To publish:
 1. Push this repo to GitHub.
 2. In the repository, open **Settings → Pages**.
 3. Set **Build and deployment → Source** to **GitHub Actions**.
-4. Run the workflow manually once from **Actions → First Light Daily Briefing → Run workflow**.
+4. Run the workflow manually once from **Actions → News Pipeline → Run workflow**.
 
 The workflow uploads `dist-news-log.json` as an artifact so feed failures and article counts stay out of the reader-facing page.
 

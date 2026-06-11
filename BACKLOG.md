@@ -1,4 +1,4 @@
-# First Light Backlog
+# News Briefing Backlog
 
 Ideas worth keeping out of GitHub issues for now.
 
