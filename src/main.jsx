@@ -1,7 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { motion, useReducedMotion } from "motion/react";
-import { ArrowUp, ArrowUpRight, CaretDown, NewspaperClipping, ShareNetwork } from "@phosphor-icons/react";
+import {
+  ArrowDown,
+  ArrowUp,
+  ArrowUpRight,
+  CaretDown,
+  NewspaperClipping,
+  ShareNetwork,
+  SlidersHorizontal,
+  X
+} from "@phosphor-icons/react";
 import "@fontsource/geist/latin-400.css";
 import "@fontsource/geist/latin-500.css";
 import "@fontsource/geist/latin-600.css";
@@ -24,12 +33,20 @@ const sectionIntro = {
   australia: "Nationally significant Australian politics, policy, business, society, and regional developments."
 };
 
+const sectionOrderStorageKey = "daily-news-section-order-v1";
+
 function App() {
   const reduceMotion = useReducedMotion();
   const [archive, setArchive] = useState([]);
   const [selectedDateKey, setSelectedDateKey] = useState(null);
+  const [sectionOrder, setSectionOrder] = useState(readStoredSectionOrder);
+  const [customizerOpen, setCustomizerOpen] = useState(false);
   const [status, setStatus] = useState("loading");
+  const customiseButtonRef = useRef(null);
   const briefing = archive.find((entry) => entry.dateKey === selectedDateKey) || archive[0] || emptyBriefing;
+  const orderedSections = orderSections(briefing.sections || [], sectionOrder);
+
+  useHashScroll(orderedSections.map((section) => section.id).join("|"), selectedDateKey, status);
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}news-data.json`, { cache: "no-store" })
@@ -49,6 +66,7 @@ function App() {
   return (
     <main className="page-shell">
       <div className="grain" aria-hidden="true" />
+      <ScrollProgress />
       <Hero briefing={briefing} status={status} />
       <BriefingNotice status={status} briefing={briefing} />
       <DateRail
@@ -56,7 +74,32 @@ function App() {
         selectedDateKey={selectedDateKey}
         onSelectDate={setSelectedDateKey}
       />
-      <SectionNav sections={briefing.sections} />
+      <SectionNav
+        sections={orderedSections}
+        onCustomize={() => setCustomizerOpen(true)}
+        customiseButtonRef={customiseButtonRef}
+      />
+      <SectionCustomizer
+        open={customizerOpen}
+        sections={orderedSections}
+        defaultSections={briefing.sections || []}
+        onClose={() => {
+          setCustomizerOpen(false);
+          window.requestAnimationFrame(() => customiseButtonRef.current?.focus());
+        }}
+        onMove={(sectionId, direction) => {
+          setSectionOrder((currentOrder) => {
+            const nextOrder = moveSection(sectionId, direction, briefing.sections || [], currentOrder);
+            storeSectionOrder(nextOrder);
+            return nextOrder;
+          });
+        }}
+        onReset={() => {
+          const nextOrder = (briefing.sections || []).map((section) => section.id);
+          storeSectionOrder(nextOrder);
+          setSectionOrder(nextOrder);
+        }}
+      />
       <motion.div
         key={briefing.dateKey || "empty"}
         className="briefing-stack"
@@ -65,7 +108,7 @@ function App() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
       >
-        {briefing.sections.map((section, index) => (
+        {orderedSections.map((section, index) => (
           <NewsSection key={section.id} section={section} index={index} />
         ))}
       </motion.div>
@@ -75,6 +118,128 @@ function App() {
       </footer>
       <BackToTopButton />
     </main>
+  );
+}
+
+function useHashScroll(sectionSignature, selectedDateKey, status) {
+  useEffect(() => {
+    if (status !== "ready" || !sectionSignature) return undefined;
+
+    const scrollToHash = () => {
+      const targetId = window.location.hash.slice(1);
+      if (!targetId) return;
+
+      const target = document.getElementById(targetId);
+      target?.scrollIntoView({ block: "start" });
+    };
+
+    window.requestAnimationFrame(scrollToHash);
+    const settleTimer = window.setTimeout(scrollToHash, 350);
+    window.addEventListener("hashchange", scrollToHash);
+    return () => {
+      window.clearTimeout(settleTimer);
+      window.removeEventListener("hashchange", scrollToHash);
+    };
+  }, [sectionSignature, selectedDateKey, status]);
+}
+
+function readStoredSectionOrder() {
+  try {
+    const storedValue = window.localStorage.getItem(sectionOrderStorageKey);
+    const parsedValue = storedValue ? JSON.parse(storedValue) : [];
+    return Array.isArray(parsedValue) ? parsedValue.filter(Boolean) : [];
+  } catch {
+    return [];
+  }
+}
+
+function storeSectionOrder(order) {
+  try {
+    window.localStorage.setItem(sectionOrderStorageKey, JSON.stringify(order));
+  } catch {
+    // Section ordering is a convenience preference, so storage failures can be ignored.
+  }
+}
+
+function normalizeSectionOrder(sections, storedOrder = []) {
+  const sectionIds = sections.map((section) => section.id);
+  const orderedKnownIds = storedOrder.filter((sectionId) => sectionIds.includes(sectionId));
+  const missingIds = sectionIds.filter((sectionId) => !orderedKnownIds.includes(sectionId));
+  return [...orderedKnownIds, ...missingIds];
+}
+
+function orderSections(sections, storedOrder) {
+  const normalizedOrder = normalizeSectionOrder(sections, storedOrder);
+  return [...sections].sort((first, second) => (
+    normalizedOrder.indexOf(first.id) - normalizedOrder.indexOf(second.id)
+  ));
+}
+
+function moveSection(sectionId, direction, sections, storedOrder) {
+  const nextOrder = normalizeSectionOrder(sections, storedOrder);
+  const currentIndex = nextOrder.indexOf(sectionId);
+  const targetIndex = currentIndex + direction;
+
+  if (currentIndex < 0 || targetIndex < 0 || targetIndex >= nextOrder.length) {
+    return nextOrder;
+  }
+
+  const [movedSection] = nextOrder.splice(currentIndex, 1);
+  nextOrder.splice(targetIndex, 0, movedSection);
+  return nextOrder;
+}
+
+function displayText(value) {
+  return String(value || "")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/&quot;/gi, '"')
+    .replace(/&apos;|&#39;|&#x27;/gi, "'")
+    .replace(/&ldquo;|&#8220;|&#x201c;/gi, "\"")
+    .replace(/&rdquo;|&#8221;|&#x201d;/gi, "\"")
+    .replace(/&lsquo;|&#8216;|&#x2018;/gi, "'")
+    .replace(/&rsquo;|&#8217;|&#x2019;/gi, "'")
+    .replace(/&ndash;|&#8211;|&#x2013;/gi, "-")
+    .replace(/&mdash;|&#8212;|&#x2014;/gi, "-")
+    .replace(/&#(\d+);/g, (_, codePoint) => String.fromCodePoint(Number(codePoint)))
+    .replace(/&#x([\da-f]+);/gi, (_, codePoint) => String.fromCodePoint(parseInt(codePoint, 16)))
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function ScrollProgress() {
+  const progressRef = useRef(null);
+  const rafId = useRef(null);
+
+  useEffect(() => {
+    const updateProgress = () => {
+      if (rafId.current) return;
+
+      rafId.current = window.requestAnimationFrame(() => {
+        const scrollableDistance = document.documentElement.scrollHeight - window.innerHeight;
+        const nextProgress = scrollableDistance > 0 ? window.scrollY / scrollableDistance : 0;
+        if (progressRef.current) {
+          progressRef.current.style.transform = `scaleX(${Math.min(1, Math.max(0, nextProgress))})`;
+        }
+        rafId.current = null;
+      });
+    };
+
+    updateProgress();
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+
+    return () => {
+      window.removeEventListener("scroll", updateProgress);
+      window.removeEventListener("resize", updateProgress);
+      if (rafId.current) window.cancelAnimationFrame(rafId.current);
+    };
+  }, []);
+
+  return (
+    <div className="scroll-progress" aria-hidden="true">
+      <span ref={progressRef} />
+    </div>
   );
 }
 
@@ -177,7 +342,7 @@ function Hero({ briefing, status }) {
         <div className="plate-inner">
           <span className="plate-kicker">{briefing.relativeLabel || "Today"}</span>
           <strong>{briefing.dateLabel}</strong>
-          <span>{status === "ready" ? `${totalStories} curated signals` : "Loading briefing"}</span>
+          <span>{status === "ready" ? `${totalStories} stories scanned` : "Loading briefing"}</span>
         </div>
       </motion.aside>
     </header>
@@ -226,25 +391,167 @@ function compactDate(dateLabel = "") {
   return dateLabel.replace(/^\w+,\s*/, "");
 }
 
-function SectionNav({ sections }) {
+function SectionNav({ sections, onCustomize, customiseButtonRef }) {
   const reduceMotion = useReducedMotion();
 
   return (
-    <nav className="section-nav" aria-label="Briefing sections">
-      {sections.map((section, index) => (
-        <motion.a
-          key={section.id}
-          href={`#${section.id}`}
-          style={{ "--accent": section.accent }}
-          initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.25 + index * 0.05, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <span />
-          {section.label}
-        </motion.a>
-      ))}
-    </nav>
+    <div className="section-nav-shell">
+      <nav className="section-nav" aria-label="Briefing sections">
+        {sections.map((section, index) => (
+          <motion.a
+            key={section.id}
+            href={`#${section.id}`}
+            style={{ "--accent": section.accent }}
+            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25 + index * 0.05, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <span />
+            {section.label}
+          </motion.a>
+        ))}
+      </nav>
+      <motion.button
+        ref={customiseButtonRef}
+        type="button"
+        className="customize-sections-button"
+        onClick={onCustomize}
+        initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.25 + sections.length * 0.05, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <SlidersHorizontal size={17} aria-hidden="true" />
+        Customise
+      </motion.button>
+    </div>
+  );
+}
+
+function SectionCustomizer({ open, sections, defaultSections, onClose, onMove, onReset }) {
+  const reduceMotion = useReducedMotion();
+  const dialogRef = useRef(null);
+
+  useEffect(() => {
+    if (!open) return undefined;
+
+    const dialog = dialogRef.current;
+    const focusableSelector = [
+      "button:not([disabled])",
+      "a[href]",
+      "input:not([disabled])",
+      "select:not([disabled])",
+      "textarea:not([disabled])",
+      "[tabindex]:not([tabindex='-1'])"
+    ].join(",");
+
+    const focusFirstControl = () => {
+      dialog?.querySelector(focusableSelector)?.focus();
+    };
+
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") {
+        onClose();
+        return;
+      }
+
+      if (event.key !== "Tab" || !dialog) return;
+
+      const focusableControls = [...dialog.querySelectorAll(focusableSelector)];
+      if (focusableControls.length === 0) return;
+
+      const firstControl = focusableControls[0];
+      const lastControl = focusableControls[focusableControls.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstControl) {
+        event.preventDefault();
+        lastControl.focus();
+      } else if (!event.shiftKey && document.activeElement === lastControl) {
+        event.preventDefault();
+        firstControl.focus();
+      }
+    };
+
+    window.requestAnimationFrame(focusFirstControl);
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open, onClose]);
+
+  if (!open) return null;
+
+  return (
+    <motion.div
+      className="section-customizer-backdrop"
+      role="presentation"
+      initial={reduceMotion ? false : { opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.25 }}
+      onMouseDown={(event) => {
+        if (event.target === event.currentTarget) onClose();
+      }}
+    >
+      <motion.aside
+        ref={dialogRef}
+        className="section-customizer"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="section-customizer-title"
+        initial={reduceMotion ? false : { opacity: 0, y: 26, scale: 0.98 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.36, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <div className="customizer-header">
+          <div>
+            <span>Personal order</span>
+            <h2 id="section-customizer-title">Customise sections</h2>
+          </div>
+          <button type="button" className="icon-button" aria-label="Close section customizer" onClick={onClose}>
+            <X size={18} aria-hidden="true" />
+          </button>
+        </div>
+
+        <ol className="section-order-list">
+          {sections.map((section, index) => (
+            <li key={section.id} style={{ "--accent": section.accent }}>
+              <span className="order-marker" aria-hidden="true" />
+              <span className="order-label">{section.label}</span>
+              <div className="order-controls" aria-label={`Move ${section.label}`}>
+                <button
+                  type="button"
+                  aria-label={`Move ${section.label} up`}
+                  onClick={() => onMove(section.id, -1)}
+                  disabled={index === 0}
+                >
+                  <ArrowUp size={17} aria-hidden="true" />
+                </button>
+                <button
+                  type="button"
+                  aria-label={`Move ${section.label} down`}
+                  onClick={() => onMove(section.id, 1)}
+                  disabled={index === sections.length - 1}
+                >
+                  <ArrowDown size={17} aria-hidden="true" />
+                </button>
+              </div>
+            </li>
+          ))}
+        </ol>
+
+        <div className="customizer-actions">
+          <button
+            type="button"
+            className="secondary-action"
+            onClick={onReset}
+            disabled={sections.map((section) => section.id).join("|") === defaultSections.map((section) => section.id).join("|")}
+          >
+            Reset
+          </button>
+          <button type="button" className="primary-action" onClick={onClose}>
+            Done
+          </button>
+        </div>
+      </motion.aside>
+    </motion.div>
   );
 }
 
@@ -253,6 +560,7 @@ function NewsSection({ section, index }) {
   const reduceMotion = useReducedMotion();
   const leadStories = section.leadStories || [];
   const moreHeadlines = section.moreHeadlines || [];
+  const previewHeadlines = moreHeadlines.slice(0, 1);
 
   return (
     <motion.section
@@ -311,6 +619,19 @@ function NewsSection({ section, index }) {
             <CaretDown weight="bold" aria-hidden="true" />
           </button>
 
+          {!expanded && previewHeadlines.length > 0 && (
+            <ul className="more-preview" aria-label={`Preview headlines for ${section.label}`}>
+              {previewHeadlines.map((story, previewIndex) => (
+                <li key={`${story.url}-preview-${previewIndex}`}>
+                  <a href={story.url} target="_blank" rel="noreferrer">
+                    <span>{displayText(story.title)}</span>
+                    <small>{displayText(story.source)}</small>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+
           <motion.div
             id={`${section.id}-more`}
             className="more-list"
@@ -326,8 +647,8 @@ function NewsSection({ section, index }) {
               {moreHeadlines.map((story, moreIndex) => (
                 <li key={`${story.url}-${moreIndex}`}>
                   <a href={story.url} target="_blank" rel="noreferrer">
-                    <span>{story.title}</span>
-                    <small>{story.source}</small>
+                    <span>{displayText(story.title)}</span>
+                    <small>{displayText(story.source)}</small>
                   </a>
                 </li>
               ))}
@@ -353,7 +674,7 @@ function StoryCard({ story, featured, index }) {
       <button
         type="button"
         className="story-share"
-        aria-label={`Share ${story.title}`}
+        aria-label={`Share ${displayText(story.title)}`}
         onClick={() => shareStory(story)}
       >
         <ShareNetwork size={17} aria-hidden="true" />
@@ -364,11 +685,11 @@ function StoryCard({ story, featured, index }) {
           <span className="story-freshness">{formatFreshness(story.publishedAt)}</span>
           <ArrowUpRight aria-hidden="true" />
         </div>
-        <h3>{story.title}</h3>
-        <p>{story.summary}</p>
+        <h3>{displayText(story.title)}</h3>
+        <p>{displayText(story.summary)}</p>
         {story.secondarySources?.length > 0 && (
           <div className="secondary-sources">
-            Also: {story.secondarySources.map((source) => source.name).join(", ")}
+            Also: {story.secondarySources.map((source) => displayText(source.name)).join(", ")}
           </div>
         )}
       </a>
@@ -378,8 +699,8 @@ function StoryCard({ story, featured, index }) {
 
 async function shareStory(story) {
   const shareData = {
-    title: story.title,
-    text: story.summary,
+    title: displayText(story.title),
+    text: displayText(story.summary),
     url: story.url
   };
 

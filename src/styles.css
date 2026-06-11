@@ -13,13 +13,19 @@
 }
 
 html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
+  width: 100%;
+  max-width: 100%;
   min-width: 320px;
   min-height: 100dvh;
+  overflow-x: hidden;
   background:
     radial-gradient(circle at 76% 10%, rgba(158, 228, 147, 0.16), transparent 28rem),
     radial-gradient(circle at 8% 28%, rgba(124, 199, 255, 0.12), transparent 25rem),
@@ -43,6 +49,8 @@ a:focus-visible {
 
 .page-shell {
   position: relative;
+  width: 100%;
+  max-width: 100%;
   overflow: clip;
   padding: 0 clamp(1rem, 3vw, 2.5rem) calc(5rem + env(safe-area-inset-bottom));
 }
@@ -60,10 +68,31 @@ a:focus-visible {
   mask-image: linear-gradient(to bottom, black, transparent 80%);
 }
 
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 9;
+  height: 2px;
+  background: rgba(244, 240, 232, 0.035);
+  pointer-events: none;
+}
+
+.scroll-progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background:
+    linear-gradient(90deg, rgba(124, 199, 255, 0.72), rgba(241, 194, 125, 0.78), rgba(158, 228, 147, 0.7));
+  box-shadow: 0 0 16px rgba(241, 194, 125, 0.12);
+  transition: transform 120ms linear;
+}
+
 .masthead,
 .briefing-notice,
 .date-rail-shell,
-.section-nav,
+.section-nav-shell,
 .briefing-stack,
 .site-footer {
   position: relative;
@@ -79,6 +108,17 @@ a:focus-visible {
   gap: clamp(2rem, 7vw, 7rem);
   align-items: center;
   padding: clamp(5rem, 10vh, 7rem) 0 3rem;
+}
+
+.masthead-copy,
+.briefing-plate,
+.plate-inner,
+.section-heading > *,
+.story-card,
+.story-link,
+.more-shell,
+.more-toggle {
+  min-width: 0;
 }
 
 .eyebrow,
@@ -97,23 +137,28 @@ a:focus-visible {
 
 .masthead h1 {
   margin: 1.3rem 0 1rem;
+  width: 100%;
   max-width: 9ch;
   font-family: "Newsreader", Georgia, serif;
-  font-size: clamp(5rem, 15vw, 13.5rem);
+  font-size: clamp(4.4rem, 12.5vw, 11rem);
   font-weight: 600;
   letter-spacing: 0;
   line-height: 0.78;
 }
 
 .masthead p {
+  width: 100%;
   max-width: 36rem;
   margin: 0;
   color: rgba(244, 240, 232, 0.72);
   font-size: clamp(1.1rem, 2vw, 1.45rem);
   line-height: 1.45;
+  overflow-wrap: anywhere;
 }
 
 .briefing-plate {
+  width: 100%;
+  max-width: 100%;
   border-radius: 2rem;
   padding: 0.45rem;
   background: linear-gradient(145deg, rgba(244, 240, 232, 0.1), rgba(244, 240, 232, 0.025));
@@ -121,6 +166,7 @@ a:focus-visible {
 }
 
 .plate-inner {
+  width: 100%;
   min-height: 360px;
   display: flex;
   flex-direction: column;
@@ -135,6 +181,7 @@ a:focus-visible {
 }
 
 .plate-inner strong {
+  overflow-wrap: anywhere;
   font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: 0.95;
 }
@@ -184,12 +231,21 @@ a:focus-visible {
   line-height: 1.55;
 }
 
+.section-nav-shell {
+  display: flex;
+  gap: 0.55rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+
 .section-nav {
   display: flex;
   gap: 0.55rem;
+  flex: 1 1 auto;
   flex-wrap: wrap;
   align-items: center;
-  margin-bottom: 3rem;
+  min-width: 0;
 }
 
 .date-rail-shell {
@@ -316,14 +372,217 @@ a:focus-visible {
   background: var(--accent);
 }
 
+.customize-sections-button {
+  flex: 0 0 auto;
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid rgba(244, 240, 232, 0.14);
+  border-radius: 999px;
+  padding: 0.65rem 0.9rem;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(241, 194, 125, 0.16), transparent 6rem),
+    rgba(244, 240, 232, 0.055);
+  color: rgba(244, 240, 232, 0.82);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.9rem;
+  transition:
+    color 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    background 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.customize-sections-button:hover {
+  color: #fffaf1;
+  border-color: rgba(241, 194, 125, 0.46);
+  transform: translateY(-2px);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(241, 194, 125, 0.24), transparent 6rem),
+    rgba(244, 240, 232, 0.08);
+}
+
+.section-customizer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: end center;
+  padding: clamp(1rem, 3vw, 2rem);
+  background: rgba(3, 4, 4, 0.55);
+  backdrop-filter: blur(18px);
+}
+
+.section-customizer {
+  width: min(100%, 34rem);
+  border: 1px solid rgba(244, 240, 232, 0.13);
+  border-radius: 1.6rem;
+  padding: clamp(1rem, 2.4vw, 1.25rem);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(241, 194, 125, 0.16), transparent 16rem),
+    rgba(13, 14, 13, 0.96);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.12),
+    0 32px 80px rgba(0, 0, 0, 0.44);
+}
+
+.customizer-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.customizer-header div {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.customizer-header span {
+  color: rgba(241, 194, 125, 0.88);
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.customizer-header h2 {
+  margin: 0;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  line-height: 1;
+}
+
+.icon-button,
+.order-controls button {
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid rgba(244, 240, 232, 0.12);
+  border-radius: 999px;
+  background: rgba(244, 240, 232, 0.055);
+  color: rgba(244, 240, 232, 0.8);
+  cursor: pointer;
+  transition:
+    color 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.icon-button {
+  width: 2.35rem;
+  height: 2.35rem;
+}
+
+.icon-button:hover,
+.order-controls button:hover {
+  color: #fffaf1;
+  border-color: rgba(244, 240, 232, 0.26);
+  transform: translateY(-1px);
+}
+
+.section-order-list {
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+}
+
+.section-order-list li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: center;
+  min-height: 4rem;
+  border: 1px solid color-mix(in srgb, var(--accent), transparent 76%);
+  border-radius: 1rem;
+  padding: 0.55rem 0.55rem 0.55rem 0.85rem;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--accent), transparent 93%), transparent),
+    rgba(244, 240, 232, 0.035);
+}
+
+.order-marker {
+  width: 0.62rem;
+  height: 0.62rem;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--accent), transparent 44%);
+}
+
+.order-label {
+  min-width: 0;
+  color: rgba(244, 240, 232, 0.88);
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.order-controls {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.order-controls button {
+  width: 2.55rem;
+  height: 2.55rem;
+}
+
+.order-controls button:disabled,
+.customizer-actions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.36;
+  transform: none;
+}
+
+.customizer-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.customizer-actions button {
+  min-height: 2.8rem;
+  border-radius: 999px;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 500;
+  transition:
+    color 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    background 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.secondary-action {
+  border: 1px solid rgba(244, 240, 232, 0.12);
+  background: transparent;
+  color: rgba(244, 240, 232, 0.72);
+}
+
+.primary-action {
+  border: 1px solid rgba(241, 194, 125, 0.48);
+  background: rgba(241, 194, 125, 0.16);
+  color: #fffaf1;
+}
+
+.customizer-actions button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
 .briefing-stack {
   display: grid;
-  gap: clamp(4rem, 9vw, 8rem);
+  gap: clamp(3.25rem, 7vw, 6.5rem);
 }
 
 .news-section {
   position: relative;
   isolation: isolate;
+  overflow: clip;
   scroll-margin-top: 1.5rem;
   content-visibility: auto;
   contain-intrinsic-size: 900px;
@@ -368,9 +627,10 @@ a:focus-visible {
 
 .section-heading h2 {
   margin: 0.35rem 0 0;
-  font-size: clamp(2.5rem, 7vw, 6.7rem);
+  font-size: clamp(2.25rem, 6vw, 5.7rem);
   line-height: 0.9;
   letter-spacing: 0;
+  overflow-wrap: anywhere;
 }
 
 .section-heading p {
@@ -381,12 +641,27 @@ a:focus-visible {
 
 .section-warning {
   display: grid;
-  gap: 0.35rem;
-  margin: -1.4rem 0 1.3rem;
-  border-left: 3px solid var(--accent);
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.35rem 0.8rem;
+  align-items: center;
+  margin: -1.15rem 0 1.15rem;
+  border: 1px solid color-mix(in srgb, var(--accent), transparent 62%);
+  border-radius: 1rem;
   padding: 0.85rem 1rem;
-  background: color-mix(in srgb, var(--accent), transparent 91%);
+  background:
+    radial-gradient(circle at 0% 0%, color-mix(in srgb, var(--accent), transparent 84%), transparent 12rem),
+    color-mix(in srgb, var(--accent), transparent 94%);
   color: rgba(244, 240, 232, 0.78);
+}
+
+.section-warning::before {
+  content: "";
+  grid-row: span 2;
+  width: 0.62rem;
+  height: 0.62rem;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--accent), transparent 42%);
 }
 
 .section-warning strong {
@@ -512,6 +787,7 @@ a:focus-visible {
   line-height: 1.08;
   letter-spacing: 0;
   overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .story-card.featured h3 {
@@ -593,6 +869,45 @@ a:focus-visible {
 
 .more-list {
   overflow: hidden;
+}
+
+.more-preview {
+  list-style: none;
+  display: grid;
+  gap: 0;
+  margin: -0.2rem 0 0.55rem;
+  padding: 0;
+  border-top: 1px solid rgba(244, 240, 232, 0.08);
+}
+
+.more-preview li + li {
+  border-top: 1px solid rgba(244, 240, 232, 0.06);
+}
+
+.more-preview a {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  min-height: 3rem;
+  align-items: center;
+  padding: 0.7rem 0;
+  color: rgba(244, 240, 232, 0.7);
+  text-decoration: none;
+  transition: color 450ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.more-preview a:hover {
+  color: #fffaf1;
+}
+
+.more-preview span {
+  overflow-wrap: anywhere;
+}
+
+.more-preview small {
+  color: color-mix(in srgb, var(--accent), white 22%);
+  font-family: "Geist Mono", ui-monospace, monospace;
+  white-space: nowrap;
 }
 
 .more-list ul {
@@ -683,7 +998,7 @@ a:focus-visible {
     rgba(22, 22, 20, 0.92);
 }
 
-@media (max-width: 920px) {
+@media (max-width: 1100px) {
   .masthead,
   .briefing-notice,
   .date-rail-shell,
@@ -697,6 +1012,7 @@ a:focus-visible {
   }
 
   .briefing-plate {
+    width: 100%;
     max-width: 460px;
   }
 
@@ -724,21 +1040,47 @@ a:focus-visible {
   }
 
   .news-section::before {
-    inset: -2.2rem -5rem auto auto;
-    width: 20rem;
-    height: 20rem;
+    inset: -2.2rem -1.5rem auto auto;
+    width: min(20rem, 82vw);
+    height: min(20rem, 82vw);
     opacity: 0.62;
   }
 
   .news-section:nth-child(even)::before {
-    inset: -1.5rem auto auto -5rem;
+    inset: -1.5rem auto auto -1.5rem;
   }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 620px), (max-device-width: 620px) {
   .page-shell {
     padding-inline: 1rem;
     padding-bottom: calc(5.75rem + env(safe-area-inset-bottom));
+  }
+
+  .scroll-progress {
+    height: 3px;
+    background: rgba(244, 240, 232, 0.05);
+  }
+
+  .scroll-progress span {
+    background:
+      linear-gradient(90deg, rgba(124, 199, 255, 0.95), rgba(241, 194, 125, 0.95), rgba(158, 228, 147, 0.95));
+    box-shadow: 0 0 24px rgba(241, 194, 125, 0.2);
+  }
+
+  .masthead,
+  .briefing-notice,
+  .date-rail-shell,
+  .briefing-stack,
+  .site-footer,
+  .news-section,
+  .lead-grid,
+  .story-card,
+  .more-shell {
+    width: calc(100vw - 2rem);
+    max-width: calc(100vw - 2rem);
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .masthead {
@@ -754,7 +1096,7 @@ a:focus-visible {
 
   .masthead h1 {
     margin-top: 1rem;
-    font-size: clamp(4.05rem, 22vw, 6.5rem);
+    font-size: clamp(3.45rem, 18vw, 5.35rem);
     line-height: 0.82;
   }
 
@@ -774,14 +1116,23 @@ a:focus-visible {
     font-size: clamp(1.75rem, 10vw, 2.55rem);
   }
 
-  .section-nav {
-    flex-wrap: nowrap;
+  .section-nav-shell {
+    width: 100vw;
+    max-width: 100vw;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: 0.5rem;
     margin-inline: -1rem;
     margin-bottom: 3.5rem;
+    padding: 0 1rem;
+  }
+
+  .section-nav {
+    flex-wrap: nowrap;
+    gap: 0.5rem;
     overflow-x: auto;
     overscroll-behavior-x: contain;
-    padding: 0.1rem 1rem 0.35rem;
+    padding: 0.1rem 0 0.35rem;
     scroll-snap-type: x proximity;
     scrollbar-width: none;
   }
@@ -796,6 +1147,8 @@ a:focus-visible {
   }
 
   .date-rail {
+    width: 100vw;
+    max-width: 100vw;
     margin-inline: -1rem;
     padding-inline: 1rem;
   }
@@ -809,57 +1162,134 @@ a:focus-visible {
     white-space: nowrap;
   }
 
+  .customize-sections-button {
+    align-self: start;
+    min-height: 44px;
+    width: 44px;
+    justify-content: center;
+    padding: 0;
+    font-size: 0;
+  }
+
+  .customize-sections-button svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .section-customizer-backdrop {
+    align-items: end;
+    padding: 0.75rem;
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+
+  .section-customizer {
+    width: 100%;
+    border-radius: 1.35rem;
+    padding: 0.95rem;
+  }
+
+  .section-order-list {
+    gap: 0.45rem;
+  }
+
+  .section-order-list li {
+    min-height: 3.7rem;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    padding: 0.48rem 0.48rem 0.48rem 0.78rem;
+  }
+
+  .order-controls button {
+    width: 2.65rem;
+    height: 2.65rem;
+  }
+
+  .customizer-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
   .section-heading h2 {
-    font-size: clamp(2.35rem, 15vw, 4.25rem);
+    max-width: 100%;
+    font-size: clamp(1.6rem, 7.5vw, 2.1rem);
+    line-height: 1;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .section-heading p {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    line-height: 1.45;
   }
 
   .briefing-stack {
-    gap: 4rem;
+    gap: 2.6rem;
+  }
+
+  .news-section {
+    contain-intrinsic-size: auto;
+  }
+
+  .section-heading {
+    gap: 0.85rem;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+  }
+
+  .lead-grid {
+    gap: 0.72rem;
   }
 
   .story-card,
   .story-card.featured,
   .story-card:nth-child(4n) {
+    width: 100%;
+    max-width: 100%;
     border-radius: 1.25rem;
     padding: 0.28rem;
+    overflow: hidden;
   }
 
   .story-link {
+    width: 100%;
+    max-width: 100%;
     min-height: auto;
-    gap: 0.85rem;
+    gap: 0.68rem;
     border-radius: 1rem;
-    padding: 1rem;
+    padding: 0.86rem;
   }
 
   .story-share {
-    top: 0.78rem;
-    right: 0.78rem;
-    width: 2.5rem;
-    height: 2.5rem;
+    top: 0.68rem;
+    right: 0.68rem;
+    width: 2.35rem;
+    height: 2.35rem;
   }
 
   .story-card h3,
   .story-card.featured h3 {
-    font-size: clamp(1.28rem, 6.6vw, 1.85rem);
-    line-height: 1.12;
+    max-width: 100%;
+    font-size: clamp(1rem, 4.8vw, 1.28rem);
+    line-height: 1.16;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .story-card p {
-    font-size: 0.96rem;
-    line-height: 1.52;
+    max-width: 100%;
+    font-size: 0.88rem;
+    line-height: 1.46;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .story-topline {
-    font-size: 0.68rem;
-    letter-spacing: 0.08em;
-    padding-right: 2.75rem;
+    gap: 0.42rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.07em;
+    padding-right: 2.55rem;
     align-items: flex-start;
     flex-wrap: wrap;
-    row-gap: 0.28rem;
+    row-gap: 0.18rem;
   }
 
   .story-freshness {
@@ -870,10 +1300,11 @@ a:focus-visible {
   .more-shell {
     border-radius: 1rem;
     padding-inline: 0.72rem;
+    margin-top: 0.8rem;
   }
 
   .more-toggle {
-    min-height: 4.8rem;
+    min-height: 4.2rem;
     grid-template-columns: minmax(0, 1fr) auto auto;
   }
 
@@ -887,12 +1318,14 @@ a:focus-visible {
   }
 
   .more-list a,
+  .more-preview a,
   .site-footer {
     grid-template-columns: 1fr;
     flex-direction: column;
   }
 
-  .more-list small {
+  .more-list small,
+  .more-preview small {
     white-space: normal;
   }
 
@@ -904,13 +1337,13 @@ a:focus-visible {
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 380px), (max-device-width: 380px) {
   .masthead h1 {
-    font-size: clamp(3.45rem, 21vw, 4.85rem);
+    font-size: clamp(3.05rem, 17vw, 4.2rem);
   }
 
   .section-heading h2 {
-    font-size: clamp(2.05rem, 14vw, 3.5rem);
+    font-size: clamp(1.5rem, 7vw, 1.95rem);
   }
 
   .date-pill {
