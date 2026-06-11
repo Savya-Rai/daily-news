@@ -23,9 +23,7 @@ npm run generate
 npm run dev
 ```
 
-Vite will print a local URL, usually `http://localhost:5173`.
-
-To test on a phone before opening a PR, keep the dev server running and open the Vite network URL on a phone connected to the same Wi-Fi. Vite prints it as `Network`, for example:
+To test before opening a PR, keep the dev server running and open the Vite `Network` URL on any device connected to the same Wi-Fi. Vite prints it as `Network`, for example:
 
 ```text
 http://192.168.20.5:5173/

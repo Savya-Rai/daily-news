@@ -13,20 +13,14 @@ This file keeps contributor workflow notes separate from the product README.
 
 ## Local Vite Preview
 
-Run the site locally:
+Run the site locally and use the Vite `Network` URL for desktop and phone checks:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Vite usually serves the site at:
-
-```text
-http://localhost:5173/
-```
-
-To preview on a phone, keep the dev server running and open the Vite `Network` URL on a phone connected to the same Wi-Fi. Example:
+Vite prints the URL as `Network`. Keep the dev server running and open that URL on any device connected to the same Wi-Fi. Example:
 
 ```text
 http://192.168.20.5:5173/
@@ -49,6 +43,9 @@ http://YOUR-IP:5173/
 For UI work, use design skills before and after implementation:
 
 - `impeccable`: overall product quality, anti-generic direction, and design context.
+- `design-taste-frontend`: anti-template design direction, brief inference, and final pre-flight checks.
+- `high-end-visual-design`: premium agency-level visual polish, haptic depth, and cinematic motion checks.
+- `emil-design-eng`: invisible interaction details, animation judgement, and component feel.
 - `polish`: final alignment, spacing, copy, states, and interaction details.
 - `critique`: design review and issue prioritisation.
 - `layout`: spacing, rhythm, density, and responsive structure.
@@ -57,6 +54,18 @@ For UI work, use design skills before and after implementation:
 - `adapt`: mobile, desktop, touch targets, and responsive behaviour.
 - `clarify`: reader-facing copy, labels, warnings, and empty/error states.
 - `optimize`: bundle size, scroll smoothness, rendering, and performance tradeoffs.
+- `imagegen-frontend-mobile`: mobile screen concept images only, useful for exploring app-native iPhone directions before coding.
+- `imagegen-frontend-web`: web section image direction when a new visual system or major redesign needs generated references.
+- `image-to-code`: image-led implementation when matching a generated or provided visual reference matters.
+- `redesign-existing-projects`: audit-first upgrades to existing screens without breaking the product.
+- `audit`: accessibility, performance, theming, responsive, and technical quality review.
+- `bolder`: add more visual impact when the UI feels too safe.
+- `quieter`: reduce intensity when the UI feels too loud.
+- `colorize`: improve palette depth and colour strategy.
+- `distill`: simplify cluttered UI and remove low-value elements.
+- `delight`: add small moments of product personality.
+- `shape`: plan a feature's UX/UI before implementation.
+- `impeccable extract`: pull reusable components, tokens, and design-system patterns when needed.
 
 Use the skills as a review lens, then implement changes conservatively in the existing React/CSS patterns. For this project, mobile matters heavily because the briefing is intended for daily iPhone reading.
 
@@ -68,8 +77,8 @@ Before opening a PR:
 - Run `npm run build` if generation logic or source data handling changed.
 - Check `git diff --check`.
 - Preview desktop and mobile layouts.
-- Confirm the app still works at `http://localhost:5173/`.
-- For phone checks, use the Vite network URL.
+- Confirm the app works using the Vite `Network` URL.
+- Use the Vite `Network` URL for all manual browser and phone checks.
 - Do not leave console logs, unused imports, or unrelated formatting churn.
 
 ## PR Description Template
@@ -104,4 +113,3 @@ Use this structure for pull requests:
 
 - [Anything intentionally deferred, risky, or worth reviewing closely.]
 ```
-
