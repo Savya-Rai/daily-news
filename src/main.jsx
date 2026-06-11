@@ -368,7 +368,7 @@ function SectionNav({ sections, onCustomize }) {
         transition={{ delay: 0.25 + sections.length * 0.05, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
         <SlidersHorizontal size={17} aria-hidden="true" />
-        Customize
+        Customise
       </motion.button>
     </div>
   );
@@ -414,7 +414,7 @@ function SectionCustomizer({ open, sections, defaultSections, onClose, onMove, o
         <div className="customizer-header">
           <div>
             <span>Personal order</span>
-            <h2 id="section-customizer-title">Customize sections</h2>
+            <h2 id="section-customizer-title">Customise sections</h2>
           </div>
           <button type="button" className="icon-button" aria-label="Close section customizer" onClick={onClose}>
             <X size={18} aria-hidden="true" />

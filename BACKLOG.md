@@ -13,7 +13,7 @@ Ideas worth keeping out of GitHub issues for now.
 ## Completed On Current Feature Branch
 
 - Added local, per-device section ordering preferences using `localStorage`.
-  - The `Customize` control near the section nav opens a lightweight reorder panel.
+  - The `Customise` control near the section nav opens a lightweight reorder panel.
   - Reordering only changes section order, not section colours.
 - Added a thin top page scroll progress bar.
 
