@@ -15,7 +15,7 @@ import "@fontsource/geist/latin-400.css";
 import "@fontsource/geist/latin-500.css";
 import "@fontsource/geist/latin-600.css";
 import "@fontsource/geist-mono/latin-500.css";
-import "@fontsource/newsreader/latin-600.css";
+import "@fontsource/bricolage-grotesque/latin-700.css";
 import "./styles.css";
 
 const emptyBriefing = {
@@ -208,7 +208,7 @@ function displayText(value) {
 }
 
 function ScrollProgress() {
-  const [progress, setProgress] = useState(0);
+  const progressRef = useRef(null);
   const rafId = useRef(null);
 
   useEffect(() => {
@@ -218,7 +218,9 @@ function ScrollProgress() {
       rafId.current = window.requestAnimationFrame(() => {
         const scrollableDistance = document.documentElement.scrollHeight - window.innerHeight;
         const nextProgress = scrollableDistance > 0 ? window.scrollY / scrollableDistance : 0;
-        setProgress(Math.min(1, Math.max(0, nextProgress)));
+        if (progressRef.current) {
+          progressRef.current.style.transform = `scaleX(${Math.min(1, Math.max(0, nextProgress))})`;
+        }
         rafId.current = null;
       });
     };
@@ -236,7 +238,7 @@ function ScrollProgress() {
 
   return (
     <div className="scroll-progress" aria-hidden="true">
-      <span style={{ transform: `scaleX(${progress})` }} />
+      <span ref={progressRef} />
     </div>
   );
 }
@@ -558,7 +560,7 @@ function NewsSection({ section, index }) {
   const reduceMotion = useReducedMotion();
   const leadStories = section.leadStories || [];
   const moreHeadlines = section.moreHeadlines || [];
-  const previewHeadlines = moreHeadlines.slice(0, 2);
+  const previewHeadlines = moreHeadlines.slice(0, 1);
 
   return (
     <motion.section
