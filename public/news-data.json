@@ -3,7 +3,7 @@
   "dateKey": "2026-06-11",
   "dateLabel": "Thursday 11 June 2026",
   "relativeLabel": "Today",
-  "generatedAt": "2026-06-11T07:15:02.050Z",
+  "generatedAt": "2026-06-11T07:52:16.979Z",
   "timezone": "Australia/Sydney",
   "sections": [
     {
@@ -239,14 +239,6 @@
           "secondarySources": []
         },
         {
-          "title": "US and Iran exchange fresh wave of strikes",
-          "source": "Financial Times",
-          "summary": "Oil price rises as Washington and Tehran send mixed signals over status of the Strait of Hormuz",
-          "url": "https://www.ft.com/content/e8bea0ec-8dee-495a-8cf3-b5cbb283ccae",
-          "publishedAt": "2026-06-11T06:26:08.000Z",
-          "secondarySources": []
-        },
-        {
           "title": "Oil climbs as U.S.-Iran conflict escalates and regional tensions mount",
           "source": "CNBC",
           "summary": "Oil prices edged higher on Thursday after Kuwait closed its airspace and Israel warned of launches from Lebanon.",
@@ -261,9 +253,7 @@
           "url": "https://www.marketwatch.com/story/markets-are-pricing-in-a-rate-hike-by-the-european-central-bank-and-that-could-be-a-mistake-in-the-making-b99771ca?mod=mw_rss_topstories",
           "publishedAt": "2026-06-11T06:36:00.000Z",
           "secondarySources": []
-        }
-      ],
-      "moreHeadlines": [
+        },
         {
           "title": "Bitcoin bulls are still around. These charts show they just moved on to hotter markets.",
           "source": "MarketWatch",
@@ -271,7 +261,9 @@
           "url": "https://www.marketwatch.com/story/bitcoin-bulls-are-still-around-these-charts-show-they-just-moved-on-to-hotter-markets-8e04c48c?mod=mw_rss_topstories",
           "publishedAt": "2026-06-10T21:54:00.000Z",
           "secondarySources": []
-        },
+        }
+      ],
+      "moreHeadlines": [
         {
           "title": "Kathy Ruemmler helps search for her own replacement as Goldman’s top lawyer",
           "source": "Financial Times",
@@ -342,6 +334,14 @@
           "summary": "Soccer&#x2019;s premier tournament brings a hidden danger to your investment portfolio.",
           "url": "https://www.marketwatch.com/story/the-weird-reason-why-a-teams-world-cup-loss-can-trigger-a-sharp-drop-in-stock-prices-ac385f51?mod=mw_rss_topstories",
           "publishedAt": "2026-06-10T23:25:00.000Z",
+          "secondarySources": []
+        },
+        {
+          "title": "Thinking about insider trading on prediction markets? Kalshi wants to make an example of you.",
+          "source": "MarketWatch",
+          "summary": "Prediction-market companies are identifying hundreds of cases of suspected insider trading.",
+          "url": "https://www.marketwatch.com/story/thinking-about-insider-trading-on-prediction-markets-kalshi-wants-to-make-an-example-of-you-74d50486?mod=mw_rss_topstories",
+          "publishedAt": "2026-06-10T23:22:00.000Z",
           "secondarySources": []
         }
       ]
@@ -479,19 +479,27 @@
       },
       "leadStories": [
         {
+          "title": "Iran War Live Updates: U.S. and Iran Trade Fresh Attacks",
+          "source": "NY Times",
+          "summary": "The continued exchanges of fire have raised fears that the two sides could return to all-out war.",
+          "url": "https://www.nytimes.com/live/2026/06/11/world/iran-war-trump-us-israel",
+          "publishedAt": "2026-06-11T07:40:52.000Z",
+          "secondarySources": []
+        },
+        {
+          "title": "Middle East crisis live: US and Iran trade strikes again, after Trump warns Tehran will ‘pay the price’ for stalled talks",
+          "source": "The Guardian World",
+          "summary": "US launches second round of airstrikes on Iran, and Tehran responds by targeting Bahrain, Kuwait and Jordan US strikes Iran for second day, as ceasefire appears close to collapse Three Indian seafarers were killed in a US attack on...",
+          "url": "https://www.theguardian.com/world/live/2026/jun/11/iran-war-news-us-strikes-donald-trump-stalled-peace-talks-middle-east-crisis",
+          "publishedAt": "2026-06-11T07:39:43.000Z",
+          "secondarySources": []
+        },
+        {
           "title": "Mike Johnson attempts to defend Trump after president says ‘I love the inflation’ – as it happened",
           "source": "The Guardian World",
           "summary": "This live blog is now closed. Sign up for the Breaking News US email Donald Trump ’s immigration crackdown is largely targeting people from the countries most vulnerable to displacement from climate-driven disasters, a Guardian anal...",
           "url": "https://www.theguardian.com/us-news/live/2026/jun/10/graham-platner-maine-democrats-senate-primary-donald-trump-us-politics-latest-news-updates",
           "publishedAt": "2026-06-11T01:57:00.000Z",
-          "secondarySources": []
-        },
-        {
-          "title": "U.S. and Iran Trade Strikes for a Second Day",
-          "source": "NY Times",
-          "summary": "The exchanges raise the specter of a return to all-out war in the Middle East.",
-          "url": "https://www.nytimes.com/live/2026/06/10/world/iran-war-trump-us",
-          "publishedAt": "2026-06-11T06:17:02.000Z",
           "secondarySources": []
         },
         {
@@ -501,17 +509,17 @@
           "url": "https://www.theguardian.com/world/2026/jun/10/middle-east-peace-talks-iran-strikes",
           "publishedAt": "2026-06-11T05:45:46.000Z",
           "secondarySources": []
-        },
+        }
+      ],
+      "moreHeadlines": [
         {
           "title": "US and Iran exchange strikes across Middle East for second day in a row",
           "source": "BBC",
           "summary": "Iran says it responded to US strikes by targeting American assets in Kuwait, Jordan and Bahrain, which reported damage to its capital city overnight.",
           "url": "https://www.bbc.com/news/articles/c4gyp9v0e93o?at_medium=RSS&at_campaign=rss",
-          "publishedAt": "2026-06-11T06:49:10.000Z",
+          "publishedAt": "2026-06-11T07:18:40.000Z",
           "secondarySources": []
-        }
-      ],
-      "moreHeadlines": [
+        },
         {
           "title": "Trump says he 'loves the inflation' as US prices rise at fastest rate in three years",
           "source": "BBC",
@@ -534,14 +542,6 @@
           "summary": "Budget airline describes inquiry as ‘bogus’ as watchdog says it is only large carrier flying from UK to impose charge Business live – latest updates Europe’s biggest low-cost airline, Ryanair, is facing an investigation over the man...",
           "url": "https://www.theguardian.com/business/2026/jun/11/ryanair-investigated-over-charging-parents-children-uk-cma",
           "publishedAt": "2026-06-11T06:59:20.000Z",
-          "secondarySources": []
-        },
-        {
-          "title": "Middle East crisis live: US and Iran trade strikes again, after Trump warns Tehran will ‘pay the price’ for stalled talks",
-          "source": "The Guardian World",
-          "summary": "US launches second round of airstrikes on Iran, and Tehran responds by targeting Bahrain, Kuwait and Jordan US strikes Iran for second day, as ceasefire appears close to collapse The US-Iran ceasefire is more like a “lesser fire”, U...",
-          "url": "https://www.theguardian.com/world/live/2026/jun/11/iran-war-news-us-strikes-donald-trump-stalled-peace-talks-middle-east-crisis",
-          "publishedAt": "2026-06-11T06:15:45.000Z",
           "secondarySources": []
         },
         {
@@ -577,19 +577,19 @@
           "secondarySources": []
         },
         {
+          "title": "A Fractured North America Begins a Historic World Cup",
+          "source": "NY Times",
+          "summary": "Mexico and Canada have faced significant recent tension in their relations with the United States.",
+          "url": "https://www.nytimes.com/2026/06/11/world/americas/world-cup-fractured-north-america.html",
+          "publishedAt": "2026-06-11T07:20:29.000Z",
+          "secondarySources": []
+        },
+        {
           "title": "U.S. Officials Told Colombia to Cancel President’s Meeting With Mamdani",
           "source": "NY Times",
           "summary": "The State Department canceled President Gustavo Petro’s visa last year after he attended a pro-Palestinian rally in Manhattan.",
           "url": "https://www.nytimes.com/2026/06/10/world/americas/mamdani-petro-new-york-colombia-trump.html",
           "publishedAt": "2026-06-11T07:06:01.000Z",
-          "secondarySources": []
-        },
-        {
-          "title": "Indonesian Military Court Sentences Four in Acid Attack on Rights Advocate",
-          "source": "NY Times",
-          "summary": "The victim is an outspoken critic of Indonesia’s powerful military, and military prosecutors took over the case despite his objections.",
-          "url": "https://www.nytimes.com/2026/06/10/world/asia/indonesia-military-acid-attack-andrie.html",
-          "publishedAt": "2026-06-11T02:41:01.000Z",
           "secondarySources": []
         }
       ]
@@ -619,11 +619,11 @@
           "secondarySources": []
         },
         {
-          "title": "National security risk as parliamentary network fails seven out of eight basic cyber checks",
-          "source": "SMH",
-          "summary": "A damning report from the auditor-general reveals deep vulnerabilities across critical federal government safeguards, amid warnings the system may no longer be fit for purpose against sophisticated foreign espionage.",
-          "url": "https://www.smh.com.au/politics/federal/national-security-risk-as-parliamentary-network-fails-seven-out-of-eight-basic-cyber-checks-20260611-p6061j.html?ref=rss&utm_medium=rss&utm_source=rss_feed",
-          "publishedAt": "2026-06-11T06:35:01.000Z",
+          "title": "Adelaide defence lawyer pleads not guilty to sexual offences",
+          "source": "ABC News",
+          "summary": "Andrew Graham enters not guilty pleas to two counts of rape and one charge of compelling a person to sexually manipulate an offender.",
+          "url": "https://www.abc.net.au/news/2026-06-11/lawyer-andrew-graham-pleads-not-guilty-sexual-offences/106787576",
+          "publishedAt": "2026-06-11T07:27:02.000Z",
           "secondarySources": []
         },
         {
@@ -645,6 +645,22 @@
           "secondarySources": []
         },
         {
+          "title": "Former Qld Labor ministers accused of political interference at CFMEU inquiry",
+          "source": "ABC News",
+          "summary": "The probe has wrapped up its tenth block of public hearings with explosive new allegations of political interference levelled against senior Palaszczuk government ministers Mick de Brenni and Grace Grace.",
+          "url": "https://www.abc.net.au/news/2026-06-11/qld-cfmeu-inquiry-former-labor-ministers-accused/106787012",
+          "publishedAt": "2026-06-11T07:23:01.000Z",
+          "secondarySources": []
+        },
+        {
+          "title": "Australia news live: Burke brushes off One Nation threat to his seat and says Hanson ‘hates my part of Sydney’",
+          "source": "Guardian Australia",
+          "summary": "Follow today’s news live Get our breaking news email , free app or daily news podcast Wong not ‘interested’ in One Nation’s fundraising Wong says she isn’t concerned about One Nation’s fundraising efforts, but more about their polic...",
+          "url": "https://www.theguardian.com/australia-news/live/2026/jun/11/australia-news-live-labor-coalition-one-nation-anthony-albanese-pauline-hanson-capital-gains-housing-peptides-arthritis-ntwnfb",
+          "publishedAt": "2026-06-11T07:44:10.000Z",
+          "secondarySources": []
+        },
+        {
           "title": "Death in custody inquest finds evidence of complacency and incompetence",
           "source": "ABC News",
           "summary": "A NSW coroner recommends conduct reviews for medical staff over their treatment of a prisoner who died within a day of entering Australia's largest prison.",
@@ -658,14 +674,6 @@
           "summary": "Want to get this in your inbox every weekday? Sign up for the Afternoon Update here , and start your day with our Morning Mail newsletter Good afternoon.",
           "url": "https://www.theguardian.com/australia-news/2026/jun/11/afternoon-update-thursday-ntwnfb",
           "publishedAt": "2026-06-11T06:53:35.000Z",
-          "secondarySources": []
-        },
-        {
-          "title": "Australia news live: Burke brushes off One Nation threat to his seat and says Hanson ‘hates my part of Sydney’",
-          "source": "Guardian Australia",
-          "summary": "Follow today’s news live Get our breaking news email , free app or daily news podcast Wong not ‘interested’ in One Nation’s fundraising Wong says she isn’t concerned about One Nation’s fundraising efforts, but more about their polic...",
-          "url": "https://www.theguardian.com/australia-news/live/2026/jun/11/australia-news-live-labor-coalition-one-nation-anthony-albanese-pauline-hanson-capital-gains-housing-peptides-arthritis-ntwnfb",
-          "publishedAt": "2026-06-11T06:49:43.000Z",
           "secondarySources": []
         },
         {
@@ -697,23 +705,15 @@
           "source": "SMH",
           "summary": "Nobody can see detail of who donated what to Pauline Hanson’s party this financial year until February 1.",
           "url": "https://www.smh.com.au/politics/federal/donation-reform-delay-gives-one-nation-six-months-to-raise-uncapped-funds-20260611-p605ue.html?ref=rss&utm_medium=rss&utm_source=rss_feed",
-          "publishedAt": "2026-06-11T07:11:51.000Z",
+          "publishedAt": "2026-06-11T07:20:38.000Z",
           "secondarySources": []
         },
         {
-          "title": "Schmidt’s new coaching role in Australian rugby revealed",
+          "title": "Melissa Caddick’s widower says police tricked him over alleged Vaucluse assault",
           "source": "SMH",
-          "summary": "Joe Schmidt will finish up as Wallabies head coach in July but he won’t be lost to Australian rugby, having agreed to a new role for later this year.",
-          "url": "https://www.smh.com.au/sport/rugby-union/schmidt-s-new-coaching-role-in-australian-rugby-revealed-20260611-p605uv.html?ref=rss&utm_medium=rss&utm_source=rss_feed",
-          "publishedAt": "2026-06-11T07:11:16.000Z",
-          "secondarySources": []
-        },
-        {
-          "title": "What time is World Cup kick-off, Australian time?",
-          "source": "ABC News",
-          "summary": "Check out when your team's matches are kicking off at the 2026 FIFA World Cup so you don't miss a match.",
-          "url": "https://www.abc.net.au/news/2026-06-11/2026-fifa-world-cup-kick-off-times-australia-time/106758984",
-          "publishedAt": "2026-06-11T03:01:24.000Z",
+          "summary": "Anthony Koletti is accused of shoulder barging a 73-year-old woman at a clifftop reserve in Sydney’s eastern suburbs.",
+          "url": "https://www.smh.com.au/national/nsw/melissa-caddick-s-widower-says-police-tricked-him-over-alleged-vaucluse-assault-20260611-p605rq.html?ref=rss&utm_medium=rss&utm_source=rss_feed",
+          "publishedAt": "2026-06-11T07:20:18.000Z",
           "secondarySources": []
         }
       ]
@@ -725,7 +725,7 @@
       "dateKey": "2026-06-11",
       "dateLabel": "Thursday 11 June 2026",
       "relativeLabel": "Today",
-      "generatedAt": "2026-06-11T07:15:02.050Z",
+      "generatedAt": "2026-06-11T07:52:16.979Z",
       "timezone": "Australia/Sydney",
       "sections": [
         {
@@ -961,14 +961,6 @@
               "secondarySources": []
             },
             {
-              "title": "US and Iran exchange fresh wave of strikes",
-              "source": "Financial Times",
-              "summary": "Oil price rises as Washington and Tehran send mixed signals over status of the Strait of Hormuz",
-              "url": "https://www.ft.com/content/e8bea0ec-8dee-495a-8cf3-b5cbb283ccae",
-              "publishedAt": "2026-06-11T06:26:08.000Z",
-              "secondarySources": []
-            },
-            {
               "title": "Oil climbs as U.S.-Iran conflict escalates and regional tensions mount",
               "source": "CNBC",
               "summary": "Oil prices edged higher on Thursday after Kuwait closed its airspace and Israel warned of launches from Lebanon.",
@@ -983,9 +975,7 @@
               "url": "https://www.marketwatch.com/story/markets-are-pricing-in-a-rate-hike-by-the-european-central-bank-and-that-could-be-a-mistake-in-the-making-b99771ca?mod=mw_rss_topstories",
               "publishedAt": "2026-06-11T06:36:00.000Z",
               "secondarySources": []
-            }
-          ],
-          "moreHeadlines": [
+            },
             {
               "title": "Bitcoin bulls are still around. These charts show they just moved on to hotter markets.",
               "source": "MarketWatch",
@@ -993,7 +983,9 @@
               "url": "https://www.marketwatch.com/story/bitcoin-bulls-are-still-around-these-charts-show-they-just-moved-on-to-hotter-markets-8e04c48c?mod=mw_rss_topstories",
               "publishedAt": "2026-06-10T21:54:00.000Z",
               "secondarySources": []
-            },
+            }
+          ],
+          "moreHeadlines": [
             {
               "title": "Kathy Ruemmler helps search for her own replacement as Goldman’s top lawyer",
               "source": "Financial Times",
@@ -1064,6 +1056,14 @@
               "summary": "Soccer&#x2019;s premier tournament brings a hidden danger to your investment portfolio.",
               "url": "https://www.marketwatch.com/story/the-weird-reason-why-a-teams-world-cup-loss-can-trigger-a-sharp-drop-in-stock-prices-ac385f51?mod=mw_rss_topstories",
               "publishedAt": "2026-06-10T23:25:00.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Thinking about insider trading on prediction markets? Kalshi wants to make an example of you.",
+              "source": "MarketWatch",
+              "summary": "Prediction-market companies are identifying hundreds of cases of suspected insider trading.",
+              "url": "https://www.marketwatch.com/story/thinking-about-insider-trading-on-prediction-markets-kalshi-wants-to-make-an-example-of-you-74d50486?mod=mw_rss_topstories",
+              "publishedAt": "2026-06-10T23:22:00.000Z",
               "secondarySources": []
             }
           ]
@@ -1201,19 +1201,27 @@
           },
           "leadStories": [
             {
+              "title": "Iran War Live Updates: U.S. and Iran Trade Fresh Attacks",
+              "source": "NY Times",
+              "summary": "The continued exchanges of fire have raised fears that the two sides could return to all-out war.",
+              "url": "https://www.nytimes.com/live/2026/06/11/world/iran-war-trump-us-israel",
+              "publishedAt": "2026-06-11T07:40:52.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Middle East crisis live: US and Iran trade strikes again, after Trump warns Tehran will ‘pay the price’ for stalled talks",
+              "source": "The Guardian World",
+              "summary": "US launches second round of airstrikes on Iran, and Tehran responds by targeting Bahrain, Kuwait and Jordan US strikes Iran for second day, as ceasefire appears close to collapse Three Indian seafarers were killed in a US attack on...",
+              "url": "https://www.theguardian.com/world/live/2026/jun/11/iran-war-news-us-strikes-donald-trump-stalled-peace-talks-middle-east-crisis",
+              "publishedAt": "2026-06-11T07:39:43.000Z",
+              "secondarySources": []
+            },
+            {
               "title": "Mike Johnson attempts to defend Trump after president says ‘I love the inflation’ – as it happened",
               "source": "The Guardian World",
               "summary": "This live blog is now closed. Sign up for the Breaking News US email Donald Trump ’s immigration crackdown is largely targeting people from the countries most vulnerable to displacement from climate-driven disasters, a Guardian anal...",
               "url": "https://www.theguardian.com/us-news/live/2026/jun/10/graham-platner-maine-democrats-senate-primary-donald-trump-us-politics-latest-news-updates",
               "publishedAt": "2026-06-11T01:57:00.000Z",
-              "secondarySources": []
-            },
-            {
-              "title": "U.S. and Iran Trade Strikes for a Second Day",
-              "source": "NY Times",
-              "summary": "The exchanges raise the specter of a return to all-out war in the Middle East.",
-              "url": "https://www.nytimes.com/live/2026/06/10/world/iran-war-trump-us",
-              "publishedAt": "2026-06-11T06:17:02.000Z",
               "secondarySources": []
             },
             {
@@ -1223,17 +1231,17 @@
               "url": "https://www.theguardian.com/world/2026/jun/10/middle-east-peace-talks-iran-strikes",
               "publishedAt": "2026-06-11T05:45:46.000Z",
               "secondarySources": []
-            },
+            }
+          ],
+          "moreHeadlines": [
             {
               "title": "US and Iran exchange strikes across Middle East for second day in a row",
               "source": "BBC",
               "summary": "Iran says it responded to US strikes by targeting American assets in Kuwait, Jordan and Bahrain, which reported damage to its capital city overnight.",
               "url": "https://www.bbc.com/news/articles/c4gyp9v0e93o?at_medium=RSS&at_campaign=rss",
-              "publishedAt": "2026-06-11T06:49:10.000Z",
+              "publishedAt": "2026-06-11T07:18:40.000Z",
               "secondarySources": []
-            }
-          ],
-          "moreHeadlines": [
+            },
             {
               "title": "Trump says he 'loves the inflation' as US prices rise at fastest rate in three years",
               "source": "BBC",
@@ -1256,14 +1264,6 @@
               "summary": "Budget airline describes inquiry as ‘bogus’ as watchdog says it is only large carrier flying from UK to impose charge Business live – latest updates Europe’s biggest low-cost airline, Ryanair, is facing an investigation over the man...",
               "url": "https://www.theguardian.com/business/2026/jun/11/ryanair-investigated-over-charging-parents-children-uk-cma",
               "publishedAt": "2026-06-11T06:59:20.000Z",
-              "secondarySources": []
-            },
-            {
-              "title": "Middle East crisis live: US and Iran trade strikes again, after Trump warns Tehran will ‘pay the price’ for stalled talks",
-              "source": "The Guardian World",
-              "summary": "US launches second round of airstrikes on Iran, and Tehran responds by targeting Bahrain, Kuwait and Jordan US strikes Iran for second day, as ceasefire appears close to collapse The US-Iran ceasefire is more like a “lesser fire”, U...",
-              "url": "https://www.theguardian.com/world/live/2026/jun/11/iran-war-news-us-strikes-donald-trump-stalled-peace-talks-middle-east-crisis",
-              "publishedAt": "2026-06-11T06:15:45.000Z",
               "secondarySources": []
             },
             {
@@ -1299,19 +1299,19 @@
               "secondarySources": []
             },
             {
+              "title": "A Fractured North America Begins a Historic World Cup",
+              "source": "NY Times",
+              "summary": "Mexico and Canada have faced significant recent tension in their relations with the United States.",
+              "url": "https://www.nytimes.com/2026/06/11/world/americas/world-cup-fractured-north-america.html",
+              "publishedAt": "2026-06-11T07:20:29.000Z",
+              "secondarySources": []
+            },
+            {
               "title": "U.S. Officials Told Colombia to Cancel President’s Meeting With Mamdani",
               "source": "NY Times",
               "summary": "The State Department canceled President Gustavo Petro’s visa last year after he attended a pro-Palestinian rally in Manhattan.",
               "url": "https://www.nytimes.com/2026/06/10/world/americas/mamdani-petro-new-york-colombia-trump.html",
               "publishedAt": "2026-06-11T07:06:01.000Z",
-              "secondarySources": []
-            },
-            {
-              "title": "Indonesian Military Court Sentences Four in Acid Attack on Rights Advocate",
-              "source": "NY Times",
-              "summary": "The victim is an outspoken critic of Indonesia’s powerful military, and military prosecutors took over the case despite his objections.",
-              "url": "https://www.nytimes.com/2026/06/10/world/asia/indonesia-military-acid-attack-andrie.html",
-              "publishedAt": "2026-06-11T02:41:01.000Z",
               "secondarySources": []
             }
           ]
@@ -1341,11 +1341,11 @@
               "secondarySources": []
             },
             {
-              "title": "National security risk as parliamentary network fails seven out of eight basic cyber checks",
-              "source": "SMH",
-              "summary": "A damning report from the auditor-general reveals deep vulnerabilities across critical federal government safeguards, amid warnings the system may no longer be fit for purpose against sophisticated foreign espionage.",
-              "url": "https://www.smh.com.au/politics/federal/national-security-risk-as-parliamentary-network-fails-seven-out-of-eight-basic-cyber-checks-20260611-p6061j.html?ref=rss&utm_medium=rss&utm_source=rss_feed",
-              "publishedAt": "2026-06-11T06:35:01.000Z",
+              "title": "Adelaide defence lawyer pleads not guilty to sexual offences",
+              "source": "ABC News",
+              "summary": "Andrew Graham enters not guilty pleas to two counts of rape and one charge of compelling a person to sexually manipulate an offender.",
+              "url": "https://www.abc.net.au/news/2026-06-11/lawyer-andrew-graham-pleads-not-guilty-sexual-offences/106787576",
+              "publishedAt": "2026-06-11T07:27:02.000Z",
               "secondarySources": []
             },
             {
@@ -1367,6 +1367,22 @@
               "secondarySources": []
             },
             {
+              "title": "Former Qld Labor ministers accused of political interference at CFMEU inquiry",
+              "source": "ABC News",
+              "summary": "The probe has wrapped up its tenth block of public hearings with explosive new allegations of political interference levelled against senior Palaszczuk government ministers Mick de Brenni and Grace Grace.",
+              "url": "https://www.abc.net.au/news/2026-06-11/qld-cfmeu-inquiry-former-labor-ministers-accused/106787012",
+              "publishedAt": "2026-06-11T07:23:01.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Australia news live: Burke brushes off One Nation threat to his seat and says Hanson ‘hates my part of Sydney’",
+              "source": "Guardian Australia",
+              "summary": "Follow today’s news live Get our breaking news email , free app or daily news podcast Wong not ‘interested’ in One Nation’s fundraising Wong says she isn’t concerned about One Nation’s fundraising efforts, but more about their polic...",
+              "url": "https://www.theguardian.com/australia-news/live/2026/jun/11/australia-news-live-labor-coalition-one-nation-anthony-albanese-pauline-hanson-capital-gains-housing-peptides-arthritis-ntwnfb",
+              "publishedAt": "2026-06-11T07:44:10.000Z",
+              "secondarySources": []
+            },
+            {
               "title": "Death in custody inquest finds evidence of complacency and incompetence",
               "source": "ABC News",
               "summary": "A NSW coroner recommends conduct reviews for medical staff over their treatment of a prisoner who died within a day of entering Australia's largest prison.",
@@ -1380,14 +1396,6 @@
               "summary": "Want to get this in your inbox every weekday? Sign up for the Afternoon Update here , and start your day with our Morning Mail newsletter Good afternoon.",
               "url": "https://www.theguardian.com/australia-news/2026/jun/11/afternoon-update-thursday-ntwnfb",
               "publishedAt": "2026-06-11T06:53:35.000Z",
-              "secondarySources": []
-            },
-            {
-              "title": "Australia news live: Burke brushes off One Nation threat to his seat and says Hanson ‘hates my part of Sydney’",
-              "source": "Guardian Australia",
-              "summary": "Follow today’s news live Get our breaking news email , free app or daily news podcast Wong not ‘interested’ in One Nation’s fundraising Wong says she isn’t concerned about One Nation’s fundraising efforts, but more about their polic...",
-              "url": "https://www.theguardian.com/australia-news/live/2026/jun/11/australia-news-live-labor-coalition-one-nation-anthony-albanese-pauline-hanson-capital-gains-housing-peptides-arthritis-ntwnfb",
-              "publishedAt": "2026-06-11T06:49:43.000Z",
               "secondarySources": []
             },
             {
@@ -1419,23 +1427,15 @@
               "source": "SMH",
               "summary": "Nobody can see detail of who donated what to Pauline Hanson’s party this financial year until February 1.",
               "url": "https://www.smh.com.au/politics/federal/donation-reform-delay-gives-one-nation-six-months-to-raise-uncapped-funds-20260611-p605ue.html?ref=rss&utm_medium=rss&utm_source=rss_feed",
-              "publishedAt": "2026-06-11T07:11:51.000Z",
+              "publishedAt": "2026-06-11T07:20:38.000Z",
               "secondarySources": []
             },
             {
-              "title": "Schmidt’s new coaching role in Australian rugby revealed",
+              "title": "Melissa Caddick’s widower says police tricked him over alleged Vaucluse assault",
               "source": "SMH",
-              "summary": "Joe Schmidt will finish up as Wallabies head coach in July but he won’t be lost to Australian rugby, having agreed to a new role for later this year.",
-              "url": "https://www.smh.com.au/sport/rugby-union/schmidt-s-new-coaching-role-in-australian-rugby-revealed-20260611-p605uv.html?ref=rss&utm_medium=rss&utm_source=rss_feed",
-              "publishedAt": "2026-06-11T07:11:16.000Z",
-              "secondarySources": []
-            },
-            {
-              "title": "What time is World Cup kick-off, Australian time?",
-              "source": "ABC News",
-              "summary": "Check out when your team's matches are kicking off at the 2026 FIFA World Cup so you don't miss a match.",
-              "url": "https://www.abc.net.au/news/2026-06-11/2026-fifa-world-cup-kick-off-times-australia-time/106758984",
-              "publishedAt": "2026-06-11T03:01:24.000Z",
+              "summary": "Anthony Koletti is accused of shoulder barging a 73-year-old woman at a clifftop reserve in Sydney’s eastern suburbs.",
+              "url": "https://www.smh.com.au/national/nsw/melissa-caddick-s-widower-says-police-tricked-him-over-alleged-vaucluse-assault-20260611-p605rq.html?ref=rss&utm_medium=rss&utm_source=rss_feed",
+              "publishedAt": "2026-06-11T07:20:18.000Z",
               "secondarySources": []
             }
           ]

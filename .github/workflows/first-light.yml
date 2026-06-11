@@ -5,6 +5,12 @@ on:
     # 6:00 AM Australia/Sydney during AEST is 20:00 UTC on the previous day.
     - cron: "0 20 * * *"
   workflow_dispatch:
+    inputs:
+      force_refresh:
+        description: "Fetch fresh news even if today's briefing already exists"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: read
@@ -31,8 +37,29 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Generate briefing and build site
-        run: npm run build
+      - name: Check existing briefing date
+        id: briefing
+        run: node scripts/check-briefing-date.mjs
+
+      - name: Generate fresh briefing
+        if: steps.briefing.outputs.fresh != 'true' || github.event.inputs.force_refresh == 'true'
+        run: npm run generate
+
+      - name: Reuse existing briefing
+        if: steps.briefing.outputs.fresh == 'true' && github.event.inputs.force_refresh != 'true'
+        run: |
+          echo "Today's briefing already exists for ${{ steps.briefing.outputs.today }}."
+          echo "Skipping RSS fetch and rebuilding the static site only."
+          cat > dist-news-log.json <<'JSON'
+          {
+            "outputGeneratedSuccessfully": true,
+            "skippedGeneration": true,
+            "reason": "Today's briefing already exists; reused existing public/news-data.json."
+          }
+          JSON
+
+      - name: Build site
+        run: npm run build:site
 
       - name: Upload generation log
         uses: actions/upload-artifact@v7

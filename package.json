@@ -7,6 +7,7 @@
     "dev": "vite --host 0.0.0.0",
     "generate": "node scripts/generate-news.mjs",
     "build": "npm run generate && vite build",
+    "build:site": "vite build",
     "preview": "vite preview --host 0.0.0.0"
   },
   "dependencies": {
