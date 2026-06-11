@@ -1,4 +1,4 @@
-name: First Light Daily Briefing
+name: Daily News Pipeline
 
 on:
   schedule:
