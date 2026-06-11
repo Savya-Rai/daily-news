@@ -13,13 +13,19 @@
 }
 
 html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
+  width: 100%;
+  max-width: 100%;
   min-width: 320px;
   min-height: 100dvh;
+  overflow-x: hidden;
   background:
     radial-gradient(circle at 76% 10%, rgba(158, 228, 147, 0.16), transparent 28rem),
     radial-gradient(circle at 8% 28%, rgba(124, 199, 255, 0.12), transparent 25rem),
@@ -43,6 +49,8 @@ a:focus-visible {
 
 .page-shell {
   position: relative;
+  width: 100%;
+  max-width: 100%;
   overflow: clip;
   padding: 0 clamp(1rem, 3vw, 2.5rem) calc(5rem + env(safe-area-inset-bottom));
 }
@@ -81,6 +89,17 @@ a:focus-visible {
   padding: clamp(5rem, 10vh, 7rem) 0 3rem;
 }
 
+.masthead-copy,
+.briefing-plate,
+.plate-inner,
+.section-heading > *,
+.story-card,
+.story-link,
+.more-shell,
+.more-toggle {
+  min-width: 0;
+}
+
 .eyebrow,
 .plate-kicker {
   display: inline-flex;
@@ -97,6 +116,7 @@ a:focus-visible {
 
 .masthead h1 {
   margin: 1.3rem 0 1rem;
+  width: 100%;
   max-width: 9ch;
   font-family: "Newsreader", Georgia, serif;
   font-size: clamp(5rem, 15vw, 13.5rem);
@@ -106,14 +126,18 @@ a:focus-visible {
 }
 
 .masthead p {
+  width: 100%;
   max-width: 36rem;
   margin: 0;
   color: rgba(244, 240, 232, 0.72);
   font-size: clamp(1.1rem, 2vw, 1.45rem);
   line-height: 1.45;
+  overflow-wrap: anywhere;
 }
 
 .briefing-plate {
+  width: 100%;
+  max-width: 100%;
   border-radius: 2rem;
   padding: 0.45rem;
   background: linear-gradient(145deg, rgba(244, 240, 232, 0.1), rgba(244, 240, 232, 0.025));
@@ -121,6 +145,7 @@ a:focus-visible {
 }
 
 .plate-inner {
+  width: 100%;
   min-height: 360px;
   display: flex;
   flex-direction: column;
@@ -135,6 +160,7 @@ a:focus-visible {
 }
 
 .plate-inner strong {
+  overflow-wrap: anywhere;
   font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: 0.95;
 }
@@ -324,6 +350,7 @@ a:focus-visible {
 .news-section {
   position: relative;
   isolation: isolate;
+  overflow: clip;
   scroll-margin-top: 1.5rem;
   content-visibility: auto;
   contain-intrinsic-size: 900px;
@@ -683,7 +710,7 @@ a:focus-visible {
     rgba(22, 22, 20, 0.92);
 }
 
-@media (max-width: 920px) {
+@media (max-width: 1100px) {
   .masthead,
   .briefing-notice,
   .date-rail-shell,
@@ -697,6 +724,7 @@ a:focus-visible {
   }
 
   .briefing-plate {
+    width: 100%;
     max-width: 460px;
   }
 
@@ -724,18 +752,18 @@ a:focus-visible {
   }
 
   .news-section::before {
-    inset: -2.2rem -5rem auto auto;
-    width: 20rem;
-    height: 20rem;
+    inset: -2.2rem -1.5rem auto auto;
+    width: min(20rem, 82vw);
+    height: min(20rem, 82vw);
     opacity: 0.62;
   }
 
   .news-section:nth-child(even)::before {
-    inset: -1.5rem auto auto -5rem;
+    inset: -1.5rem auto auto -1.5rem;
   }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 620px), (max-device-width: 620px) {
   .page-shell {
     padding-inline: 1rem;
     padding-bottom: calc(5.75rem + env(safe-area-inset-bottom));
@@ -904,7 +932,7 @@ a:focus-visible {
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 380px), (max-device-width: 380px) {
   .masthead h1 {
     font-size: clamp(3.45rem, 21vw, 4.85rem);
   }
