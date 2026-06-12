@@ -314,6 +314,7 @@ function normalizeArchive(data) {
 
 function Hero({ archive, briefing, selectedDateKey, onSelectDate, status }) {
   const reduceMotion = useReducedMotion();
+  const hasArchive = archive.length > 1;
 
   return (
     <header className="masthead">
@@ -336,7 +337,7 @@ function Hero({ archive, briefing, selectedDateKey, onSelectDate, status }) {
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ delay: 0.2, duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
       >
-        <DateCarousel
+        <DateDeck
           archive={archive}
           briefing={briefing}
           selectedDateKey={selectedDateKey}
@@ -344,39 +345,49 @@ function Hero({ archive, briefing, selectedDateKey, onSelectDate, status }) {
           status={status}
         />
       </motion.aside>
+      {hasArchive && (
+        <motion.p
+          className="date-deck-hint"
+          initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.45, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+        >
+          Swipe or scroll the date card for the past two briefings.
+        </motion.p>
+      )}
     </header>
   );
 }
 
-function DateCarousel({ archive, briefing, selectedDateKey, onSelectDate, status }) {
+function DateDeck({ archive, briefing, selectedDateKey, onSelectDate, status }) {
   const reduceMotion = useReducedMotion();
-  const railRef = useRef(null);
+  const deckRef = useRef(null);
   const entries = archive.length > 0 ? archive : [briefing];
   const selectedIndex = Math.max(0, entries.findIndex((entry) => entry.dateKey === selectedDateKey));
   const hasMultipleDates = entries.length > 1;
 
   useEffect(() => {
     if (!hasMultipleDates) return undefined;
-    const rail = railRef.current;
-    if (!rail) return undefined;
+    const deck = deckRef.current;
+    if (!deck) return undefined;
 
-    const selectedCard = rail.querySelector(`[data-date-key="${selectedDateKey}"]`);
+    const selectedCard = deck.querySelector(`[data-date-key="${selectedDateKey}"]`);
     selectedCard?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "nearest", inline: "center" });
     return undefined;
   }, [hasMultipleDates, selectedDateKey, reduceMotion]);
 
   useEffect(() => {
     if (!hasMultipleDates) return undefined;
-    const rail = railRef.current;
-    if (!rail) return undefined;
+    const deck = deckRef.current;
+    if (!deck) return undefined;
 
     let settleTimer = null;
     const selectNearestCard = () => {
-      const railCenter = rail.getBoundingClientRect().left + rail.clientWidth / 2;
-      const cards = [...rail.querySelectorAll(".date-pill")];
+      const deckCenter = deck.getBoundingClientRect().left + deck.clientWidth / 2;
+      const cards = [...deck.querySelectorAll(".date-deck-card")];
       const nearest = cards.reduce((best, card) => {
         const rect = card.getBoundingClientRect();
-        const distance = Math.abs(rect.left + rect.width / 2 - railCenter);
+        const distance = Math.abs(rect.left + rect.width / 2 - deckCenter);
         return distance < best.distance ? { card, distance } : best;
       }, { card: null, distance: Infinity }).card;
 
@@ -389,27 +400,27 @@ function DateCarousel({ archive, briefing, selectedDateKey, onSelectDate, status
       settleTimer = window.setTimeout(selectNearestCard, 120);
     };
 
-    rail.addEventListener("scroll", onScroll, { passive: true });
+    deck.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       window.clearTimeout(settleTimer);
-      rail.removeEventListener("scroll", onScroll);
+      deck.removeEventListener("scroll", onScroll);
     };
   }, [hasMultipleDates, selectedDateKey, onSelectDate]);
 
   return (
-    <div className={hasMultipleDates ? "date-carousel" : "date-carousel single"} aria-label="Briefing dates">
-      <div className="date-rail" role={hasMultipleDates ? "list" : undefined} ref={railRef}>
+    <div className={hasMultipleDates ? "date-deck" : "date-deck single"} aria-label="Briefing dates">
+      <div className="date-deck-track" role={hasMultipleDates ? "list" : undefined} ref={deckRef}>
         {entries.map((entry, index) => {
           const selected = entry.dateKey ? entry.dateKey === selectedDateKey : index === 0;
           const distance = Math.abs(index - selectedIndex);
           const direction = Math.sign(index - selectedIndex);
-          const storiesScanned = getStoryCount(entry);
+          const totalStories = getStoryCount(entry);
 
           return (
             <button
               key={entry.dateKey || "empty-briefing"}
               type="button"
-              className="date-pill"
+              className="date-deck-card plate-inner"
               data-date-key={entry.dateKey || ""}
               aria-pressed={selected}
               onClick={() => entry.dateKey && onSelectDate(entry.dateKey)}
@@ -417,14 +428,14 @@ function DateCarousel({ archive, briefing, selectedDateKey, onSelectDate, status
               style={{
                 "--date-depth": distance,
                 "--date-direction": direction,
-                "--date-scale": selected ? 1 : 0.92,
-                "--date-lift": selected ? "0" : "0.7rem",
-                "--date-opacity": selected ? 1 : 0.62
+                "--date-peek": `${Math.min(distance, 2) * 1.25}rem`,
+                "--date-scale": selected ? 1 : 0.94,
+                "--date-opacity": selected ? 1 : 0.7
               }}
             >
-              <span>{entry.relativeLabel || "Today"}</span>
-              <strong>{compactDate(entry.dateLabel)}</strong>
-              <small>{status === "ready" ? `${storiesScanned} stories scanned` : "Loading briefing"}</small>
+              <span className="plate-kicker">{entry.relativeLabel || "Today"}</span>
+              <strong>{selected ? entry.dateLabel : compactDate(entry.dateLabel)}</strong>
+              <span>{status === "ready" ? `${totalStories} stories scanned` : "Loading briefing"}</span>
             </button>
           );
         })}
