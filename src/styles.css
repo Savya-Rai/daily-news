@@ -158,27 +158,28 @@ a:focus-visible {
 .briefing-plate {
   width: 100%;
   max-width: 100%;
-  overflow: hidden;
-  border-radius: 2rem;
-  padding: 0.45rem;
-  background: linear-gradient(145deg, rgba(244, 240, 232, 0.1), rgba(244, 240, 232, 0.025));
-  border: 1px solid rgba(244, 240, 232, 0.1);
+  overflow: visible;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
 }
 
 .date-deck {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   border-radius: 1.6rem;
 }
 
 .date-deck-track {
   min-height: 360px;
   display: flex;
-  overflow-x: auto;
+  overflow: visible;
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   padding: 0;
+  touch-action: pan-y;
 }
 
 .date-deck-track::-webkit-scrollbar {
@@ -203,7 +204,7 @@ a:focus-visible {
 .date-deck-card {
   position: relative;
   z-index: calc(20 - var(--date-depth));
-  flex: 0 0 calc(100% - 2.6rem);
+  flex: 0 0 calc(100% - 3.25rem);
   scroll-snap-align: start;
   overflow: hidden;
   border: 0;
@@ -220,7 +221,7 @@ a:focus-visible {
 }
 
 .date-deck-card + .date-deck-card {
-  margin-left: calc(-100% + 3.9rem);
+  margin-left: calc(-100% + 5.15rem);
 }
 
 .date-deck-card:disabled {
@@ -1108,8 +1109,8 @@ a:focus-visible {
   }
 
   .briefing-plate {
-    border-radius: 1.45rem;
-    padding: 0.32rem;
+    border-radius: 0;
+    padding: 0;
   }
 
   .date-deck-track,
@@ -1128,11 +1129,11 @@ a:focus-visible {
   }
 
   .date-deck-card {
-    flex-basis: calc(100% - 2.2rem);
+    flex-basis: calc(100% - 2.85rem);
   }
 
   .date-deck-card + .date-deck-card {
-    margin-left: calc(-100% + 3.3rem);
+    margin-left: calc(-100% + 4.25rem);
   }
 
   .date-deck-card:not([aria-pressed="true"]) strong {
@@ -1366,7 +1367,7 @@ a:focus-visible {
   }
 
   .date-deck-card {
-    flex-basis: calc(100% - 2rem);
+    flex-basis: calc(100% - 2.55rem);
   }
 }
 

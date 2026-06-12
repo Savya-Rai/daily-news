@@ -362,9 +362,17 @@ function Hero({ archive, briefing, selectedDateKey, onSelectDate, status }) {
 function DateDeck({ archive, briefing, selectedDateKey, onSelectDate, status }) {
   const reduceMotion = useReducedMotion();
   const deckRef = useRef(null);
+  const touchStart = useRef(null);
+  const lastWheelAt = useRef(0);
   const entries = archive.length > 0 ? archive : [briefing];
   const selectedIndex = Math.max(0, entries.findIndex((entry) => entry.dateKey === selectedDateKey));
   const hasMultipleDates = entries.length > 1;
+  const selectDateByOffset = (offset) => {
+    if (!hasMultipleDates) return;
+    const nextIndex = Math.min(entries.length - 1, Math.max(0, selectedIndex + offset));
+    const nextDateKey = entries[nextIndex]?.dateKey;
+    if (nextDateKey && nextDateKey !== selectedDateKey) onSelectDate(nextDateKey);
+  };
 
   useEffect(() => {
     if (!hasMultipleDates) return undefined;
@@ -409,7 +417,38 @@ function DateDeck({ archive, briefing, selectedDateKey, onSelectDate, status }) 
 
   return (
     <div className={hasMultipleDates ? "date-deck" : "date-deck single"} aria-label="Briefing dates">
-      <div className="date-deck-track" role={hasMultipleDates ? "list" : undefined} ref={deckRef}>
+      <div
+        className="date-deck-track"
+        role={hasMultipleDates ? "list" : undefined}
+        ref={deckRef}
+        onWheel={(event) => {
+          if (!hasMultipleDates) return;
+
+          const dominantDelta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+          const now = Date.now();
+          if (Math.abs(dominantDelta) < 18 || now - lastWheelAt.current < 520) return;
+
+          lastWheelAt.current = now;
+          selectDateByOffset(dominantDelta > 0 ? 1 : -1);
+        }}
+        onTouchStart={(event) => {
+          const touch = event.touches[0];
+          touchStart.current = touch ? { x: touch.clientX, y: touch.clientY } : null;
+        }}
+        onTouchEnd={(event) => {
+          if (!hasMultipleDates || !touchStart.current) return;
+
+          const touch = event.changedTouches[0];
+          if (!touch) return;
+
+          const deltaX = touch.clientX - touchStart.current.x;
+          const deltaY = touch.clientY - touchStart.current.y;
+          touchStart.current = null;
+
+          if (Math.abs(deltaX) < 42 || Math.abs(deltaX) < Math.abs(deltaY) * 1.35) return;
+          selectDateByOffset(deltaX < 0 ? 1 : -1);
+        }}
+      >
         {entries.map((entry, index) => {
           const selected = entry.dateKey ? entry.dateKey === selectedDateKey : index === 0;
           const distance = Math.abs(index - selectedIndex);
