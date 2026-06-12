@@ -203,7 +203,7 @@ a:focus-visible {
 .date-deck-card {
   position: relative;
   z-index: calc(20 - var(--date-depth));
-  flex: 0 0 calc(100% - 2.55rem);
+  flex: 0 0 calc(100% - 2.6rem);
   scroll-snap-align: start;
   overflow: hidden;
   border: 0;
@@ -212,9 +212,7 @@ a:focus-visible {
   font: inherit;
   text-align: left;
   opacity: var(--date-opacity);
-  transform:
-    translateX(calc(var(--date-direction) * var(--date-peek)))
-    scale(var(--date-scale));
+  transform: scale(var(--date-scale));
   transition:
     opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
     transform 620ms cubic-bezier(0.22, 1, 0.36, 1),
@@ -222,7 +220,7 @@ a:focus-visible {
 }
 
 .date-deck-card + .date-deck-card {
-  margin-left: calc(-100% + 4.55rem);
+  margin-left: calc(-100% + 3.9rem);
 }
 
 .date-deck-card:disabled {
@@ -1130,11 +1128,11 @@ a:focus-visible {
   }
 
   .date-deck-card {
-    flex-basis: calc(100% - 2.15rem);
+    flex-basis: calc(100% - 2.2rem);
   }
 
   .date-deck-card + .date-deck-card {
-    margin-left: calc(-100% + 3.65rem);
+    margin-left: calc(-100% + 3.3rem);
   }
 
   .date-deck-card:not([aria-pressed="true"]) strong {
@@ -1368,7 +1366,7 @@ a:focus-visible {
   }
 
   .date-deck-card {
-    flex-basis: calc(100% - 1.9rem);
+    flex-basis: calc(100% - 2rem);
   }
 }
 

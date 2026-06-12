@@ -413,7 +413,6 @@ function DateDeck({ archive, briefing, selectedDateKey, onSelectDate, status }) 
         {entries.map((entry, index) => {
           const selected = entry.dateKey ? entry.dateKey === selectedDateKey : index === 0;
           const distance = Math.abs(index - selectedIndex);
-          const direction = Math.sign(index - selectedIndex);
           const totalStories = getStoryCount(entry);
 
           return (
@@ -427,9 +426,7 @@ function DateDeck({ archive, briefing, selectedDateKey, onSelectDate, status }) 
               disabled={!hasMultipleDates}
               style={{
                 "--date-depth": distance,
-                "--date-direction": direction,
-                "--date-peek": `${Math.min(distance, 2) * 1.25}rem`,
-                "--date-scale": selected ? 1 : 0.94,
+                "--date-scale": selected ? 1 : 0.96,
                 "--date-opacity": selected ? 1 : 0.7
               }}
             >
