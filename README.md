@@ -7,13 +7,16 @@ Daily News is a scheduled, static news briefing for GitHub Pages. It fetches RSS
 - React + Vite static site
 - Daily RSS generation script
 - GitHub Actions workflow for GitHub Pages
-- Reader-facing JSON at `public/news-data.json`
+- Generated reader-facing JSON at `public/news-data.json`
+- Example reader data at `public/news-data.example.json`
 - Execution log artifact at `dist-news-log.json`
 - Rolling three-day archive: today plus the previous two generated briefings
 
 The site has no backend requirement. GitHub Actions regenerates the data, builds static assets, and deploys the latest briefing over the stable Pages URL.
 
-Each generation keeps the latest three briefing entries inside `public/news-data.json`. The website defaults to today and shows a horizontal date rail for switching to yesterday or two days ago when those archive entries exist. Older entries are dropped automatically.
+Each generation keeps the latest three briefing entries inside `public/news-data.json`. The website defaults to today and shows date controls for switching to yesterday or two days ago when those archive entries exist. Older entries are dropped automatically.
+
+`public/news-data.json` is generated and ignored by Git. The workflow restores the currently published Pages `news-data.json`, merges in the new briefing, keeps the latest three days, and republishes the result. `public/news-data.example.json` is committed only as a shape/reference fixture.
 
 ## Local Setup
 
@@ -22,6 +25,8 @@ npm install
 npm run generate
 npm run dev
 ```
+
+`npm run generate` creates the local ignored `public/news-data.json` file that the Vite app reads.
 
 To test before opening a PR, keep the dev server running and open the Vite `Network` URL on any device connected to the same Wi-Fi. Vite prints it as `Network`, for example:
 
@@ -69,7 +74,7 @@ The generator lives in [`scripts/generate-news.mjs`](/Users/savyarai/Documents/V
 - scores stories for recency, source strength, event overlap, and impact terms
 - deduplicates similar real-world events inside categories and across categories
 - replaces today’s archive entry and keeps only the latest three generated days
-- writes reader data to [`public/news-data.json`](/Users/savyarai/Documents/VS-Code/daily-news/public/news-data.json)
+- writes reader data to ignored `public/news-data.json`
 - writes a separate execution log to `dist-news-log.json`
 
 ## GitHub Pages
@@ -84,6 +89,10 @@ To publish:
 2. In the repository, open **Settings → Pages**.
 3. Set **Build and deployment → Source** to **GitHub Actions**.
 4. Run the workflow manually once from **Actions → News Pipeline → Run workflow**.
+
+Before generation, the workflow tries to download the currently published `news-data.json` from GitHub Pages and saves it as `public/news-data.json` inside the Action runner. This lets the next run preserve yesterday and two days ago even though the generated file is not committed to the repository.
+
+If you later use a custom domain or a non-standard Pages URL, set a repository variable named `PAGES_DATA_URL` to the full published `news-data.json` URL.
 
 The workflow uploads `dist-news-log.json` as an artifact so feed failures and article counts stay out of the reader-facing page.
 
