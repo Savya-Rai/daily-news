@@ -37,6 +37,22 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Restore published archive
+        env:
+          PAGES_DATA_URL: ${{ vars.PAGES_DATA_URL }}
+        run: |
+          mkdir -p public
+          DEFAULT_DATA_URL="https://${GITHUB_REPOSITORY_OWNER}.github.io/${GITHUB_REPOSITORY#*/}/news-data.json"
+          DATA_URL="${PAGES_DATA_URL:-$DEFAULT_DATA_URL}"
+
+          echo "Attempting to restore published archive from $DATA_URL"
+          if curl --fail --silent --show-error --location "$DATA_URL" --output public/news-data.json; then
+            echo "Restored published archive to public/news-data.json."
+          else
+            echo "No published archive could be restored. A fresh archive will be generated."
+            rm -f public/news-data.json
+          fi
+
       - name: Check existing briefing date
         id: briefing
         run: node scripts/check-briefing-date.mjs
