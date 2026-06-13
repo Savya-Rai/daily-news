@@ -1,9 +1,9 @@
 {
   "title": "First Light",
-  "dateKey": "2026-06-11",
-  "dateLabel": "Thursday 11 June 2026",
+  "dateKey": "2026-06-13",
+  "dateLabel": "Saturday 13 June 2026",
   "relativeLabel": "Today",
-  "generatedAt": "2026-06-11T07:52:16.979Z",
+  "generatedAt": "2026-06-13T20:00:00.000Z",
   "timezone": "Australia/Sydney",
   "sections": [
     {
@@ -722,10 +722,1454 @@
   "archive": [
     {
       "title": "First Light",
+      "dateKey": "2026-06-13",
+      "dateLabel": "Saturday 13 June 2026",
+      "relativeLabel": "Today",
+      "generatedAt": "2026-06-13T20:00:00.000Z",
+      "timezone": "Australia/Sydney",
+      "sections": [
+        {
+          "id": "tech",
+          "label": "Tech & innovation",
+          "accent": "#9ee493",
+          "status": {
+            "level": "ok"
+          },
+          "leadStories": [
+            {
+              "title": "Kalshi adds required employment verification for some prediction market bets",
+              "source": "The Verge",
+              "summary": "The CFTC is considering its first regulation for prediction markets, as arrests over \"insider trading\" on everything from military operations to Google Search data continue to stack up.",
+              "url": "https://www.theverge.com/business/948083/kalshi-prediction-markets-insider-trading",
+              "publishedAt": "2026-06-10T20:18:16.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Apple, Google add support for Thread 1.4",
+              "source": "The Verge",
+              "summary": "Apple and Google are updating their smart home streaming devices to Thread 1.4. As first spotted by Matter Alpha and 9to5 Google, the latest spec has arrived on compatible Apple TVs in the tvOS 27 developer beta and the Google TV St...",
+              "url": "https://www.theverge.com/tech/947888/apple-google-add-support-for-thread-1-4",
+              "publishedAt": "2026-06-10T20:25:46.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Apple’s new Siri AI knows when to shut up",
+              "source": "The Verge",
+              "summary": "Apple's new Siri AI is finally here, and so far, it seems like it works. I have access and have been messing around with it, and my biggest impression so far is that Siri AI is quite curt - which I mean as a compliment.",
+              "url": "https://www.theverge.com/tech/948155/apple-siri-ai-chatbot-personality",
+              "publishedAt": "2026-06-10T22:52:17.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Google DeepMind releases DiffusionGemma, a model that runs local AI 4x faster",
+              "source": "Ars Technica",
+              "summary": "Diffusion AI is most common in image generation, but it can make text outputs much faster.",
+              "url": "https://arstechnica.com/google/2026/06/googles-latest-diffusiongemma-open-ai-model-comes-with-a-4x-speed-boost/",
+              "publishedAt": "2026-06-10T19:29:21.000Z",
+              "secondarySources": []
+            }
+          ],
+          "moreHeadlines": [
+            {
+              "title": "Fresh off bond sale, Amazon borrows $17.5B from banks as AI spending continues",
+              "source": "TechCrunch",
+              "summary": "Companies are burning through exorbitant sums of money to keep pace in the AI arms race.",
+              "url": "https://techcrunch.com/2026/06/10/fresh-off-bond-sale-amazon-borrows-17-5-billion-from-banks-as-ai-spending-continues/",
+              "publishedAt": "2026-06-10T20:19:31.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Xbox warns of a &#8216;reset&#8217; as it prepares for layoffs",
+              "source": "The Verge",
+              "summary": "Microsoft's Xbox division will be hit with significant layoffs next month, according to people familiar with Microsoft's plans.",
+              "url": "https://www.theverge.com/games/948142/microsoft-xbox-layoffs-reset-asha-sharma",
+              "publishedAt": "2026-06-10T21:28:53.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Microsoft, like, totally gets why students are booing AI-pilled graduation speakers",
+              "source": "The Verge",
+              "summary": "New college graduates around the country have been booing and heckling commencement speakers who hype up AI.",
+              "url": "https://www.theverge.com/news/947831/college-speakers-booed-ai-microsoft",
+              "publishedAt": "2026-06-10T17:45:11.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "The future of AI regulation is courting the strangest, most anxious bedfellows",
+              "source": "The Verge",
+              "summary": "Hello and welcome to Regulator, a newsletter for Verge subscribers about tech politics, tech influence, and tech shenanigans in Washington, DC.",
+              "url": "https://www.theverge.com/column/947838/washington-ai-network-honors-2026-midterms",
+              "publishedAt": "2026-06-10T17:38:00.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Nobody needs AI to search the Internet, court says in ruling against Google",
+              "source": "Ars Technica",
+              "summary": "Google AI Overview court loss in Germany could spell doom for AI search industry.",
+              "url": "https://arstechnica.com/tech-policy/2026/06/nobody-needs-ai-to-search-the-internet-court-says-in-ruling-against-google/",
+              "publishedAt": "2026-06-10T17:19:31.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Warner Music acquires AI attribution startup Sureel AI",
+              "source": "TechCrunch",
+              "summary": "Through the acquisition, WMG aims to better track when its artists' work is used in AI-generated content or for training AI models.",
+              "url": "https://techcrunch.com/2026/06/10/warner-music-acquires-ai-attribution-startup-sureel-ai/",
+              "publishedAt": "2026-06-10T14:31:30.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "CISA Tells US Agencies to Fix Security Bugs in as Little as 3 Days Thanks to AI Threats",
+              "source": "Wired",
+              "summary": "“Defenders cannot afford to take weeks to patch,” one Cybersecurity and Infrastructure Security Agency official warned on Wednesday.",
+              "url": "https://www.wired.com/story/cisa-ai-vulnerability-directive/",
+              "publishedAt": "2026-06-10T20:55:40.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "A Meta Employee Who Just Lost Their Job Was Detained by Immigration Agents",
+              "source": "Wired",
+              "summary": "Colleagues discussed the incident on internal message boards, according to documents seen by WIRED.",
+              "url": "https://www.wired.com/story/meta-layoffs-immigration-customs-enforcement/",
+              "publishedAt": "2026-06-10T19:49:26.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Datadog veterans launch AI coding startup Niteshift on a bet against Big AI lock-in",
+              "source": "TechCrunch",
+              "summary": "AI coding agent startup Niteshift has raised a $7 million seed round from a who's who of angels.",
+              "url": "https://techcrunch.com/2026/06/10/datadog-veterans-launch-ai-coding-startup-niteshift-on-a-bet-against-big-ai-lock-in/",
+              "publishedAt": "2026-06-10T15:00:00.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Everyone wants a piece of Tesla&#8217;s battery business",
+              "source": "TechCrunch",
+              "summary": "Electricity demand from AI data centers is pushing everyone — including automakers like GM and Ford — into the energy storage business.",
+              "url": "https://techcrunch.com/2026/06/10/everyone-wants-a-piece-of-teslas-battery-business/",
+              "publishedAt": "2026-06-10T20:21:25.000Z",
+              "secondarySources": []
+            }
+          ]
+        },
+        {
+          "id": "ai",
+          "label": "AI",
+          "accent": "#7cc7ff",
+          "status": {
+            "level": "ok"
+          },
+          "leadStories": [
+            {
+              "title": "The Meta hack shows there’s more to AI security than Mythos",
+              "source": "MIT Tech Review",
+              "summary": "On June 5, 404 Media reported that attackers had been using Meta’s AI customer support agent to steal Instagram accounts.",
+              "url": "https://www.technologyreview.com/2026/06/05/1138437/the-meta-hack-shows-theres-more-to-ai-security-than-mythos/",
+              "publishedAt": "2026-06-05T09:00:00.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Siri AI arrives with Google inside, and much of the world is locked out",
+              "source": "AI News",
+              "summary": "&#8220;We&#8217;ve all had that moment where you search for something you know is there, but it just won&#8217;t show up.&#8221; Apple&#8217;s Stacey Ford, vice president of OS Program Management, was talking about Spotlight at WWDC...",
+              "url": "https://www.artificialintelligence-news.com/news/siri-ai-google-gemini-rollout/",
+              "publishedAt": "2026-06-10T11:00:00.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Autonomous AI Data Loss in DevOps: Building Efficient Defenses",
+              "source": "AI News",
+              "summary": "Autonomous AI agents are altering the speed at which software is shipped. Unfortunately, they are also shrinking the time it takes for a mistake to become a catastrophe, creating a dangerous blind spot in many security strategies.",
+              "url": "https://www.artificialintelligence-news.com/news/autonomous-ai-data-loss-in-devops/",
+              "publishedAt": "2026-06-09T08:50:39.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Meta Business Agent drives AI-powered conversational commerce",
+              "source": "AI News",
+              "summary": "Meta has launched Business Agent to automate conversational commerce workflows directly inside its messaging applications.",
+              "url": "https://www.artificialintelligence-news.com/news/meta-business-agent-ai-powered-conversational-commerce/",
+              "publishedAt": "2026-06-04T17:17:40.000Z",
+              "secondarySources": []
+            }
+          ],
+          "moreHeadlines": [
+            {
+              "title": "Learning to lead in a hybrid human-AI enterprise",
+              "source": "MIT Tech Review",
+              "summary": "As adoption of AI agents looks set to surge by as much as 300% in the next two years, leadership teams are carefully considering the implications of a hybrid human-AI workforce.",
+              "url": "https://www.technologyreview.com/2026/06/09/1137830/learning-to-lead-in-a-hybrid-human-ai-enterprise/",
+              "publishedAt": "2026-06-09T10:20:06.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Five things you need to know about AI",
+              "source": "MIT Tech Review",
+              "summary": "At SXSW London last week I gave a talk called “Five things you need to know about AI,” in which I shared what I think are the biggest themes in AI right now.",
+              "url": "https://www.technologyreview.com/2026/06/09/1138582/five-things-you-need-to-know-about-ai/",
+              "publishedAt": "2026-06-09T09:16:45.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "How courts are coping with a flood of AI-generated lawsuits",
+              "source": "MIT Tech Review",
+              "summary": "Most days in her chambers, Judge Maritza Braswell, a federal magistrate judge in Colorado, sifts through stacks of documents written by people without a lawyer.",
+              "url": "https://www.technologyreview.com/2026/06/04/1138391/courts-coping-ai-lawsuits/",
+              "publishedAt": "2026-06-04T10:50:18.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "McDonald’s tests Google-backed AI drive-thru ordering system",
+              "source": "AI News",
+              "summary": "McDonald’s is testing a new AI system that can take drive-thru orders and support restaurant operations.",
+              "url": "https://www.artificialintelligence-news.com/news/mcdonalds-ai-drive-thru-google-archiq/",
+              "publishedAt": "2026-06-10T10:00:00.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Aviva deploys AI to stop £230M in sophisticated insurance fraud",
+              "source": "AI News",
+              "summary": "Aviva has uncovered a record £230 million in insurance fraud claims and is using AI tools to counter the growing problem.",
+              "url": "https://www.artificialintelligence-news.com/news/aviva-deploys-ai-stop-230m-sophisticated-insurance-fraud/",
+              "publishedAt": "2026-06-08T12:19:38.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "How C3 AI agents will automate predictive maintenance for Shell",
+              "source": "AI News",
+              "summary": "Shell will use agents from C3 AI to shift from basic anomaly detection towards fully-automated predictive maintenance.",
+              "url": "https://www.artificialintelligence-news.com/news/how-c3-ai-agents-will-automate-predictive-maintenance-for-shell/",
+              "publishedAt": "2026-06-05T11:34:09.000Z",
+              "secondarySources": []
+            }
+          ]
+        },
+        {
+          "id": "finance",
+          "label": "Stocks & finance",
+          "accent": "#f1c27d",
+          "status": {
+            "level": "ok"
+          },
+          "leadStories": [
+            {
+              "title": "Iran war tightens ‘super-squeeze’ in metals markets",
+              "source": "Financial Times",
+              "summary": "Copper and aluminium had been rallying before Middle East conflict hit supply",
+              "url": "https://www.ft.com/content/44d4b188-45ed-4e7e-a5eb-278da62ac601",
+              "publishedAt": "2026-06-11T04:00:26.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Oil climbs as U.S.-Iran conflict escalates and regional tensions mount",
+              "source": "CNBC",
+              "summary": "Oil prices edged higher on Thursday after Kuwait closed its airspace and Israel warned of launches from Lebanon.",
+              "url": "https://www.cnbc.com/2026/06/11/brent-wti-oil-prices-us-launches-fresh-strikes-on-iran-.html",
+              "publishedAt": "2026-06-11T06:40:43.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Markets are pricing in a rate hike by the European Central Bank &#x2014; which one top economist sees as a &#x2018;mistake in the making&#x2019;",
+              "source": "MarketWatch",
+              "summary": "The decision to raise interest rates would mark the central bank&#x2019;s first in almost three years.",
+              "url": "https://www.marketwatch.com/story/markets-are-pricing-in-a-rate-hike-by-the-european-central-bank-and-that-could-be-a-mistake-in-the-making-b99771ca?mod=mw_rss_topstories",
+              "publishedAt": "2026-06-11T06:36:00.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Bitcoin bulls are still around. These charts show they just moved on to hotter markets.",
+              "source": "MarketWatch",
+              "summary": "Traders who once bet on crypto have not stopped gambling on the next big market story &#x2014; they just are not finding that story in crypto itself.",
+              "url": "https://www.marketwatch.com/story/bitcoin-bulls-are-still-around-these-charts-show-they-just-moved-on-to-hotter-markets-8e04c48c?mod=mw_rss_topstories",
+              "publishedAt": "2026-06-10T21:54:00.000Z",
+              "secondarySources": []
+            }
+          ],
+          "moreHeadlines": [
+            {
+              "title": "Kathy Ruemmler helps search for her own replacement as Goldman’s top lawyer",
+              "source": "Financial Times",
+              "summary": "Bank’s decision to back executive after she resigned from the role over ties to Jeffrey Epstein sparked internal divisions",
+              "url": "https://www.ft.com/content/25a6b16b-5f3e-45e8-aeda-33f9f21845ed",
+              "publishedAt": "2026-06-11T04:00:45.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Analysis: Trump said he loves inflation. Why that should be music to Kevin Warsh's ears",
+              "source": "CNBC",
+              "summary": "The president said Wednesday he is happy with inflation at 4.2%. That will be welcome news for new Fed Chair Kevin Warsh.",
+              "url": "https://www.cnbc.com/2026/06/10/trump-inflation-fed-chair-kevin-warsh-analysis.html",
+              "publishedAt": "2026-06-10T21:52:56.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Oracle beats on earnings, but stock drops on plans to raise another $20 billion",
+              "source": "CNBC",
+              "summary": "Oracle topped quarterly expectations, but free cash flow is negative, and the company plans to raise more capital for data center projects.",
+              "url": "https://www.cnbc.com/2026/06/10/oracle-orcl-q4-earnings-report-2026.html",
+              "publishedAt": "2026-06-11T00:19:00.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Company moves from Singapore to cheaper, more spacious Malaysia show rising global mobility trend",
+              "source": "CNBC",
+              "summary": "Lower costs, tax incentives and access to a larger market have seen a raft of companies shift operations to Malaysia from Singapore.",
+              "url": "https://www.cnbc.com/2026/06/11/global-mobility-firms-move-operations-from-singapore-to-malaysia.html",
+              "publishedAt": "2026-06-10T23:56:52.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Oil prices rise after Trump says U.S. will attack Iran 'very hard'",
+              "source": "CNBC",
+              "summary": "Oil prices rose after the U.S. launched military strikes against Iran, raising concerns that renewed clashes may threaten shipping through the Strait of Hormuz.",
+              "url": "https://www.cnbc.com/2026/06/10/oil-price-us-completes-iran-strikes-after-apache-helicopter-attack.html",
+              "publishedAt": "2026-06-10T19:11:25.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Here's the inflation breakdown for May 2026 — in one chart",
+              "source": "CNBC",
+              "summary": "Inflation jumped to a three-year high in May as the Iran war continued to fuel higher energy prices.",
+              "url": "https://www.cnbc.com/2026/06/10/heres-the-inflation-breakdown-for-may-2026-in-one-chart.html",
+              "publishedAt": "2026-06-10T15:29:35.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Citigroup shares outperform down market after Trump endorsement",
+              "source": "CNBC",
+              "summary": "Jane Fraser-led Citi fell 1%, less than the rest of the market and some other major banks, after Trump lauded its turnaround in a social media post.",
+              "url": "https://www.cnbc.com/2026/06/10/citigroup-shares-outperform-down-market-after-trump-endorsement.html",
+              "publishedAt": "2026-06-10T21:51:42.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Wall Street needs a crash course in the token economy ahead of AI IPOs. SpaceX offers a preview",
+              "source": "CNBC",
+              "summary": "When OpenAI and Anthropic make their IPO prospectuses available to the public, investors are going to have to learn about a whole new economy.",
+              "url": "https://www.cnbc.com/2026/06/10/wall-street-needs-crash-course-in-tokens-ahead-openai-anthropic-ipos.html",
+              "publishedAt": "2026-06-10T18:17:33.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "When a World Cup team loses, its country&#x2019;s stock market also goes down. Here&#x2019;s the weird reason why.",
+              "source": "MarketWatch",
+              "summary": "Soccer&#x2019;s premier tournament brings a hidden danger to your investment portfolio.",
+              "url": "https://www.marketwatch.com/story/the-weird-reason-why-a-teams-world-cup-loss-can-trigger-a-sharp-drop-in-stock-prices-ac385f51?mod=mw_rss_topstories",
+              "publishedAt": "2026-06-10T23:25:00.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Thinking about insider trading on prediction markets? Kalshi wants to make an example of you.",
+              "source": "MarketWatch",
+              "summary": "Prediction-market companies are identifying hundreds of cases of suspected insider trading.",
+              "url": "https://www.marketwatch.com/story/thinking-about-insider-trading-on-prediction-markets-kalshi-wants-to-make-an-example-of-you-74d50486?mod=mw_rss_topstories",
+              "publishedAt": "2026-06-10T23:22:00.000Z",
+              "secondarySources": []
+            }
+          ]
+        },
+        {
+          "id": "crypto",
+          "label": "Crypto",
+          "accent": "#d7f171",
+          "status": {
+            "level": "ok"
+          },
+          "leadStories": [
+            {
+              "title": "Live updates: Soft core inflation gave crypto a bounce, but only bitcoin held up on the week",
+              "source": "CoinDesk",
+              "summary": "May CPI ran hot on energy and cooler underneath, lifting majors on Thursday, though ether and the large alts are still down 6% to 8% over seven days.",
+              "url": "https://www.coindesk.com/markets/2026/06/11/live-updates-soft-core-inflation-gave-crypto-a-bounce-but-only-bitcoin-held-up-on-the-week",
+              "publishedAt": "2026-06-11T05:45:57.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "XRP holds above $1.10 as ETF inflows rise, but traders remain cautious",
+              "source": "CoinDesk",
+              "summary": "XRP bounced from recent lows on a late volume surge, though the token continued to lag the broader crypto market as futures traders positioned around key support levels.",
+              "url": "https://www.coindesk.com/markets/2026/06/11/xrp-holds-above-usd1-10-as-etf-inflows-rise-but-traders-remain-cautious",
+              "publishedAt": "2026-06-11T04:50:46.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Analysts tip pressure for Bitcoin, gold as US inflation tops 4%",
+              "source": "Cointelegraph",
+              "summary": "“We continue to view the current macro environment as a headwind for Bitcoin,” 10x Research’s Markus Thielen said.",
+              "url": "https://cointelegraph.com/news/pressure-on-bitcoin-and-gold-increases-as-us-inflation-tops-4?utm_source=rss_feed&amp;utm_medium=rss&amp;utm_campaign=rss_partner_inbound",
+              "publishedAt": "2026-06-11T04:51:52.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "It's not just bitcoin ETFs. Corporate BTC buying has dried up too",
+              "source": "CoinDesk",
+              "summary": "ETF outflows have dominated the narrative but corporate bitcoin treasuries have gone quiet too, compounding the demand-side weakness.",
+              "url": "https://www.coindesk.com/markets/2026/06/11/it-s-not-just-bitcoin-etfs-corporate-btc-buying-has-dried-up-too",
+              "publishedAt": "2026-06-11T05:16:18.000Z",
+              "secondarySources": []
+            }
+          ],
+          "moreHeadlines": [
+            {
+              "title": "TradFi advisors want stablecoins, tokenization over Bitcoin: Bitwise",
+              "source": "Cointelegraph",
+              "summary": "Bitwise’s Matt Hougan says it was “pretty hard to engage with advisors on Bitcoin” during recent discussions, who are more interested in stablecoins and tokenization.",
+              "url": "https://cointelegraph.com/news/tradfi-advisors-want-stablecoins-tokenization-over-bitcoin-bitwise?utm_source=rss_feed&amp;utm_medium=rss&amp;utm_campaign=rss_partner_inbound",
+              "publishedAt": "2026-06-11T07:01:31.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Bitcoin has reached a deep bear-market valuation zone. The hard part may come next.",
+              "source": "CoinDesk",
+              "summary": "Two widely watched gauges show capitulation, but the analyst flagging them warns the slow grind comes next.",
+              "url": "https://www.coindesk.com/markets/2026/06/11/bitcoin-has-reached-a-deep-bear-market-valuation-zone-the-hard-part-may-come-next",
+              "publishedAt": "2026-06-11T04:34:35.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Teen crypto scammer stole $13M to splurge on private jets, Lambo",
+              "source": "Cointelegraph",
+              "summary": "Trenton Richard Johnston was arrested in March during a traffic stop for speeding, but investigators soon found he was involved in a wider fraud scheme.",
+              "url": "https://cointelegraph.com/news/teen-admits-to-scamming-13m-crypto-to-splurge-on-private-jets-lambo?utm_source=rss_feed&amp;utm_medium=rss&amp;utm_campaign=rss_partner_inbound",
+              "publishedAt": "2026-06-11T05:57:24.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Tether, Nvidia and Amazon Back Humanoid Robotics Firm NEURA in $1.4 Billion Funding Round",
+              "source": "Decrypt",
+              "summary": "Stablecoin giant Tether led a massive Series C round for German robotics firm NEURA, which will embed crypto payment tools and edge AI.",
+              "url": "https://decrypt.co/370691/tether-nvidia-amazon-back-neura-robotics-1-4-billion-funding-round",
+              "publishedAt": "2026-06-10T19:30:32.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Delaware, New Jersey advance bills banning crypto ATMs",
+              "source": "Cointelegraph",
+              "summary": "Lawmakers in Delaware and New Jersey have advanced laws that would completely ban crypto ATMs, a measure that has only been enacted in three US states.",
+              "url": "https://cointelegraph.com/news/delaware-new-jersey-advance-bills-banning-crypto-atms?utm_source=rss_feed&amp;utm_medium=rss&amp;utm_campaign=rss_partner_inbound",
+              "publishedAt": "2026-06-11T03:18:43.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Bitcoin, Ethereum Resume Rebound as Inflation Hits 3-Year High",
+              "source": "Decrypt",
+              "summary": "The reading likely supports restrictive monetary policy.",
+              "url": "https://decrypt.co/370649/bitcoin-ethereum-resume-rebound-inflation-hits-3-year-high",
+              "publishedAt": "2026-06-10T14:46:07.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Bitcoin Is Getting Closer to the Bottom, But Demand Is Falling: CryptoQuant",
+              "source": "Decrypt",
+              "summary": "Bitcoin's bear market might be nearing an end, analysts said, but individuals and institutions aren't lining up to buy the top crypto asset.",
+              "url": "https://decrypt.co/370663/bitcoin-getting-closer-bottom-demand-falling-cryptoquant",
+              "publishedAt": "2026-06-10T17:47:40.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "7 Factors That Actually Matter When Choosing a Crypto Swap Platform",
+              "source": "Decrypt",
+              "summary": "With crypto swaps growing in popularity, the best crypto swap platforms are embracing speed, security, and asset availability.",
+              "url": "https://decrypt.co/370527/7-factors-that-actually-matter-when-choosing-a-crypto-swap-platform",
+              "publishedAt": "2026-06-10T17:01:03.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "BlackRock and Fidelity are quietly turning bitcoin ETFs into a two-firm market",
+              "source": "CoinDesk",
+              "summary": "BlackRock's IBIT and Fidelity's FBTC are attracting the vast majority of new bitcoin ETF money, leaving smaller funds increasingly sidelined as institutional investors consolidate around the industry's largest players.",
+              "url": "https://www.coindesk.com/markets/2026/06/10/blackrock-and-fidelity-are-quietly-turning-bitcoin-etfs-into-a-two-firm-market",
+              "publishedAt": "2026-06-10T18:09:23.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Zcash, Hyperliquid tokens lead losses as traders bet against a bitcoin bounce",
+              "source": "CoinDesk",
+              "summary": "Crypto markets are under pressure ahead of key U.S. inflation data due later Wednesday.",
+              "url": "https://www.coindesk.com/markets/2026/06/10/zcash-hyperliquid-tokens-lead-losses-as-traders-bet-against-a-bitcoin-bounce",
+              "publishedAt": "2026-06-10T10:52:54.000Z",
+              "secondarySources": []
+            }
+          ]
+        },
+        {
+          "id": "world",
+          "label": "World news",
+          "accent": "#ff9b8a",
+          "status": {
+            "level": "ok"
+          },
+          "leadStories": [
+            {
+              "title": "Iran War Live Updates: U.S. and Iran Trade Fresh Attacks",
+              "source": "NY Times",
+              "summary": "The continued exchanges of fire have raised fears that the two sides could return to all-out war.",
+              "url": "https://www.nytimes.com/live/2026/06/11/world/iran-war-trump-us-israel",
+              "publishedAt": "2026-06-11T07:40:52.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Middle East crisis live: US and Iran trade strikes again, after Trump warns Tehran will ‘pay the price’ for stalled talks",
+              "source": "The Guardian World",
+              "summary": "US launches second round of airstrikes on Iran, and Tehran responds by targeting Bahrain, Kuwait and Jordan US strikes Iran for second day, as ceasefire appears close to collapse Three Indian seafarers were killed in a US attack on...",
+              "url": "https://www.theguardian.com/world/live/2026/jun/11/iran-war-news-us-strikes-donald-trump-stalled-peace-talks-middle-east-crisis",
+              "publishedAt": "2026-06-11T07:39:43.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Mike Johnson attempts to defend Trump after president says ‘I love the inflation’ – as it happened",
+              "source": "The Guardian World",
+              "summary": "This live blog is now closed. Sign up for the Breaking News US email Donald Trump ’s immigration crackdown is largely targeting people from the countries most vulnerable to displacement from climate-driven disasters, a Guardian anal...",
+              "url": "https://www.theguardian.com/us-news/live/2026/jun/10/graham-platner-maine-democrats-senate-primary-donald-trump-us-politics-latest-news-updates",
+              "publishedAt": "2026-06-11T01:57:00.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "US and Iran exchange strikes for second day, as ceasefire appears close to collapse",
+              "source": "The Guardian World",
+              "summary": "Explosions reported across Iran after Donald Trump vowed to ‘hit them hard again’, with Bahrain, Kuwait and Jordan targeted by Tehran Middle East crisis – live updates The US launched a new round of airstrikes on Iran into Thursday...",
+              "url": "https://www.theguardian.com/world/2026/jun/10/middle-east-peace-talks-iran-strikes",
+              "publishedAt": "2026-06-11T05:45:46.000Z",
+              "secondarySources": []
+            }
+          ],
+          "moreHeadlines": [
+            {
+              "title": "US and Iran exchange strikes across Middle East for second day in a row",
+              "source": "BBC",
+              "summary": "Iran says it responded to US strikes by targeting American assets in Kuwait, Jordan and Bahrain, which reported damage to its capital city overnight.",
+              "url": "https://www.bbc.com/news/articles/c4gyp9v0e93o?at_medium=RSS&at_campaign=rss",
+              "publishedAt": "2026-06-11T07:18:40.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Trump says he 'loves the inflation' as US prices rise at fastest rate in three years",
+              "source": "BBC",
+              "summary": "Consumers are increasingly feeling the strain of the US-Israel war in Iran.",
+              "url": "https://www.bbc.com/news/articles/c0myzxjkw99o?at_medium=RSS&at_campaign=rss",
+              "publishedAt": "2026-06-11T00:02:45.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "The War in Ukraine Has Now Gone On Longer Than World War I",
+              "source": "NY Times",
+              "summary": "Parallels between the two wars abound, from the grinding nature of the fighting to the way new technologies reshaped warfare.",
+              "url": "https://www.nytimes.com/2026/06/11/world/europe/ukraine-russia-world-war-i.html",
+              "publishedAt": "2026-06-11T04:01:16.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Ryanair investigated over charging parents to sit with their children",
+              "source": "The Guardian World",
+              "summary": "Budget airline describes inquiry as ‘bogus’ as watchdog says it is only large carrier flying from UK to impose charge Business live – latest updates Europe’s biggest low-cost airline, Ryanair, is facing an investigation over the man...",
+              "url": "https://www.theguardian.com/business/2026/jun/11/ryanair-investigated-over-charging-parents-children-uk-cma",
+              "publishedAt": "2026-06-11T06:59:20.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "A Very Different World Cup",
+              "source": "NY Times",
+              "summary": "With a host country actively at war with a participating nation, this year’s tournament is set to be unlike any other.",
+              "url": "https://www.nytimes.com/2026/06/10/world/world-cup-mexico-iran-epstein.html",
+              "publishedAt": "2026-06-11T05:17:25.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Iran war day 104: Iran attacks US bases, closes strait after Trump strikes",
+              "source": "Al Jazeera",
+              "summary": "Iran closes Strait of Hormuz, launches retaliatory strikes on US bases in Kuwait, Bahrain and Jordan after US attacks.",
+              "url": "https://www.aljazeera.com/news/2026/6/11/iran-war-day-104-iran-says-it-attacks-us-bases-after-american-strikes?traffic_source=rss",
+              "publishedAt": "2026-06-11T05:52:48.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Millions of homes in London, Essex and Kent at risk of sinking as climate crisis worsens",
+              "source": "The Guardian World",
+              "summary": "Analysis pinpoints areas most vulnerable to hotter, drier weather causing ground to shrink and drag foundations down Millions of homes are at risk from climate-related subsidence, according toan analysis by the British Geological Su...",
+              "url": "https://www.theguardian.com/environment/2026/jun/11/millions-homes-london-essex-and-kent-sinking-climate-crisis-subsidence",
+              "publishedAt": "2026-06-11T05:00:07.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Aukus is among Australia’s worst foreign policy decisions and requires ‘heroic’ optimism, Gareth Evans says",
+              "source": "The Guardian World",
+              "summary": "Former Labor foreign affairs minister says belief US would defend Australia in event of an existential attack is a ‘ludicrous delusion’ Follow our Australia news live blog for latest updates Get our breaking news email , free app or...",
+              "url": "https://www.theguardian.com/world/2026/jun/11/aukus-among-australia-worst-foreign-policy-decisions-gareth-evans",
+              "publishedAt": "2026-06-11T04:54:30.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "A Fractured North America Begins a Historic World Cup",
+              "source": "NY Times",
+              "summary": "Mexico and Canada have faced significant recent tension in their relations with the United States.",
+              "url": "https://www.nytimes.com/2026/06/11/world/americas/world-cup-fractured-north-america.html",
+              "publishedAt": "2026-06-11T07:20:29.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "U.S. Officials Told Colombia to Cancel President’s Meeting With Mamdani",
+              "source": "NY Times",
+              "summary": "The State Department canceled President Gustavo Petro’s visa last year after he attended a pro-Palestinian rally in Manhattan.",
+              "url": "https://www.nytimes.com/2026/06/10/world/americas/mamdani-petro-new-york-colombia-trump.html",
+              "publishedAt": "2026-06-11T07:06:01.000Z",
+              "secondarySources": []
+            }
+          ]
+        },
+        {
+          "id": "australia",
+          "label": "Australia news",
+          "accent": "#b9a6ff",
+          "status": {
+            "level": "ok"
+          },
+          "leadStories": [
+            {
+              "title": "US-Iran war as it happened: Strait of Hormuz closed; US ends latest round of strikes on Iran; Albanese ‘deeply concerned’; Oil prices rise",
+              "source": "SMH",
+              "summary": "The US has launched airstrikes against Iran after blaming Tehran for the crash of the American attack helicopter.",
+              "url": "https://www.smh.com.au/world/middle-east/us-iran-war-live-updates-trump-says-tehran-is-playing-us-for-suckers-as-us-military-resumes-strikes-on-iran-20260611-p605rc.html?ref=rss&utm_medium=rss&utm_source=rss_feed",
+              "publishedAt": "2026-06-11T07:04:53.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Hanson gets emotional revisiting decades-old Abbott feud",
+              "source": "ABC News",
+              "summary": "As Anthony Albanese stood in front of a Medicare banner and Pauline Hanson put her hand out for donations, voters could be forgiven for thinking the election was two months, not two years, away.",
+              "url": "https://www.abc.net.au/news/2026-06-11/anthony-albanese-one-nation-tony-abbott-election/106775110",
+              "publishedAt": "2026-06-11T07:05:07.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Adelaide defence lawyer pleads not guilty to sexual offences",
+              "source": "ABC News",
+              "summary": "Andrew Graham enters not guilty pleas to two counts of rape and one charge of compelling a person to sexually manipulate an offender.",
+              "url": "https://www.abc.net.au/news/2026-06-11/lawyer-andrew-graham-pleads-not-guilty-sexual-offences/106787576",
+              "publishedAt": "2026-06-11T07:27:02.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "State disability ministers lash NDIS overhaul",
+              "source": "ABC News",
+              "summary": "State and territory disability ministers have accused the Albanese government of pushing on with NDIS reform that does not align with previous agreements.",
+              "url": "https://www.abc.net.au/news/2026-06-11/state-and-territories-lash-ndis-changes/106785788",
+              "publishedAt": "2026-06-11T03:12:43.000Z",
+              "secondarySources": []
+            }
+          ],
+          "moreHeadlines": [
+            {
+              "title": "Tim Wilson is battling Labor’s capital gains tax changes. But in his own book he argues for going even further | Judith Brett",
+              "source": "Guardian Australia",
+              "summary": "On paper, the shadow treasurer is thoughtful. In parliament, performative outrage overwhelms his thinking Tim Wilson has thrown himself into fighting the reduction of the capital gains tax discount in Labor’s budget, as well as the...",
+              "url": "https://www.theguardian.com/australia-news/commentisfree/2026/jun/11/tim-wilson-cgt-capital-gains-tax-budget-changes",
+              "publishedAt": "2026-06-11T01:37:02.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Former Qld Labor ministers accused of political interference at CFMEU inquiry",
+              "source": "ABC News",
+              "summary": "The probe has wrapped up its tenth block of public hearings with explosive new allegations of political interference levelled against senior Palaszczuk government ministers Mick de Brenni and Grace Grace.",
+              "url": "https://www.abc.net.au/news/2026-06-11/qld-cfmeu-inquiry-former-labor-ministers-accused/106787012",
+              "publishedAt": "2026-06-11T07:23:01.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Australia news live: Burke brushes off One Nation threat to his seat and says Hanson ‘hates my part of Sydney’",
+              "source": "Guardian Australia",
+              "summary": "Follow today’s news live Get our breaking news email , free app or daily news podcast Wong not ‘interested’ in One Nation’s fundraising Wong says she isn’t concerned about One Nation’s fundraising efforts, but more about their polic...",
+              "url": "https://www.theguardian.com/australia-news/live/2026/jun/11/australia-news-live-labor-coalition-one-nation-anthony-albanese-pauline-hanson-capital-gains-housing-peptides-arthritis-ntwnfb",
+              "publishedAt": "2026-06-11T07:44:10.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Death in custody inquest finds evidence of complacency and incompetence",
+              "source": "ABC News",
+              "summary": "A NSW coroner recommends conduct reviews for medical staff over their treatment of a prisoner who died within a day of entering Australia's largest prison.",
+              "url": "https://www.abc.net.au/news/2026-06-11/prisoner-dictor-dongrin-inquest-findings/106783164",
+              "publishedAt": "2026-06-11T06:50:08.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Afternoon Update: Former MP calls Aukus ‘ludicrous’; PM doubts One Nation donations; and the country pub with a Socceroos history",
+              "source": "Guardian Australia",
+              "summary": "Want to get this in your inbox every weekday? Sign up for the Afternoon Update here , and start your day with our Morning Mail newsletter Good afternoon.",
+              "url": "https://www.theguardian.com/australia-news/2026/jun/11/afternoon-update-thursday-ntwnfb",
+              "publishedAt": "2026-06-11T06:53:35.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Former police officer jailed for harassing woman online",
+              "source": "ABC News",
+              "summary": "A former Victoria Police officer is sentenced to six months in prison after repeatedly harassing a woman on social media.",
+              "url": "https://www.abc.net.au/news/2026-06-11/former-police-officer-jailed-over-online-harassment/106781626",
+              "publishedAt": "2026-06-11T05:42:26.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Melbourne aged care COVID outbreak back in spotlight",
+              "source": "ABC News",
+              "summary": "An inquest examining 50 COVID-era deaths at a Melbourne aged care home has resumed after a years-long hiatus.",
+              "url": "https://www.abc.net.au/news/2026-06-11/st-basils-aged-care-managers-to-face-covid-outbreak-inquiry/106785868",
+              "publishedAt": "2026-06-11T03:38:44.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Police up ante after prisoner's escape from brother's Melbourne funeral",
+              "source": "ABC News",
+              "summary": "A prisoner who absconded from his brother's funeral in Melbourne's north-west on Anzac Day continues to evade detection.",
+              "url": "https://www.abc.net.au/news/2026-06-11/prisoner-escapes-funeral-melbourne-airport-arrest/106785420",
+              "publishedAt": "2026-06-11T03:21:05.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "One Nation has six more months to raise uncapped political donations",
+              "source": "SMH",
+              "summary": "Nobody can see detail of who donated what to Pauline Hanson’s party this financial year until February 1.",
+              "url": "https://www.smh.com.au/politics/federal/donation-reform-delay-gives-one-nation-six-months-to-raise-uncapped-funds-20260611-p605ue.html?ref=rss&utm_medium=rss&utm_source=rss_feed",
+              "publishedAt": "2026-06-11T07:20:38.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Melissa Caddick’s widower says police tricked him over alleged Vaucluse assault",
+              "source": "SMH",
+              "summary": "Anthony Koletti is accused of shoulder barging a 73-year-old woman at a clifftop reserve in Sydney’s eastern suburbs.",
+              "url": "https://www.smh.com.au/national/nsw/melissa-caddick-s-widower-says-police-tricked-him-over-alleged-vaucluse-assault-20260611-p605rq.html?ref=rss&utm_medium=rss&utm_source=rss_feed",
+              "publishedAt": "2026-06-11T07:20:18.000Z",
+              "secondarySources": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "First Light",
+      "dateKey": "2026-06-12",
+      "dateLabel": "Friday 12 June 2026",
+      "relativeLabel": "Yesterday",
+      "generatedAt": "2026-06-12T20:00:00.000Z",
+      "timezone": "Australia/Sydney",
+      "sections": [
+        {
+          "id": "tech",
+          "label": "Tech & innovation",
+          "accent": "#9ee493",
+          "status": {
+            "level": "ok"
+          },
+          "leadStories": [
+            {
+              "title": "Kalshi adds required employment verification for some prediction market bets",
+              "source": "The Verge",
+              "summary": "The CFTC is considering its first regulation for prediction markets, as arrests over \"insider trading\" on everything from military operations to Google Search data continue to stack up.",
+              "url": "https://www.theverge.com/business/948083/kalshi-prediction-markets-insider-trading",
+              "publishedAt": "2026-06-10T20:18:16.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Apple, Google add support for Thread 1.4",
+              "source": "The Verge",
+              "summary": "Apple and Google are updating their smart home streaming devices to Thread 1.4. As first spotted by Matter Alpha and 9to5 Google, the latest spec has arrived on compatible Apple TVs in the tvOS 27 developer beta and the Google TV St...",
+              "url": "https://www.theverge.com/tech/947888/apple-google-add-support-for-thread-1-4",
+              "publishedAt": "2026-06-10T20:25:46.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Apple’s new Siri AI knows when to shut up",
+              "source": "The Verge",
+              "summary": "Apple's new Siri AI is finally here, and so far, it seems like it works. I have access and have been messing around with it, and my biggest impression so far is that Siri AI is quite curt - which I mean as a compliment.",
+              "url": "https://www.theverge.com/tech/948155/apple-siri-ai-chatbot-personality",
+              "publishedAt": "2026-06-10T22:52:17.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Google DeepMind releases DiffusionGemma, a model that runs local AI 4x faster",
+              "source": "Ars Technica",
+              "summary": "Diffusion AI is most common in image generation, but it can make text outputs much faster.",
+              "url": "https://arstechnica.com/google/2026/06/googles-latest-diffusiongemma-open-ai-model-comes-with-a-4x-speed-boost/",
+              "publishedAt": "2026-06-10T19:29:21.000Z",
+              "secondarySources": []
+            }
+          ],
+          "moreHeadlines": [
+            {
+              "title": "Fresh off bond sale, Amazon borrows $17.5B from banks as AI spending continues",
+              "source": "TechCrunch",
+              "summary": "Companies are burning through exorbitant sums of money to keep pace in the AI arms race.",
+              "url": "https://techcrunch.com/2026/06/10/fresh-off-bond-sale-amazon-borrows-17-5-billion-from-banks-as-ai-spending-continues/",
+              "publishedAt": "2026-06-10T20:19:31.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Xbox warns of a &#8216;reset&#8217; as it prepares for layoffs",
+              "source": "The Verge",
+              "summary": "Microsoft's Xbox division will be hit with significant layoffs next month, according to people familiar with Microsoft's plans.",
+              "url": "https://www.theverge.com/games/948142/microsoft-xbox-layoffs-reset-asha-sharma",
+              "publishedAt": "2026-06-10T21:28:53.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Microsoft, like, totally gets why students are booing AI-pilled graduation speakers",
+              "source": "The Verge",
+              "summary": "New college graduates around the country have been booing and heckling commencement speakers who hype up AI.",
+              "url": "https://www.theverge.com/news/947831/college-speakers-booed-ai-microsoft",
+              "publishedAt": "2026-06-10T17:45:11.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "The future of AI regulation is courting the strangest, most anxious bedfellows",
+              "source": "The Verge",
+              "summary": "Hello and welcome to Regulator, a newsletter for Verge subscribers about tech politics, tech influence, and tech shenanigans in Washington, DC.",
+              "url": "https://www.theverge.com/column/947838/washington-ai-network-honors-2026-midterms",
+              "publishedAt": "2026-06-10T17:38:00.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Nobody needs AI to search the Internet, court says in ruling against Google",
+              "source": "Ars Technica",
+              "summary": "Google AI Overview court loss in Germany could spell doom for AI search industry.",
+              "url": "https://arstechnica.com/tech-policy/2026/06/nobody-needs-ai-to-search-the-internet-court-says-in-ruling-against-google/",
+              "publishedAt": "2026-06-10T17:19:31.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Warner Music acquires AI attribution startup Sureel AI",
+              "source": "TechCrunch",
+              "summary": "Through the acquisition, WMG aims to better track when its artists' work is used in AI-generated content or for training AI models.",
+              "url": "https://techcrunch.com/2026/06/10/warner-music-acquires-ai-attribution-startup-sureel-ai/",
+              "publishedAt": "2026-06-10T14:31:30.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "CISA Tells US Agencies to Fix Security Bugs in as Little as 3 Days Thanks to AI Threats",
+              "source": "Wired",
+              "summary": "“Defenders cannot afford to take weeks to patch,” one Cybersecurity and Infrastructure Security Agency official warned on Wednesday.",
+              "url": "https://www.wired.com/story/cisa-ai-vulnerability-directive/",
+              "publishedAt": "2026-06-10T20:55:40.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "A Meta Employee Who Just Lost Their Job Was Detained by Immigration Agents",
+              "source": "Wired",
+              "summary": "Colleagues discussed the incident on internal message boards, according to documents seen by WIRED.",
+              "url": "https://www.wired.com/story/meta-layoffs-immigration-customs-enforcement/",
+              "publishedAt": "2026-06-10T19:49:26.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Datadog veterans launch AI coding startup Niteshift on a bet against Big AI lock-in",
+              "source": "TechCrunch",
+              "summary": "AI coding agent startup Niteshift has raised a $7 million seed round from a who's who of angels.",
+              "url": "https://techcrunch.com/2026/06/10/datadog-veterans-launch-ai-coding-startup-niteshift-on-a-bet-against-big-ai-lock-in/",
+              "publishedAt": "2026-06-10T15:00:00.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Everyone wants a piece of Tesla&#8217;s battery business",
+              "source": "TechCrunch",
+              "summary": "Electricity demand from AI data centers is pushing everyone — including automakers like GM and Ford — into the energy storage business.",
+              "url": "https://techcrunch.com/2026/06/10/everyone-wants-a-piece-of-teslas-battery-business/",
+              "publishedAt": "2026-06-10T20:21:25.000Z",
+              "secondarySources": []
+            }
+          ]
+        },
+        {
+          "id": "ai",
+          "label": "AI",
+          "accent": "#7cc7ff",
+          "status": {
+            "level": "ok"
+          },
+          "leadStories": [
+            {
+              "title": "The Meta hack shows there’s more to AI security than Mythos",
+              "source": "MIT Tech Review",
+              "summary": "On June 5, 404 Media reported that attackers had been using Meta’s AI customer support agent to steal Instagram accounts.",
+              "url": "https://www.technologyreview.com/2026/06/05/1138437/the-meta-hack-shows-theres-more-to-ai-security-than-mythos/",
+              "publishedAt": "2026-06-05T09:00:00.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Siri AI arrives with Google inside, and much of the world is locked out",
+              "source": "AI News",
+              "summary": "&#8220;We&#8217;ve all had that moment where you search for something you know is there, but it just won&#8217;t show up.&#8221; Apple&#8217;s Stacey Ford, vice president of OS Program Management, was talking about Spotlight at WWDC...",
+              "url": "https://www.artificialintelligence-news.com/news/siri-ai-google-gemini-rollout/",
+              "publishedAt": "2026-06-10T11:00:00.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Autonomous AI Data Loss in DevOps: Building Efficient Defenses",
+              "source": "AI News",
+              "summary": "Autonomous AI agents are altering the speed at which software is shipped. Unfortunately, they are also shrinking the time it takes for a mistake to become a catastrophe, creating a dangerous blind spot in many security strategies.",
+              "url": "https://www.artificialintelligence-news.com/news/autonomous-ai-data-loss-in-devops/",
+              "publishedAt": "2026-06-09T08:50:39.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Meta Business Agent drives AI-powered conversational commerce",
+              "source": "AI News",
+              "summary": "Meta has launched Business Agent to automate conversational commerce workflows directly inside its messaging applications.",
+              "url": "https://www.artificialintelligence-news.com/news/meta-business-agent-ai-powered-conversational-commerce/",
+              "publishedAt": "2026-06-04T17:17:40.000Z",
+              "secondarySources": []
+            }
+          ],
+          "moreHeadlines": [
+            {
+              "title": "Learning to lead in a hybrid human-AI enterprise",
+              "source": "MIT Tech Review",
+              "summary": "As adoption of AI agents looks set to surge by as much as 300% in the next two years, leadership teams are carefully considering the implications of a hybrid human-AI workforce.",
+              "url": "https://www.technologyreview.com/2026/06/09/1137830/learning-to-lead-in-a-hybrid-human-ai-enterprise/",
+              "publishedAt": "2026-06-09T10:20:06.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Five things you need to know about AI",
+              "source": "MIT Tech Review",
+              "summary": "At SXSW London last week I gave a talk called “Five things you need to know about AI,” in which I shared what I think are the biggest themes in AI right now.",
+              "url": "https://www.technologyreview.com/2026/06/09/1138582/five-things-you-need-to-know-about-ai/",
+              "publishedAt": "2026-06-09T09:16:45.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "How courts are coping with a flood of AI-generated lawsuits",
+              "source": "MIT Tech Review",
+              "summary": "Most days in her chambers, Judge Maritza Braswell, a federal magistrate judge in Colorado, sifts through stacks of documents written by people without a lawyer.",
+              "url": "https://www.technologyreview.com/2026/06/04/1138391/courts-coping-ai-lawsuits/",
+              "publishedAt": "2026-06-04T10:50:18.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "McDonald’s tests Google-backed AI drive-thru ordering system",
+              "source": "AI News",
+              "summary": "McDonald’s is testing a new AI system that can take drive-thru orders and support restaurant operations.",
+              "url": "https://www.artificialintelligence-news.com/news/mcdonalds-ai-drive-thru-google-archiq/",
+              "publishedAt": "2026-06-10T10:00:00.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Aviva deploys AI to stop £230M in sophisticated insurance fraud",
+              "source": "AI News",
+              "summary": "Aviva has uncovered a record £230 million in insurance fraud claims and is using AI tools to counter the growing problem.",
+              "url": "https://www.artificialintelligence-news.com/news/aviva-deploys-ai-stop-230m-sophisticated-insurance-fraud/",
+              "publishedAt": "2026-06-08T12:19:38.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "How C3 AI agents will automate predictive maintenance for Shell",
+              "source": "AI News",
+              "summary": "Shell will use agents from C3 AI to shift from basic anomaly detection towards fully-automated predictive maintenance.",
+              "url": "https://www.artificialintelligence-news.com/news/how-c3-ai-agents-will-automate-predictive-maintenance-for-shell/",
+              "publishedAt": "2026-06-05T11:34:09.000Z",
+              "secondarySources": []
+            }
+          ]
+        },
+        {
+          "id": "finance",
+          "label": "Stocks & finance",
+          "accent": "#f1c27d",
+          "status": {
+            "level": "ok"
+          },
+          "leadStories": [
+            {
+              "title": "Iran war tightens ‘super-squeeze’ in metals markets",
+              "source": "Financial Times",
+              "summary": "Copper and aluminium had been rallying before Middle East conflict hit supply",
+              "url": "https://www.ft.com/content/44d4b188-45ed-4e7e-a5eb-278da62ac601",
+              "publishedAt": "2026-06-11T04:00:26.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Oil climbs as U.S.-Iran conflict escalates and regional tensions mount",
+              "source": "CNBC",
+              "summary": "Oil prices edged higher on Thursday after Kuwait closed its airspace and Israel warned of launches from Lebanon.",
+              "url": "https://www.cnbc.com/2026/06/11/brent-wti-oil-prices-us-launches-fresh-strikes-on-iran-.html",
+              "publishedAt": "2026-06-11T06:40:43.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Markets are pricing in a rate hike by the European Central Bank &#x2014; which one top economist sees as a &#x2018;mistake in the making&#x2019;",
+              "source": "MarketWatch",
+              "summary": "The decision to raise interest rates would mark the central bank&#x2019;s first in almost three years.",
+              "url": "https://www.marketwatch.com/story/markets-are-pricing-in-a-rate-hike-by-the-european-central-bank-and-that-could-be-a-mistake-in-the-making-b99771ca?mod=mw_rss_topstories",
+              "publishedAt": "2026-06-11T06:36:00.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Bitcoin bulls are still around. These charts show they just moved on to hotter markets.",
+              "source": "MarketWatch",
+              "summary": "Traders who once bet on crypto have not stopped gambling on the next big market story &#x2014; they just are not finding that story in crypto itself.",
+              "url": "https://www.marketwatch.com/story/bitcoin-bulls-are-still-around-these-charts-show-they-just-moved-on-to-hotter-markets-8e04c48c?mod=mw_rss_topstories",
+              "publishedAt": "2026-06-10T21:54:00.000Z",
+              "secondarySources": []
+            }
+          ],
+          "moreHeadlines": [
+            {
+              "title": "Kathy Ruemmler helps search for her own replacement as Goldman’s top lawyer",
+              "source": "Financial Times",
+              "summary": "Bank’s decision to back executive after she resigned from the role over ties to Jeffrey Epstein sparked internal divisions",
+              "url": "https://www.ft.com/content/25a6b16b-5f3e-45e8-aeda-33f9f21845ed",
+              "publishedAt": "2026-06-11T04:00:45.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Analysis: Trump said he loves inflation. Why that should be music to Kevin Warsh's ears",
+              "source": "CNBC",
+              "summary": "The president said Wednesday he is happy with inflation at 4.2%. That will be welcome news for new Fed Chair Kevin Warsh.",
+              "url": "https://www.cnbc.com/2026/06/10/trump-inflation-fed-chair-kevin-warsh-analysis.html",
+              "publishedAt": "2026-06-10T21:52:56.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Oracle beats on earnings, but stock drops on plans to raise another $20 billion",
+              "source": "CNBC",
+              "summary": "Oracle topped quarterly expectations, but free cash flow is negative, and the company plans to raise more capital for data center projects.",
+              "url": "https://www.cnbc.com/2026/06/10/oracle-orcl-q4-earnings-report-2026.html",
+              "publishedAt": "2026-06-11T00:19:00.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Company moves from Singapore to cheaper, more spacious Malaysia show rising global mobility trend",
+              "source": "CNBC",
+              "summary": "Lower costs, tax incentives and access to a larger market have seen a raft of companies shift operations to Malaysia from Singapore.",
+              "url": "https://www.cnbc.com/2026/06/11/global-mobility-firms-move-operations-from-singapore-to-malaysia.html",
+              "publishedAt": "2026-06-10T23:56:52.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Oil prices rise after Trump says U.S. will attack Iran 'very hard'",
+              "source": "CNBC",
+              "summary": "Oil prices rose after the U.S. launched military strikes against Iran, raising concerns that renewed clashes may threaten shipping through the Strait of Hormuz.",
+              "url": "https://www.cnbc.com/2026/06/10/oil-price-us-completes-iran-strikes-after-apache-helicopter-attack.html",
+              "publishedAt": "2026-06-10T19:11:25.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Here's the inflation breakdown for May 2026 — in one chart",
+              "source": "CNBC",
+              "summary": "Inflation jumped to a three-year high in May as the Iran war continued to fuel higher energy prices.",
+              "url": "https://www.cnbc.com/2026/06/10/heres-the-inflation-breakdown-for-may-2026-in-one-chart.html",
+              "publishedAt": "2026-06-10T15:29:35.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Citigroup shares outperform down market after Trump endorsement",
+              "source": "CNBC",
+              "summary": "Jane Fraser-led Citi fell 1%, less than the rest of the market and some other major banks, after Trump lauded its turnaround in a social media post.",
+              "url": "https://www.cnbc.com/2026/06/10/citigroup-shares-outperform-down-market-after-trump-endorsement.html",
+              "publishedAt": "2026-06-10T21:51:42.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Wall Street needs a crash course in the token economy ahead of AI IPOs. SpaceX offers a preview",
+              "source": "CNBC",
+              "summary": "When OpenAI and Anthropic make their IPO prospectuses available to the public, investors are going to have to learn about a whole new economy.",
+              "url": "https://www.cnbc.com/2026/06/10/wall-street-needs-crash-course-in-tokens-ahead-openai-anthropic-ipos.html",
+              "publishedAt": "2026-06-10T18:17:33.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "When a World Cup team loses, its country&#x2019;s stock market also goes down. Here&#x2019;s the weird reason why.",
+              "source": "MarketWatch",
+              "summary": "Soccer&#x2019;s premier tournament brings a hidden danger to your investment portfolio.",
+              "url": "https://www.marketwatch.com/story/the-weird-reason-why-a-teams-world-cup-loss-can-trigger-a-sharp-drop-in-stock-prices-ac385f51?mod=mw_rss_topstories",
+              "publishedAt": "2026-06-10T23:25:00.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Thinking about insider trading on prediction markets? Kalshi wants to make an example of you.",
+              "source": "MarketWatch",
+              "summary": "Prediction-market companies are identifying hundreds of cases of suspected insider trading.",
+              "url": "https://www.marketwatch.com/story/thinking-about-insider-trading-on-prediction-markets-kalshi-wants-to-make-an-example-of-you-74d50486?mod=mw_rss_topstories",
+              "publishedAt": "2026-06-10T23:22:00.000Z",
+              "secondarySources": []
+            }
+          ]
+        },
+        {
+          "id": "crypto",
+          "label": "Crypto",
+          "accent": "#d7f171",
+          "status": {
+            "level": "ok"
+          },
+          "leadStories": [
+            {
+              "title": "Live updates: Soft core inflation gave crypto a bounce, but only bitcoin held up on the week",
+              "source": "CoinDesk",
+              "summary": "May CPI ran hot on energy and cooler underneath, lifting majors on Thursday, though ether and the large alts are still down 6% to 8% over seven days.",
+              "url": "https://www.coindesk.com/markets/2026/06/11/live-updates-soft-core-inflation-gave-crypto-a-bounce-but-only-bitcoin-held-up-on-the-week",
+              "publishedAt": "2026-06-11T05:45:57.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "XRP holds above $1.10 as ETF inflows rise, but traders remain cautious",
+              "source": "CoinDesk",
+              "summary": "XRP bounced from recent lows on a late volume surge, though the token continued to lag the broader crypto market as futures traders positioned around key support levels.",
+              "url": "https://www.coindesk.com/markets/2026/06/11/xrp-holds-above-usd1-10-as-etf-inflows-rise-but-traders-remain-cautious",
+              "publishedAt": "2026-06-11T04:50:46.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Analysts tip pressure for Bitcoin, gold as US inflation tops 4%",
+              "source": "Cointelegraph",
+              "summary": "“We continue to view the current macro environment as a headwind for Bitcoin,” 10x Research’s Markus Thielen said.",
+              "url": "https://cointelegraph.com/news/pressure-on-bitcoin-and-gold-increases-as-us-inflation-tops-4?utm_source=rss_feed&amp;utm_medium=rss&amp;utm_campaign=rss_partner_inbound",
+              "publishedAt": "2026-06-11T04:51:52.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "It's not just bitcoin ETFs. Corporate BTC buying has dried up too",
+              "source": "CoinDesk",
+              "summary": "ETF outflows have dominated the narrative but corporate bitcoin treasuries have gone quiet too, compounding the demand-side weakness.",
+              "url": "https://www.coindesk.com/markets/2026/06/11/it-s-not-just-bitcoin-etfs-corporate-btc-buying-has-dried-up-too",
+              "publishedAt": "2026-06-11T05:16:18.000Z",
+              "secondarySources": []
+            }
+          ],
+          "moreHeadlines": [
+            {
+              "title": "TradFi advisors want stablecoins, tokenization over Bitcoin: Bitwise",
+              "source": "Cointelegraph",
+              "summary": "Bitwise’s Matt Hougan says it was “pretty hard to engage with advisors on Bitcoin” during recent discussions, who are more interested in stablecoins and tokenization.",
+              "url": "https://cointelegraph.com/news/tradfi-advisors-want-stablecoins-tokenization-over-bitcoin-bitwise?utm_source=rss_feed&amp;utm_medium=rss&amp;utm_campaign=rss_partner_inbound",
+              "publishedAt": "2026-06-11T07:01:31.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Bitcoin has reached a deep bear-market valuation zone. The hard part may come next.",
+              "source": "CoinDesk",
+              "summary": "Two widely watched gauges show capitulation, but the analyst flagging them warns the slow grind comes next.",
+              "url": "https://www.coindesk.com/markets/2026/06/11/bitcoin-has-reached-a-deep-bear-market-valuation-zone-the-hard-part-may-come-next",
+              "publishedAt": "2026-06-11T04:34:35.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Teen crypto scammer stole $13M to splurge on private jets, Lambo",
+              "source": "Cointelegraph",
+              "summary": "Trenton Richard Johnston was arrested in March during a traffic stop for speeding, but investigators soon found he was involved in a wider fraud scheme.",
+              "url": "https://cointelegraph.com/news/teen-admits-to-scamming-13m-crypto-to-splurge-on-private-jets-lambo?utm_source=rss_feed&amp;utm_medium=rss&amp;utm_campaign=rss_partner_inbound",
+              "publishedAt": "2026-06-11T05:57:24.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Tether, Nvidia and Amazon Back Humanoid Robotics Firm NEURA in $1.4 Billion Funding Round",
+              "source": "Decrypt",
+              "summary": "Stablecoin giant Tether led a massive Series C round for German robotics firm NEURA, which will embed crypto payment tools and edge AI.",
+              "url": "https://decrypt.co/370691/tether-nvidia-amazon-back-neura-robotics-1-4-billion-funding-round",
+              "publishedAt": "2026-06-10T19:30:32.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Delaware, New Jersey advance bills banning crypto ATMs",
+              "source": "Cointelegraph",
+              "summary": "Lawmakers in Delaware and New Jersey have advanced laws that would completely ban crypto ATMs, a measure that has only been enacted in three US states.",
+              "url": "https://cointelegraph.com/news/delaware-new-jersey-advance-bills-banning-crypto-atms?utm_source=rss_feed&amp;utm_medium=rss&amp;utm_campaign=rss_partner_inbound",
+              "publishedAt": "2026-06-11T03:18:43.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Bitcoin, Ethereum Resume Rebound as Inflation Hits 3-Year High",
+              "source": "Decrypt",
+              "summary": "The reading likely supports restrictive monetary policy.",
+              "url": "https://decrypt.co/370649/bitcoin-ethereum-resume-rebound-inflation-hits-3-year-high",
+              "publishedAt": "2026-06-10T14:46:07.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Bitcoin Is Getting Closer to the Bottom, But Demand Is Falling: CryptoQuant",
+              "source": "Decrypt",
+              "summary": "Bitcoin's bear market might be nearing an end, analysts said, but individuals and institutions aren't lining up to buy the top crypto asset.",
+              "url": "https://decrypt.co/370663/bitcoin-getting-closer-bottom-demand-falling-cryptoquant",
+              "publishedAt": "2026-06-10T17:47:40.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "7 Factors That Actually Matter When Choosing a Crypto Swap Platform",
+              "source": "Decrypt",
+              "summary": "With crypto swaps growing in popularity, the best crypto swap platforms are embracing speed, security, and asset availability.",
+              "url": "https://decrypt.co/370527/7-factors-that-actually-matter-when-choosing-a-crypto-swap-platform",
+              "publishedAt": "2026-06-10T17:01:03.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "BlackRock and Fidelity are quietly turning bitcoin ETFs into a two-firm market",
+              "source": "CoinDesk",
+              "summary": "BlackRock's IBIT and Fidelity's FBTC are attracting the vast majority of new bitcoin ETF money, leaving smaller funds increasingly sidelined as institutional investors consolidate around the industry's largest players.",
+              "url": "https://www.coindesk.com/markets/2026/06/10/blackrock-and-fidelity-are-quietly-turning-bitcoin-etfs-into-a-two-firm-market",
+              "publishedAt": "2026-06-10T18:09:23.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Zcash, Hyperliquid tokens lead losses as traders bet against a bitcoin bounce",
+              "source": "CoinDesk",
+              "summary": "Crypto markets are under pressure ahead of key U.S. inflation data due later Wednesday.",
+              "url": "https://www.coindesk.com/markets/2026/06/10/zcash-hyperliquid-tokens-lead-losses-as-traders-bet-against-a-bitcoin-bounce",
+              "publishedAt": "2026-06-10T10:52:54.000Z",
+              "secondarySources": []
+            }
+          ]
+        },
+        {
+          "id": "world",
+          "label": "World news",
+          "accent": "#ff9b8a",
+          "status": {
+            "level": "ok"
+          },
+          "leadStories": [
+            {
+              "title": "Iran War Live Updates: U.S. and Iran Trade Fresh Attacks",
+              "source": "NY Times",
+              "summary": "The continued exchanges of fire have raised fears that the two sides could return to all-out war.",
+              "url": "https://www.nytimes.com/live/2026/06/11/world/iran-war-trump-us-israel",
+              "publishedAt": "2026-06-11T07:40:52.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Middle East crisis live: US and Iran trade strikes again, after Trump warns Tehran will ‘pay the price’ for stalled talks",
+              "source": "The Guardian World",
+              "summary": "US launches second round of airstrikes on Iran, and Tehran responds by targeting Bahrain, Kuwait and Jordan US strikes Iran for second day, as ceasefire appears close to collapse Three Indian seafarers were killed in a US attack on...",
+              "url": "https://www.theguardian.com/world/live/2026/jun/11/iran-war-news-us-strikes-donald-trump-stalled-peace-talks-middle-east-crisis",
+              "publishedAt": "2026-06-11T07:39:43.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Mike Johnson attempts to defend Trump after president says ‘I love the inflation’ – as it happened",
+              "source": "The Guardian World",
+              "summary": "This live blog is now closed. Sign up for the Breaking News US email Donald Trump ’s immigration crackdown is largely targeting people from the countries most vulnerable to displacement from climate-driven disasters, a Guardian anal...",
+              "url": "https://www.theguardian.com/us-news/live/2026/jun/10/graham-platner-maine-democrats-senate-primary-donald-trump-us-politics-latest-news-updates",
+              "publishedAt": "2026-06-11T01:57:00.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "US and Iran exchange strikes for second day, as ceasefire appears close to collapse",
+              "source": "The Guardian World",
+              "summary": "Explosions reported across Iran after Donald Trump vowed to ‘hit them hard again’, with Bahrain, Kuwait and Jordan targeted by Tehran Middle East crisis – live updates The US launched a new round of airstrikes on Iran into Thursday...",
+              "url": "https://www.theguardian.com/world/2026/jun/10/middle-east-peace-talks-iran-strikes",
+              "publishedAt": "2026-06-11T05:45:46.000Z",
+              "secondarySources": []
+            }
+          ],
+          "moreHeadlines": [
+            {
+              "title": "US and Iran exchange strikes across Middle East for second day in a row",
+              "source": "BBC",
+              "summary": "Iran says it responded to US strikes by targeting American assets in Kuwait, Jordan and Bahrain, which reported damage to its capital city overnight.",
+              "url": "https://www.bbc.com/news/articles/c4gyp9v0e93o?at_medium=RSS&at_campaign=rss",
+              "publishedAt": "2026-06-11T07:18:40.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Trump says he 'loves the inflation' as US prices rise at fastest rate in three years",
+              "source": "BBC",
+              "summary": "Consumers are increasingly feeling the strain of the US-Israel war in Iran.",
+              "url": "https://www.bbc.com/news/articles/c0myzxjkw99o?at_medium=RSS&at_campaign=rss",
+              "publishedAt": "2026-06-11T00:02:45.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "The War in Ukraine Has Now Gone On Longer Than World War I",
+              "source": "NY Times",
+              "summary": "Parallels between the two wars abound, from the grinding nature of the fighting to the way new technologies reshaped warfare.",
+              "url": "https://www.nytimes.com/2026/06/11/world/europe/ukraine-russia-world-war-i.html",
+              "publishedAt": "2026-06-11T04:01:16.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Ryanair investigated over charging parents to sit with their children",
+              "source": "The Guardian World",
+              "summary": "Budget airline describes inquiry as ‘bogus’ as watchdog says it is only large carrier flying from UK to impose charge Business live – latest updates Europe’s biggest low-cost airline, Ryanair, is facing an investigation over the man...",
+              "url": "https://www.theguardian.com/business/2026/jun/11/ryanair-investigated-over-charging-parents-children-uk-cma",
+              "publishedAt": "2026-06-11T06:59:20.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "A Very Different World Cup",
+              "source": "NY Times",
+              "summary": "With a host country actively at war with a participating nation, this year’s tournament is set to be unlike any other.",
+              "url": "https://www.nytimes.com/2026/06/10/world/world-cup-mexico-iran-epstein.html",
+              "publishedAt": "2026-06-11T05:17:25.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Iran war day 104: Iran attacks US bases, closes strait after Trump strikes",
+              "source": "Al Jazeera",
+              "summary": "Iran closes Strait of Hormuz, launches retaliatory strikes on US bases in Kuwait, Bahrain and Jordan after US attacks.",
+              "url": "https://www.aljazeera.com/news/2026/6/11/iran-war-day-104-iran-says-it-attacks-us-bases-after-american-strikes?traffic_source=rss",
+              "publishedAt": "2026-06-11T05:52:48.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Millions of homes in London, Essex and Kent at risk of sinking as climate crisis worsens",
+              "source": "The Guardian World",
+              "summary": "Analysis pinpoints areas most vulnerable to hotter, drier weather causing ground to shrink and drag foundations down Millions of homes are at risk from climate-related subsidence, according toan analysis by the British Geological Su...",
+              "url": "https://www.theguardian.com/environment/2026/jun/11/millions-homes-london-essex-and-kent-sinking-climate-crisis-subsidence",
+              "publishedAt": "2026-06-11T05:00:07.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Aukus is among Australia’s worst foreign policy decisions and requires ‘heroic’ optimism, Gareth Evans says",
+              "source": "The Guardian World",
+              "summary": "Former Labor foreign affairs minister says belief US would defend Australia in event of an existential attack is a ‘ludicrous delusion’ Follow our Australia news live blog for latest updates Get our breaking news email , free app or...",
+              "url": "https://www.theguardian.com/world/2026/jun/11/aukus-among-australia-worst-foreign-policy-decisions-gareth-evans",
+              "publishedAt": "2026-06-11T04:54:30.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "A Fractured North America Begins a Historic World Cup",
+              "source": "NY Times",
+              "summary": "Mexico and Canada have faced significant recent tension in their relations with the United States.",
+              "url": "https://www.nytimes.com/2026/06/11/world/americas/world-cup-fractured-north-america.html",
+              "publishedAt": "2026-06-11T07:20:29.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "U.S. Officials Told Colombia to Cancel President’s Meeting With Mamdani",
+              "source": "NY Times",
+              "summary": "The State Department canceled President Gustavo Petro’s visa last year after he attended a pro-Palestinian rally in Manhattan.",
+              "url": "https://www.nytimes.com/2026/06/10/world/americas/mamdani-petro-new-york-colombia-trump.html",
+              "publishedAt": "2026-06-11T07:06:01.000Z",
+              "secondarySources": []
+            }
+          ]
+        },
+        {
+          "id": "australia",
+          "label": "Australia news",
+          "accent": "#b9a6ff",
+          "status": {
+            "level": "ok"
+          },
+          "leadStories": [
+            {
+              "title": "US-Iran war as it happened: Strait of Hormuz closed; US ends latest round of strikes on Iran; Albanese ‘deeply concerned’; Oil prices rise",
+              "source": "SMH",
+              "summary": "The US has launched airstrikes against Iran after blaming Tehran for the crash of the American attack helicopter.",
+              "url": "https://www.smh.com.au/world/middle-east/us-iran-war-live-updates-trump-says-tehran-is-playing-us-for-suckers-as-us-military-resumes-strikes-on-iran-20260611-p605rc.html?ref=rss&utm_medium=rss&utm_source=rss_feed",
+              "publishedAt": "2026-06-11T07:04:53.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Hanson gets emotional revisiting decades-old Abbott feud",
+              "source": "ABC News",
+              "summary": "As Anthony Albanese stood in front of a Medicare banner and Pauline Hanson put her hand out for donations, voters could be forgiven for thinking the election was two months, not two years, away.",
+              "url": "https://www.abc.net.au/news/2026-06-11/anthony-albanese-one-nation-tony-abbott-election/106775110",
+              "publishedAt": "2026-06-11T07:05:07.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Adelaide defence lawyer pleads not guilty to sexual offences",
+              "source": "ABC News",
+              "summary": "Andrew Graham enters not guilty pleas to two counts of rape and one charge of compelling a person to sexually manipulate an offender.",
+              "url": "https://www.abc.net.au/news/2026-06-11/lawyer-andrew-graham-pleads-not-guilty-sexual-offences/106787576",
+              "publishedAt": "2026-06-11T07:27:02.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "State disability ministers lash NDIS overhaul",
+              "source": "ABC News",
+              "summary": "State and territory disability ministers have accused the Albanese government of pushing on with NDIS reform that does not align with previous agreements.",
+              "url": "https://www.abc.net.au/news/2026-06-11/state-and-territories-lash-ndis-changes/106785788",
+              "publishedAt": "2026-06-11T03:12:43.000Z",
+              "secondarySources": []
+            }
+          ],
+          "moreHeadlines": [
+            {
+              "title": "Tim Wilson is battling Labor’s capital gains tax changes. But in his own book he argues for going even further | Judith Brett",
+              "source": "Guardian Australia",
+              "summary": "On paper, the shadow treasurer is thoughtful. In parliament, performative outrage overwhelms his thinking Tim Wilson has thrown himself into fighting the reduction of the capital gains tax discount in Labor’s budget, as well as the...",
+              "url": "https://www.theguardian.com/australia-news/commentisfree/2026/jun/11/tim-wilson-cgt-capital-gains-tax-budget-changes",
+              "publishedAt": "2026-06-11T01:37:02.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Former Qld Labor ministers accused of political interference at CFMEU inquiry",
+              "source": "ABC News",
+              "summary": "The probe has wrapped up its tenth block of public hearings with explosive new allegations of political interference levelled against senior Palaszczuk government ministers Mick de Brenni and Grace Grace.",
+              "url": "https://www.abc.net.au/news/2026-06-11/qld-cfmeu-inquiry-former-labor-ministers-accused/106787012",
+              "publishedAt": "2026-06-11T07:23:01.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Australia news live: Burke brushes off One Nation threat to his seat and says Hanson ‘hates my part of Sydney’",
+              "source": "Guardian Australia",
+              "summary": "Follow today’s news live Get our breaking news email , free app or daily news podcast Wong not ‘interested’ in One Nation’s fundraising Wong says she isn’t concerned about One Nation’s fundraising efforts, but more about their polic...",
+              "url": "https://www.theguardian.com/australia-news/live/2026/jun/11/australia-news-live-labor-coalition-one-nation-anthony-albanese-pauline-hanson-capital-gains-housing-peptides-arthritis-ntwnfb",
+              "publishedAt": "2026-06-11T07:44:10.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Death in custody inquest finds evidence of complacency and incompetence",
+              "source": "ABC News",
+              "summary": "A NSW coroner recommends conduct reviews for medical staff over their treatment of a prisoner who died within a day of entering Australia's largest prison.",
+              "url": "https://www.abc.net.au/news/2026-06-11/prisoner-dictor-dongrin-inquest-findings/106783164",
+              "publishedAt": "2026-06-11T06:50:08.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Afternoon Update: Former MP calls Aukus ‘ludicrous’; PM doubts One Nation donations; and the country pub with a Socceroos history",
+              "source": "Guardian Australia",
+              "summary": "Want to get this in your inbox every weekday? Sign up for the Afternoon Update here , and start your day with our Morning Mail newsletter Good afternoon.",
+              "url": "https://www.theguardian.com/australia-news/2026/jun/11/afternoon-update-thursday-ntwnfb",
+              "publishedAt": "2026-06-11T06:53:35.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Former police officer jailed for harassing woman online",
+              "source": "ABC News",
+              "summary": "A former Victoria Police officer is sentenced to six months in prison after repeatedly harassing a woman on social media.",
+              "url": "https://www.abc.net.au/news/2026-06-11/former-police-officer-jailed-over-online-harassment/106781626",
+              "publishedAt": "2026-06-11T05:42:26.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Melbourne aged care COVID outbreak back in spotlight",
+              "source": "ABC News",
+              "summary": "An inquest examining 50 COVID-era deaths at a Melbourne aged care home has resumed after a years-long hiatus.",
+              "url": "https://www.abc.net.au/news/2026-06-11/st-basils-aged-care-managers-to-face-covid-outbreak-inquiry/106785868",
+              "publishedAt": "2026-06-11T03:38:44.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Police up ante after prisoner's escape from brother's Melbourne funeral",
+              "source": "ABC News",
+              "summary": "A prisoner who absconded from his brother's funeral in Melbourne's north-west on Anzac Day continues to evade detection.",
+              "url": "https://www.abc.net.au/news/2026-06-11/prisoner-escapes-funeral-melbourne-airport-arrest/106785420",
+              "publishedAt": "2026-06-11T03:21:05.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "One Nation has six more months to raise uncapped political donations",
+              "source": "SMH",
+              "summary": "Nobody can see detail of who donated what to Pauline Hanson’s party this financial year until February 1.",
+              "url": "https://www.smh.com.au/politics/federal/donation-reform-delay-gives-one-nation-six-months-to-raise-uncapped-funds-20260611-p605ue.html?ref=rss&utm_medium=rss&utm_source=rss_feed",
+              "publishedAt": "2026-06-11T07:20:38.000Z",
+              "secondarySources": []
+            },
+            {
+              "title": "Melissa Caddick’s widower says police tricked him over alleged Vaucluse assault",
+              "source": "SMH",
+              "summary": "Anthony Koletti is accused of shoulder barging a 73-year-old woman at a clifftop reserve in Sydney’s eastern suburbs.",
+              "url": "https://www.smh.com.au/national/nsw/melissa-caddick-s-widower-says-police-tricked-him-over-alleged-vaucluse-assault-20260611-p605rq.html?ref=rss&utm_medium=rss&utm_source=rss_feed",
+              "publishedAt": "2026-06-11T07:20:18.000Z",
+              "secondarySources": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "First Light",
       "dateKey": "2026-06-11",
       "dateLabel": "Thursday 11 June 2026",
-      "relativeLabel": "Today",
-      "generatedAt": "2026-06-11T07:52:16.979Z",
+      "relativeLabel": "Two days ago",
+      "generatedAt": "2026-06-11T20:00:00.000Z",
       "timezone": "Australia/Sydney",
       "sections": [
         {
